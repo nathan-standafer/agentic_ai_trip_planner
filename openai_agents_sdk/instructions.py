@@ -1,8 +1,15 @@
 
 home_location = "Columbus, OH"
 departure_date = "2026/02/25"
-return_date = "2026/03/05"
+return_date = "2026/03/07"
 destination = "Tokyo, Japan"
+number_of_travelers = 3
+ages_of_travelers = [51, 50, 17]  # Two adults and one child
+other_considerations = [
+    "I will be running in the Tokyo marathon on Sunday March 1, so I only need a relaxing place to eat on that day.",
+    "Starting on March 3, throughout the rest of the vacation, we want to travel to Kyoto and Osaka.",
+    "I need advice on what flight home works best, returning to Tokyo on the 7th to fly back, or flying directly from Osaka or Kyoto."
+]
 must_do_activities = [
     "Visit the Tokyo Tower",
     "Explore Akihabara",
@@ -22,6 +29,10 @@ The customer has provided the following details for their trip:
 - Return Date: {return_date}
 - Destination: {destination}
 - Must-Do Activities: {', '.join(must_do_activities)}   
+- Number of Travelers: {number_of_travelers}
+- Ages of Travelers: {', '.join(map(str, ages_of_travelers))}
+- Other Considerations: 
+  - {'\n  - '.join(other_considerations)}
 
 REQUIRED DELIVERABLE FORMAT:
 
