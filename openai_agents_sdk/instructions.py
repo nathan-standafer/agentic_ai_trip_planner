@@ -100,7 +100,7 @@ EXECUTION STEPS (Complete ALL steps):
    - Include total trip cost with all components
 
 6. **Save to File**
-   - Save complete itinerary to 'trip_plan.md' using write_file_to_disk
+   - Save complete itinerary to 'trip_plan_using_detailed_instructions.md' using write_file_to_disk
 
 IMPORTANT REQUIREMENTS:
 
