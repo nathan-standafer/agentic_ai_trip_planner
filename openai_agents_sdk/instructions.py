@@ -163,7 +163,7 @@ IMPORTANT REQUIREMENTS:
 - Calculate walking times between nearby locations
 - Include buffer time for unexpected delays
 
-Use web search to find:
+Use web search / google search tools to find:
 - Current attraction hours and admission prices
 - Specific transit routes and times
 - Restaurant recommendations with locations
