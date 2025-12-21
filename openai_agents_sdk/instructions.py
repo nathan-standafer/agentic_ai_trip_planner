@@ -1,38 +1,87 @@
 
-home_location = "Columbus, OH"
-departure_date = "2026/02/25"
-return_date = "2026/03/07"
-destination = "Tokyo, Japan"
-number_of_travelers = 3
-ages_of_travelers = [51, 50, 17]  # Two adults and one child
-other_considerations = [
-    "I will be running in the Tokyo marathon on Sunday March 1, so I only need a relaxing place to eat on that day.",
-    "Starting on March 3, throughout the rest of the vacation, we want to travel to Kyoto and Osaka.",
-    "I need advice on what flight home works best, returning to Tokyo on the 7th to fly back, or flying directly from Osaka or Kyoto."
-]
-must_do_activities = [
-    "Visit the Tokyo Tower",
-    "Explore Akihabara",
-    "Experience a traditional tea ceremony",
-    "Visit the Tsukiji Fish Market",
-    "Take a day trip to Mount Fuji"
-]
-
-
-trip_planner_instructions = f"""You are a methodical and detail-oriented trip planning assistant. Your task is to create a COMPLETE, timeline-based trip itinerary with specific departure/arrival times and durations for every activity.
+class TripPlannerInstructions:
+    """
+    A class to generate trip planning instructions for an LLM agent.
+    
+    Allows using default values or overriding them with custom parameters.
+    
+    Example usage:
+        # Use defaults
+        instructions = TripPlannerInstructions()
+        prompt = instructions.get_instructions()
+        
+        # Override specific values
+        instructions = TripPlannerInstructions(
+            home_location="New York, NY",
+            destination="Paris, France"
+        )
+        prompt = instructions.get_instructions()
+    """
+    
+    def __init__(self,
+                 home_location="Columbus, OH",
+                 departure_date="2026/02/25",
+                 return_date="2026/03/07",
+                 destination="Tokyo, Japan",
+                 number_of_travelers=3,
+                 ages_of_travelers=None,
+                 other_considerations=None,
+                 must_do_activities=None,
+                 output_file="trip_plan_using_detailed_instructions.md"):
+        """
+        Initialize trip planner with parameters.
+        
+        Args:
+            home_location: Starting location for the trip
+            departure_date: Date of departure (YYYY/MM/DD format)
+            return_date: Date of return (YYYY/MM/DD format)
+            destination: Trip destination
+            number_of_travelers: Number of people traveling
+            ages_of_travelers: List of ages of travelers
+            other_considerations: List of special considerations or requirements
+            must_do_activities: List of activities that must be included
+        """
+        self.home_location = home_location
+        self.departure_date = departure_date
+        self.return_date = return_date
+        self.destination = destination
+        self.number_of_travelers = number_of_travelers
+        self.ages_of_travelers = ages_of_travelers or [51, 50, 17]
+        self.other_considerations = other_considerations or [
+            "I will be running in the Tokyo marathon on Sunday March 1, so I only need a relaxing place to eat on that day.",
+            "Starting on March 3, throughout the rest of the vacation, we want to travel to Kyoto and Osaka.",
+            "I need advice on what flight home works best, returning to Tokyo on the 7th to fly back, or flying directly from Osaka or Kyoto."
+        ]
+        self.must_do_activities = must_do_activities or [
+            "Visit the Tokyo Tower",
+            "Explore Akihabara",
+            "Experience a traditional tea ceremony",
+            "Visit the Tsukiji Fish Market",
+            "Take a day trip to Mount Fuji"
+        ]
+        self.output_file = output_file
+    
+    def get_instructions(self):
+        """
+        Generate the complete trip planning instructions prompt.
+        
+        Returns:
+            str: Formatted instructions for the LLM agent
+        """
+        return f"""You are a methodical and detail-oriented trip planning assistant. Your task is to create a COMPLETE, timeline-based trip itinerary with specific departure/arrival times and durations for every activity.
 
 CRITICAL: You must complete the ENTIRE itinerary before finishing. Do not stop at research phase. Do not ask for permission to continue. Work through all steps until you have a fully detailed day-by-day schedule.
 
 The customer has provided the following details for their trip:
-- Home Location: {home_location}
-- Departure Date: {departure_date}
-- Return Date: {return_date}
-- Destination: {destination}
-- Must-Do Activities: {', '.join(must_do_activities)}   
-- Number of Travelers: {number_of_travelers}
-- Ages of Travelers: {', '.join(map(str, ages_of_travelers))}
+- Home Location: {self.home_location}
+- Departure Date: {self.departure_date}
+- Return Date: {self.return_date}
+- Destination: {self.destination}
+- Must-Do Activities: {', '.join(self.must_do_activities)}   
+- Number of Travelers: {self.number_of_travelers}
+- Ages of Travelers: {', '.join(map(str, self.ages_of_travelers))}
 - Other Considerations: 
-  - {'\n  - '.join(other_considerations)}
+  - {'\n  - '.join(self.other_considerations)}
 
 REQUIRED DELIVERABLE FORMAT:
 
@@ -100,7 +149,7 @@ EXECUTION STEPS (Complete ALL steps):
    - Include total trip cost with all components
 
 6. **Save to File**
-   - Save complete itinerary to 'trip_plan_using_detailed_instructions.md' using write_file_to_disk
+   - Save complete itinerary to '{self.output_file}' using the write_file tool.  If the file already exists, overwrite it.  If the file cannot be created, output an error message.
 
 IMPORTANT REQUIREMENTS:
 
@@ -125,3 +174,10 @@ Use web search to find:
 Remember: Your output must be a COMPLETE, ready-to-use itinerary that the customer can follow hour-by-hour throughout their vacation. Do not stop until every day has a full timeline with all required details.
 
 """
+
+
+# Default instance for backwards compatibility
+# Users can import 'trip_planner_instructions' directly to get default instructions
+_default_planner = TripPlannerInstructions()
+trip_planner_instructions = _default_planner.get_instructions()
+
