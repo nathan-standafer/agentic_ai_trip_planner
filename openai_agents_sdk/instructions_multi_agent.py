@@ -50,7 +50,9 @@ class TripPlannerInstructions:
         self.other_considerations = other_considerations or [
             "I will be running in the Tokyo marathon on Sunday March 1, so I only need a relaxing place to eat on that day.",
             "Starting on March 3, throughout the rest of the vacation, we want to travel to Kyoto and Osaka.",
-            "I need advice on what flight home works best, returning to Tokyo on the 7th to fly back, or flying directly from Osaka or Kyoto."
+            "I need advice on what flight home works best, returning to Tokyo on the 7th to fly back, or flying directly from Osaka or Kyoto.",
+            "I already purchased airfare, Departing Columbus at 3:45 PM on Feb 25, arriving in Tokyo HND at 5:45 PM on Feb 26 and departing from HND on Mar 7 at 5:45 PM, arriving in Columbus at 7:15 PM on Mar 7.",
+            "I have reservations to stay at karaksa hotel TOKYO STATION Feb 25 - Mar 3."
         ]
         self.must_do_activities = must_do_activities or [
             "Visit the Tokyo Tower",
@@ -163,7 +165,7 @@ IMPORTANT REQUIREMENTS:
 - Include at least one meal recommendation per day with specific timing
 - Schedule must include ALL must-do activities
 - Do NOT provide ranges or options - make specific recommendations with specific times
-- Use 24-hour time format (e.g., 09:30, 14:00, 18:45)
+- Use 12-hour time format (e.g., 09:30 PM, 02:00 PM, 06:45 PM)
 - Calculate walking times between nearby locations
 - Include buffer time for unexpected delays
 
@@ -176,7 +178,8 @@ Use web search / google search tools to find:
 - Any seasonal events or closures
 
 Remember: Your output must be a COMPLETE, ready-to-use itinerary that the customer can follow hour-by-hour throughout their vacation. Do not stop until every day has a full 
-timeline with all required details.  Complete ALL steps including evaluation and saving the itenerary (Step 7) before finishing.
+timeline with all required details.  Complete ALL steps including evaluation and saving the itenerary (Step 7) before finishing. Always end your final response with the 
+exact token: <TASK_COMPLETE>.
 """
 
 

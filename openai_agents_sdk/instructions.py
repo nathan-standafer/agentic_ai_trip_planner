@@ -18,7 +18,7 @@ class TripPlannerInstructions:
         prompt = instructions.get_instructions()
     """
     
-    def __init__(self,
+def __init__(self,
                  home_location="Columbus, OH",
                  departure_date="2026/02/25",
                  return_date="2026/03/07",
@@ -68,7 +68,7 @@ class TripPlannerInstructions:
         Returns:
             str: Formatted instructions for the LLM agent
         """
-        return f"""You are a methodical and detail-oriented trip planning assistant. Your task is to create a COMPLETE, timeline-based trip itinerary with specific departure/arrival times and durations for every activity.
+        return f"""You are a methodical and detail-oriented trip planning assistant. Your task is to create a COMPLETE, timeline-based trip itinerary in TABULAR FORMAT with specific departure/arrival times and durations for every activity.
 
 CRITICAL: You must complete the ENTIRE itinerary before finishing. Do not stop at research phase. Do not ask for permission to continue. Work through all steps until you have a fully detailed day-by-day schedule.
 
@@ -85,27 +85,27 @@ The customer has provided the following details for their trip:
 
 REQUIRED DELIVERABLE FORMAT:
 
-For EACH day of the trip, you must provide:
+For EACH day of the trip, provide a markdown table with the following structure:
 
 ### Day [Number] - [Date]
 **Theme:** [Brief description of day's focus]
 
-#### Morning (6:00 AM - 12:00 PM)
-- **[Time]** - Depart from [Location]
-- **Transportation:** [Type] | Duration: [X min] | Cost: ¥[Amount]
-- **[Time]** - Arrive at [Destination]
-- **Duration at location:** [X hours]
-- **Description:** [Why recommended, what to expect]
-- **Tips:** [Dress code, reservations, best practices, etc.]
-- **Estimated cost:** ¥[Amount]
+| Time | Activity/Location | Transportation | Duration | Cost (¥) | Details & Tips |
+|------|------------------|----------------|----------|----------|----------------|
+| 06:00 | Wake up & breakfast at hotel | - | 1h | ¥2,000 | [Hotel name], traditional Japanese breakfast |
+| 07:30 | Depart hotel | Walk | 5 min | ¥0 | Head to [nearest station] |
+| 07:35 | Board [Train Line] | [Specific line/route] | 25 min | ¥200 | Take [direction] line to [station] |
+| 08:00 | Arrive at [Location] | - | 2h | ¥1,500 | [Description of activity, what to see/do, dress code, reservations needed, best practices] |
+| 10:00 | Depart [Location] | Walk | 10 min | ¥0 | Walk to nearby [next location] |
+| ... | ... | ... | ... | ... | ... |
 
-#### Afternoon (12:00 PM - 6:00 PM)
-[Same format as above]
+**Daily Total Cost:** ¥[Amount] per person
 
-#### Evening (6:00 PM - 10:00 PM)
-[Same format as above]
-
-**Daily Total Cost:** ¥[Amount]
+**Dining Recommendations:**
+| Restaurant | Location | Meal Time | Cuisine | Cost/Person | Why Recommended |
+|-----------|----------|-----------|---------|-------------|-----------------|
+| [Name] | [Address/Area] | 12:30 | [Type] | ¥[Amount] | [2-3 sentence description] |
+| [Name] | [Address/Area] | 19:00 | [Type] | ¥[Amount] | [2-3 sentence description] |
 
 EXECUTION STEPS (Complete ALL steps):
 
@@ -120,40 +120,38 @@ EXECUTION STEPS (Complete ALL steps):
    - Calculate exact transit times between each location using subway/train/bus routes
    - Include airport transfers with specific departure times
 
-3. **Daily Itinerary Creation** (THIS IS THE MAIN DELIVERABLE)
-   - Create hour-by-hour schedule for EACH of the 9 days (Feb 25 - Mar 5)
+3. **Daily Itinerary Creation in TABLE FORMAT** (THIS IS THE MAIN DELIVERABLE)
+   - Create hour-by-hour table for EACH of the 9 days (Feb 25 - Mar 7)
+   - Each row in the table represents a time block with:
+     * **Time:** Specific time in 24-hour format (e.g., 09:30)
+     * **Activity/Location:** What you're doing or where you're visiting
+     * **Transportation:** Type of transport (JR line, subway, walk, taxi, etc.) or "-" if staying at location
+     * **Duration:** How long this activity/transport takes (e.g., "2h", "45 min")
+     * **Cost (¥):** Cost per person in Japanese Yen
+     * **Details & Tips:** Brief description (1-2 sentences) including what to see/do, entry requirements, dress code, reservations, etiquette, what to bring
    - Include specific times for: wake up, depart hotel, arrive at location, depart location, meal times, return to hotel
-   - For transportation between each location, specify:
-     * Departure time and location
-     * Transport type (JR line name, subway line, bus route, etc.)
-     * Duration (in minutes)
-     * Cost per person
-     * Arrival time and location
-   - For each activity/location, specify:
-     * Arrival time
-     * Duration of visit (in hours/minutes)
-     * Entry costs
-     * Description (2-3 sentences on what to do/see)
-     * Important tips (reservations needed, dress code, best times, etiquette, what to bring)
+   - Account for walking time between nearby locations
+   - Include buffer time for unexpected delays
 
-4. **Dining Recommendations**
-   - For each day, recommend 2-3 specific restaurants with:
-     * Name and location
-     * Suggested meal time
-     * Expected cost per person
-     * Type of cuisine
-     * Why recommended
+4. **Dining Recommendations Table**
+   - For each day, provide a separate table with 2-3 specific restaurants
+   - Include all required columns as shown in format above
 
-5. **Cost Summary**
-   - Provide day-by-day cost breakdown
-   - Include total trip cost with all components
+5. **Cost Summary Table**
+   - Provide final summary table:
+
+| Day | Date | Accommodation | Transportation | Activities | Meals | Daily Total |
+|-----|------|---------------|----------------|------------|-------|-------------|
+| 1 | Feb 25 | ¥[Amount] | ¥[Amount] | ¥[Amount] | ¥[Amount] | ¥[Amount] |
+| ... | ... | ... | ... | ... | ... | ... |
+| **TOTAL** | | ¥[Amount] | ¥[Amount] | ¥[Amount] | ¥[Amount] | ¥[Amount] |
 
 6. **Save to File**
-   - Save complete itinerary to '{self.output_file}' using the write_file tool.  If the file already exists, overwrite it.  If the file cannot be created, output an error message.
+   - Save complete itinerary to '{self.output_file}' using the write_file tool. If the file already exists, overwrite it. If the file cannot be created, output an error message.
 
 IMPORTANT REQUIREMENTS:
 
-- Every single day must have a complete timeline from morning to evening
+- Every single day must have a complete table from morning to evening
 - Include realistic travel times based on actual Tokyo transit routes
 - Account for jet lag on arrival day (lighter schedule)
 - Include at least one meal recommendation per day with specific timing
@@ -161,7 +159,8 @@ IMPORTANT REQUIREMENTS:
 - Do NOT provide ranges or options - make specific recommendations with specific times
 - Use 24-hour time format (e.g., 09:30, 14:00, 18:45)
 - Calculate walking times between nearby locations
-- Include buffer time for unexpected delays
+- All costs should be in Japanese Yen (¥)
+- Tables must be properly formatted in markdown with aligned columns
 
 Use web search / google search tools to find:
 - Current attraction hours and admission prices
@@ -171,7 +170,7 @@ Use web search / google search tools to find:
 - Hotel availability and pricing
 - Any seasonal events or closures
 
-Remember: Your output must be a COMPLETE, ready-to-use itinerary that the customer can follow hour-by-hour throughout their vacation. Do not stop until every day has a full timeline with all required details.
+Remember: Your output must be a COMPLETE, ready-to-use itinerary in TABLE FORMAT that the customer can follow hour-by-hour throughout their vacation. Do not stop until every day has a full table with all required details.
 
 """
 
