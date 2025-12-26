@@ -18,16 +18,16 @@ class TripPlannerInstructions:
         prompt = instructions.get_instructions()
     """
     
-def __init__(self,
-                 home_location="Columbus, OH",
-                 departure_date="2026/02/25",
-                 return_date="2026/03/07",
-                 destination="Tokyo, Japan",
-                 number_of_travelers=3,
-                 ages_of_travelers=None,
-                 other_considerations=None,
-                 must_do_activities=None,
-                 output_file="trip_plan_using_detailed_instructions.md"):
+    def __init__(self,
+                    home_location="Columbus, OH",
+                    departure_date="2026/02/25",
+                    return_date="2026/03/07",
+                    destination="Tokyo, Japan",
+                    number_of_travelers=3,
+                    ages_of_travelers=None,
+                    other_considerations=None,
+                    must_do_activities=None,
+                    output_file="trip_plan_using_detailed_instructions.md"):
         """
         Initialize trip planner with parameters.
         

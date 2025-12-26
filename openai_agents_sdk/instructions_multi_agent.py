@@ -87,27 +87,27 @@ The customer has provided the following details for their trip:
 
 REQUIRED DELIVERABLE FORMAT:
 
-For EACH day of the trip, you must provide:
+For EACH day of the trip, provide a markdown table with the following structure:
 
 ### Day [Number] - [Date]
 **Theme:** [Brief description of day's focus]
 
-#### Morning (6:00 AM - 12:00 PM)
-- **[Time]** - Depart from [Location]
-- **Transportation:** [Type] | Duration: [X min] | Cost: ¥[Amount]
-- **[Time]** - Arrive at [Destination]
-- **Duration at location:** [X hours]
-- **Description:** [Why recommended, what to expect]
-- **Tips:** [Dress code, reservations, best practices, etc.]
-- **Estimated cost:** ¥[Amount]
+| Time | Activity/Location | Transportation | Duration | Cost (¥) | Details & Tips |
+|------|------------------|----------------|----------|----------|----------------|
+| 06:00 | Wake up & breakfast at hotel | - | 1h | ¥2,000 | [Hotel name], traditional Japanese breakfast |
+| 07:30 | Depart hotel | Walk | 5 min | ¥0 | Head to [nearest station] |
+| 07:35 | Board [Train Line] | [Specific line/route] | 25 min | ¥200 | Take [direction] line to [station] |
+| 08:00 | Arrive at [Location] | - | 2h | ¥1,500 | [Description of activity, what to see/do, dress code, reservations needed, best practices] |
+| 10:00 | Depart [Location] | Walk | 10 min | ¥0 | Walk to nearby [next location] |
+| ... | ... | ... | ... | ... | ... |
 
-#### Afternoon (12:00 PM - 6:00 PM)
-[Same format as above]
+**Daily Total Cost:** ¥[Amount] per person
 
-#### Evening (6:00 PM - 10:00 PM)
-[Same format as above]
-
-**Daily Total Cost:** ¥[Amount]
+**Dining Recommendations:**
+| Restaurant | Location | Meal Time | Cuisine | Cost/Person | Why Recommended |
+|-----------|----------|-----------|---------|-------------|-----------------|
+| [Name] | [Address/Area] | 12:30 | [Type] | ¥[Amount] | [2-3 sentence description] |
+| [Name] | [Address/Area] | 19:00 | [Type] | ¥[Amount] | [2-3 sentence description] |
 
 EXECUTION STEPS (Complete ALL steps):
 
@@ -156,7 +156,7 @@ EXECUTION STEPS (Complete ALL steps):
    - If the transportation_evaluation_expert indicates the plan is clear, Include the evaluation feedback summary at the end of the itinerary and proceed to step 7.  
    
 7. **Save to File**
-   - Save complete itinerary to '{self.output_file}' using the write_file tool.  If the file already exists, overwrite it.  If the file cannot be created, output an error message.
+   - Save complete itinerary to '{self.output_file}' using the write_file tool.  This is the final deliverable and is critical to the success of the trip planning process, so ensure this handoff is performed, or output an error message.
 
 IMPORTANT REQUIREMENTS:
 - Every single day must have a complete timeline from morning to evening

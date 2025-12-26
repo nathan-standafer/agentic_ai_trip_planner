@@ -1,4 +1,3 @@
-
 **Tokyo / Kyoto / Osaka 2026 Trip Itinerary**
 *(All times are Japan Standard Time – JST)*
 
@@ -240,4 +239,3 @@ The itinerary satisfies all user requirements: arrival and departure times are r
 **Save itinerary to file…**
 
 ---
-
