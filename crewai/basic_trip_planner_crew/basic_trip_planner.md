@@ -64,6 +64,8 @@ I made some udpates to user_preferences.txt, agents.yaml, and tasks.yaml to ask 
 
 The agents can be kicked off by running ```crewai run``` from the terminal
 
+Note:  CrewAI will automatically utilize UV behingd the scenes.  If I activate the UV environment created for teh OpenAI Agents SDK, it seem to conflice with crew.  I think the best approach is to not manualy activate the UV environment and let crew take care of it.
+
 After running the agents, here is the final output:
 
 ## Detailed Itinerary for a Vacation to Tokyo, Japan

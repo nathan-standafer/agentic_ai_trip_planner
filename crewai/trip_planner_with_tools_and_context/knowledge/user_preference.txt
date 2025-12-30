@@ -1,0 +1,8 @@
+The user's name is Nathan
+The family is located in Columbus, OH.
+The departure date is Feb 25, 2026, returning March 7.
+Flights have already been purchased.  Departing Columbus Ohio (CMH) Feb 25 at 10:20AM, arriving in Tokyo (HND) Feb 26 at 5:45PM.   The Return flight is March 7, departing Tokyo at 4:15, returning to CMH at 11:00 PM.
+One family member will be running the Tokyo Marathon on March 1, 2026.
+The family wants to take the train from Tokyo to visit Kyoto and Osaka on March 3 and spend the rest of the vacation in that area.
+
+

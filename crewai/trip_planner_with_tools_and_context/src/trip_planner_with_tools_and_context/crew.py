@@ -7,24 +7,21 @@ from typing import List
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
 @CrewBase
-class BasicTripPlannerCrew():
-    """BasicTripPlannerCrew crew"""
+class TripPlannerWithToolsAndContext():
+    """TripPlannerWithToolsAndContext crew"""
 
     agents: List[BaseAgent]
     tasks: List[Task]
 
     # Configure Ollama LLM to match the OpenAI agents SDK configuration
     # This uses the same local LLM setup as the other notebooks
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        # Configure LLM to use Ollama with the same settings as OpenAI agents SDK
-        # OpenAI SDK uses: http://localhost:11434/v1
-        # CrewAI/LiteLLM uses: http://localhost:11434 (adds /v1 automatically)
-        # Model: gpt-oss:20b (or gpt-oss_131k_context:20b for larger context)
-        self.llm = LLM(
-            model="ollama/gpt-oss:20b",
-            base_url="http://localhost:11434"
-        )
+    # OpenAI SDK uses: http://localhost:11434/v1
+    # CrewAI/LiteLLM uses: http://localhost:11434 (adds /v1 automatically)
+    # Model: gpt-oss:20b (or gpt-oss_131k_context:20b for larger context)
+    llm = LLM(
+        model="ollama/gpt-oss_131k_context:20b",
+        base_url="http://localhost:11434"
+    )
 
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
@@ -52,9 +49,9 @@ class BasicTripPlannerCrew():
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def research_activities_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['research_activities_task'], # type: ignore[index]
         )
 
     @task
@@ -66,7 +63,7 @@ class BasicTripPlannerCrew():
 
     @crew
     def crew(self) -> Crew:
-        """Creates the BasicTripPlannerCrew crew"""
+        """Creates the TripPlannerWithToolsAndContext crew"""
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
