@@ -15,10 +15,11 @@ class BasicTripPlannerCrew():
 
     # Configure Ollama LLM to match the OpenAI agents SDK configuration
     # This uses the same local LLM setup as the other notebooks
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         # Configure LLM to use Ollama with the same settings as OpenAI agents SDK
-        # Base URL: http://localhost:11434/v1
+        # OpenAI SDK uses: http://localhost:11434/v1
+        # CrewAI/LiteLLM uses: http://localhost:11434 (adds /v1 automatically)
         # Model: gpt-oss:20b (or gpt-oss_131k_context:20b for larger context)
         self.llm = LLM(
             model="ollama/gpt-oss:20b",
