@@ -1,4 +1,4 @@
-from crewai import Agent, Crew, Process, Task
+from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
@@ -13,6 +13,19 @@ class BasicTripPlannerCrew():
     agents: List[BaseAgent]
     tasks: List[Task]
 
+    # Configure Ollama LLM to match the OpenAI agents SDK configuration
+    # This uses the same local LLM setup as the other notebooks
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Configure LLM to use Ollama with the same settings as OpenAI agents SDK
+        # OpenAI SDK uses: http://localhost:11434/v1
+        # CrewAI/LiteLLM uses: http://localhost:11434 (adds /v1 automatically)
+        # Model: gpt-oss:20b (or gpt-oss_131k_context:20b for larger context)
+        self.llm = LLM(
+            model="ollama/gpt-oss:20b",
+            base_url="http://localhost:11434"
+        )
+
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
     # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
@@ -23,14 +36,16 @@ class BasicTripPlannerCrew():
     def researcher(self) -> Agent:
         return Agent(
             config=self.agents_config['researcher'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            llm=self.llm
         )
 
     @agent
     def reporting_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
-            verbose=True
+            verbose=True,
+            llm=self.llm
         )
 
     # To learn more about structured task outputs,
