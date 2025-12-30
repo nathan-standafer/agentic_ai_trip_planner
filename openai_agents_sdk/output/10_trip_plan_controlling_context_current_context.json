@@ -1,0 +1,6 @@
+{
+  "trip_details_json_path": "/media/nathan/linux_ssd/github/agentic_ai_trip_planner/openai_agents_sdk/output/10_trip_plan_controlling_context_current_context.json",
+  "next_required_action": "create_initial_plan",
+  "last_action_summary": "start",
+  "trip_plan": ""
+}

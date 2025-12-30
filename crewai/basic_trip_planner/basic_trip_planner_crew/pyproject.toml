@@ -1,0 +1,24 @@
+[project]
+name = "basic_trip_planner_crew"
+version = "0.1.0"
+description = "basic_trip_planner_crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[tools]==1.7.2"
+]
+
+[project.scripts]
+basic_trip_planner_crew = "basic_trip_planner_crew.main:run"
+run_crew = "basic_trip_planner_crew.main:run"
+train = "basic_trip_planner_crew.main:train"
+replay = "basic_trip_planner_crew.main:replay"
+test = "basic_trip_planner_crew.main:test"
+run_with_trigger = "basic_trip_planner_crew.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

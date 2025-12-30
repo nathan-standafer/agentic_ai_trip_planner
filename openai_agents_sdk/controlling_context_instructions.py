@@ -27,7 +27,7 @@ class TripPlannerInstructions:
                  ages_of_travelers=None,
                  other_considerations=None,
                  must_do_activities=None,
-                 output_file="trip_plan_using_detailed_instructions.md"):
+                 output_file=None):
         """
         Initialize trip planner with parameters.
         
@@ -100,6 +100,24 @@ class TripPlannerInstructions:
         """
         return """You are a methodical and detail-oriented trip planning assistant. Your task is to provide accommodation recommendations for the trip based on the provided details."""
 
+    def get_instructions_for_dining_expert(self):
+        """
+        Generate the complete trip planning instructions prompt.
+        
+        Returns:
+            str: Formatted instructions for the LLM agent
+        """
+        return f"""You are a methodical and detail-oriented trip planning assistant. Your task is to provide food and dining recommendations for the trip based on the provided details."""
+    
+    def get_instructions_for_plan_saver(self):
+        """
+        Generate the complete trip planning instructions for the save tool.
+        
+        Returns:
+            str: Formatted instructions for the LLM agent
+        """
+        return f"""You are a reliable assistant that will save a given json-based text string that represents a trip plan to disk.  You will make the necessary formatting updates to the file to ensure it is valid json, then use the write_file tool to save to this location: {self.output_file}"""
+
     def get_instructions_for_manager(self):
         """
         Generate the complete trip planning instructions prompt.
@@ -110,11 +128,13 @@ class TripPlannerInstructions:
         return f"""You are a methodical and detail-oriented trip planning assistant. Your task is to create a COMPLETE, timeline-based trip itinerary with specific departure/arrival times and durations for every activity.
 
 You will have several tools at your disposal to help you complete this task.  Use the tools repeatedly as needed to gather information and refine the itinerary. The tools available to you are:
-1. Activities_Expert_Agent: Provide this tool with a Location and a date and the tool will return a list of recommended activities and attractions for that location on that date.
-2. Transportation_Expert_Agent: Use this tool to get detailed transportation options between locations, including specific train/subway/bus lines, departure times, durations, and costs.
-3. Trip_Evaluation_Expert_Agent: As you refine the trip plan, this tool will evaluate the plan and provide feedback on the clarity and completeness of the plan.
-4. Accommodations_Expert_Agent: Provide this tool with a Location and date range and the tool will return accommodation recommendations for that location during that time period.
-5. read_file / write_file: Use this tool to maintain and save the final itinerary.  The other agents will be able to read and update this file when you call them.
+1. Activities_Expert_Agent: Provide this tool with an "input" that describes the Location, date, the ages of the travels, and other relevant inforation. The tool will return a list of recommended activities and attractions for that location on that date.
+2. Transportation_Expert_Agent: Provide this tool with an "input" that describes the a starting, destination location and time of day.  The tool will provide transportation options between locations, including specific train/subway/bus lines, departure times, durations, and costs.
+3. Trip_Evaluation_Expert_Agent: Provide the current trip plan in json format and this tool will evaluate the plan and provide feedback on the clarity and completeness of the plan.
+4. Accommodations_Expert_Agent: Provide this tool with an "input" that describes the Location and date range.  The tool will return accommodation recommendations for that location during that time period.
+5. Dining_Expert_Agent:  Provide this tool with an "input" that describes the a location, day of the week, and time range to find the best dining optins for a specific time and location in th trip plan.
+6. Plan_Save_Agent: Provide this tool with the final json output representing the trip plan.  The tool will save the trip plan to local stoage to share with the travelers.
+
 
 CRITICAL: You must complete the ENTIRE itinerary before finishing. Do not stop at research phase. Do not ask for permission to continue. Work through all steps until you have a fully detailed day-by-day schedule.
 
@@ -161,7 +181,6 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
             "location": "Haneda Airport",
             "transportation": {{
               "type": "Limousine Bus",
-              "line": "#1",
               "details": "Take from Terminal 1 Stop 4 or Terminal 2 Stop 6"
             }},
             "duration": "1h 20m",
@@ -174,7 +193,6 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
             "location": "Tokyo Station Yaesu",
             "transportation": {{
               "type": "Walk",
-              "line": null,
               "details": null
             }},
             "duration": "5 min",
@@ -196,7 +214,6 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
             "location": "Near hotel",
             "transportation": {{
               "type": "Walk",
-              "line": null,
               "details": null
             }},
             "duration": "15 min",
@@ -209,7 +226,6 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
             "location": "karaksa hotel",
             "transportation": {{
               "type": "Walk",
-              "line": null,
               "details": null
             }},
             "duration": "5 min",
@@ -256,7 +272,7 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
       }},
       {{
         "name": "Kyoto Hotel",
-        "address": null,
+        "address": "123 Kyoto St, Shimogyo-ku",
         "city": "Kyoto",
         "checkIn": "2026-03-04",
         "checkOut": "2026-03-07"
@@ -270,14 +286,12 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
       "dailyCosts": [
         {{ "day": 1, "cost": 2800 }},
         {{ "day": 2, "cost": 6540 }},
-        {{ "day": 3, "cost": 8560 }},
-        {{ "day": 4, "cost": 5980 }}
+        {{ "day": 3, "cost": 8560 }}
       ],
       "transportationSummary": [
         {{ "category": "Tokyo local transport", "costPerPerson": 2000 }},
         {{ "category": "Shinkansen Tokyo-Kyoto", "costPerPerson": 14000 }},
         {{ "category": "Shinkansen Kyoto-Osaka-Tokyo", "costPerPerson": 16840 }},
-        {{ "category": "Mount Fuji bus", "costPerPerson": 5400 }},
         {{ "category": "Airport transfers", "costPerPerson": 1800 }}
       ]
     }},
@@ -291,7 +305,6 @@ The final itinerary must be formatted as follows for EACH DAY of the trip in JSO
       "Day 1: Limousine Bus runs every 10-15 minutes, allow 1 hour total",
       "Day 6: Modified for marathon recovery with reduced walking",
       "Day 7: Mount Fuji 5th Station may be closed in March - alternative to Lake Kawaguchiko",
-      "Day 10: Nozomi Shinkansen is fastest option, last train at 11:24 PM",
       "Day 11: 8:00 AM Shinkansen provides 3+ hour buffer for 5:45 PM flight"
     ]
   }}
@@ -301,14 +314,19 @@ EXECUTION STEPS (Complete ALL steps):
 
 1. **Research Phase** (Complete first, but don't stop here)
    - Research destinations, attractions, activities aligned with interests
+     * Utilze the Activities_Expert_Agent for the best results.
    - Find accommodation options with specific recommendations
+     * Utilize the Accommodations_Expert_Agent 
    - Research flight options with actual prices and times
+     * Utilize the Transportation_Expert_Agent
    - Identify restaurant options for each area
-
+     * Utilize the Dining_Expert_Agent 
+   
 2. **Transportation Planning**
    - Identify specific flights with times and costs
    - Calculate exact transit times between each location using subway/train/bus routes
    - Include airport transfers with specific departure times
+   - Utilze the Transportation_Expert_Agent for the best results.
 
 3. **Daily Itinerary Creation** (THIS IS THE MAIN DELIVERABLE)
    - Create hour-by-hour schedule for EACH of the 9 days (Feb 25 - Mar 5)
@@ -333,28 +351,38 @@ EXECUTION STEPS (Complete ALL steps):
      * Expected cost per person
      * Type of cuisine
      * Why recommended
+  - Utilize the Dining_Expert_Agent
 
 5. **Cost Summary**
    - Provide day-by-day cost breakdown
    - Include total trip cost with all components
 
 6. **Evaluation**
-   - After completing the itinerary, use the transportation_evaluation_expert to review the entire plan.  
-   - If the transportation_evaluation_expert provides feedback, revise the itinerary accordingly and re-submit for evaluation.
-   - If the transportation_evaluation_expert indicates the plan is clear, Include the evaluation feedback summary at the end of the itinerary and proceed to step 7.  
+   - After completing the itinerary, use the Trip_Evaluation_Expert_Agent to review the entire plan.  
+   - If the Trip_Evaluation_Expert_Agent provides feedback, revise the itinerary accordingly and re-submit for evaluation.
+   - If the Trip_Evaluation_Expert_Agent indicates the plan is clear, Include the evaluation feedback summary at the end of the itinerary and proceed to step 7.  
    
 7. **Save to File**
-   - Save complete itinerary to '{self.output_file}' using the write_file tool.  This is the final deliverable and is critical to the success of the trip planning process, so ensure this handoff is performed, or output an error message.
+   - Save complete itinerary to '{self.output_file}' using the Plan_Save_Agent tool.  
+   - This is the final deliverable and is CRITICAL to the success of the trip planning process.
+
 
 IMPORTANT REQUIREMENTS:
 - Every single day must have a complete timeline from morning to evening
 - Include realistic travel times based on actual transit routes
 - Account for jet lag on arrival day (lighter schedule)
-- Include at least one meal recommendation per day with specific timing
+- Include at least two meal recommendations per day with specific timing
 - Schedule must include ALL must-do activities
 - Do NOT provide ranges or options - make specific recommendations with specific times
 - Calculate walking times between nearby locations
 - Include buffer time for unexpected delays
+- Be sure to be use precise names when calling other tools.  This is extremely important as calling an agent with an incorrect name will result in errors. The only relevant tools names are as follows.  Do not call a tool that is not in this list:
+  * Activities_Expert_Agent
+  * Transportation_Expert_Agent
+  * Trip_Evaluation_Expert_Agent
+  * Accommodations_Expert_Agent
+  * Dining_Expert_Agent
+  * Plan_Save_Agent
 
 Use available tools to find:
 - Current attraction hours and admission prices

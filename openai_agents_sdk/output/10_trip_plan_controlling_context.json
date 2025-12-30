@@ -1,1160 +1,1340 @@
 {
-  "tripPlan": {
-    "title": "Complete Tokyo & Kansai Region Trip Itinerary",
-    "startDate": "2026-02-25",
-    "endDate": "2026-03-07",
-    "currency": "JPY",
-    "travelers": 3,
-    "days": [
-      {
-        "dayNumber": 1,
-        "date": "2026-02-25",
-        "theme": "Departure and Overnight Flight",
-        "dailyTotalCost": 200000,
-        "activities": [
-          {
-            "time": "15:45",
-            "activity": "Depart Columbus (ATL)",
-            "location": "Columbus Airport",
-            "transportation": {
-              "type": "Long-Haul Flight",
-              "line": "Delta 1D",
-              "details": "Direct flight to Tokyo Haneda"
+    "tripPlan": {
+        "title": "Complete Tokyo & Kansai Region Trip Itinerary",
+        "startDate": "2026-02-25",
+        "endDate": "2026-03-07",
+        "currency": "JPY",
+        "travelers": 3,
+        "days": [
+            {
+                "dayNumber": 1,
+                "date": "2026-02-25",
+                "theme": "Arrival & Jet Lag Recovery",
+                "dailyTotalCost": 2800,
+                "activities": [
+                    {
+                        "time": "15:45",
+                        "activity": "Depart Columbus",
+                        "location": "Cincinnati/Northern Kentucky International Airport",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Flight to Tokyo Haneda (3:45 PM EST)"
+                    },
+                    {
+                        "time": "17:45",
+                        "activity": "Arrive Tokyo Haneda",
+                        "location": "Haneda Airport Terminal 3",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Landing at 17:45 JST"
+                    },
+                    {
+                        "time": "17:45",
+                        "activity": "Limousine Bus to Tokyo Station",
+                        "location": "Haneda Terminal 3 Stop 4",
+                        "transportation": {
+                            "type": "Limousine Bus",
+                            "details": "Haneda – Tokyo Station (1h 20m)"
+                        },
+                        "duration": "1h 20m",
+                        "cost": 1300,
+                        "details": "Board after security"
+                    },
+                    {
+                        "time": "19:05",
+                        "activity": "Arrive Tokyo Station Yaesu",
+                        "location": "Tokyo Station, Yaesu Exit",
+                        "transportation": {
+                            "type": "Walk",
+                            "details": null
+                        },
+                        "duration": "5 min",
+                        "cost": 0,
+                        "details": "Take a short walk to hotel"
+                    },
+                    {
+                        "time": "19:10",
+                        "activity": "Check‑in karaksa hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": null,
+                        "details": "Check‑in at 1-5-3 Yaesu, Chuo-ku"
+                    },
+                    {
+                        "time": "19:40",
+                        "activity": "Light dinner nearby",
+                        "location": "Convenience Store",
+                        "transportation": {
+                            "type": "Walk",
+                            "details": null
+                        },
+                        "duration": "15 min",
+                        "cost": 1500,
+                        "details": "Bento set"
+                    },
+                    {
+                        "time": "20:30",
+                        "activity": "Return to hotel",
+                        "location": "karaksa hotel",
+                        "transportation": {
+                            "type": "Walk",
+                            "details": null
+                        },
+                        "duration": "5 min",
+                        "cost": 0,
+                        "details": "Leisure"
+                    },
+                    {
+                        "time": "21:00",
+                        "activity": "Sleep",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Adjust to Japan time"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Lawson Convenience Store",
+                        "location": "2 min walk; near hotel",
+                        "mealTime": "19:40",
+                        "cuisine": "Bento/Sushi",
+                        "costPerPerson": 800,
+                        "whyRecommended": "Fresh, 24‑hour"
+                    },
+                    {
+                        "name": "Sukiya",
+                        "location": "Yaesu Exit area",
+                        "mealTime": "19:30",
+                        "cuisine": "Gyudon",
+                        "costPerPerson": 700,
+                        "whyRecommended": "Quick, popular"
+                    }
+                ]
             },
-            "duration": "14h 0m",
-            "cost": 180000,
-            "details": "Flight departs from Ohio International Airport and arrives in Tokyo (HND) early next morning"
-          },
-          {
-            "time": "05:45",
-            "activity": "Arrive Tokyo Haneda",
-            "location": "Haneda Airport",
-            "transportation": null,
-            "duration": "0",
-            "cost": null,
-            "details": "Arrival time adjusted for time zone difference"
-          },
-          {
-            "time": "06:15",
-            "activity": "Transfer to Tokyo Station",
-            "location": "Haneda Airport",
-            "transportation": {
-              "type": "Limousine Bus",
-              "line": "#1",
-              "details": "Terminals 1 & 2 to Tokyo Station – 1h 20m"
+            {
+                "dayNumber": 2,
+                "date": "2026-02-26",
+                "theme": "Akihabara & Tsukiji",
+                "dailyTotalCost": 5000,
+                "activities": [
+                    {
+                        "time": "08:30",
+                        "activity": "Breakfast at hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "09:15",
+                        "activity": "Travel to Akihabara",
+                        "location": "Hotel to Akihabara",
+                        "transportation": {
+                            "type": "Subway (Yamanote Line)",
+                            "details": "Tokyo Station → Akihabara (15 min)"
+                        },
+                        "duration": "15 min",
+                        "cost": 170,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "09:30",
+                        "activity": "Explore Akihabara",
+                        "location": "Akihabara",
+                        "transportation": null,
+                        "duration": "3 h",
+                        "cost": 0,
+                        "details": "Electronics, arcades, maid cafes"
+                    },
+                    {
+                        "time": "12:30",
+                        "activity": "Lunch at Gundam Café",
+                        "location": "Akihabara",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 1200,
+                        "details": "Themed café"
+                    },
+                    {
+                        "time": "13:45",
+                        "activity": "Travel to Tsukiji Fish Market",
+                        "location": "Akihabara to Tsukiji",
+                        "transportation": {
+                            "type": "Subway",
+                            "details": "Yamanote to Shinbashi (7 min), transfer to Hibiya Line to Tsukiji (10 min)"
+                        },
+                        "duration": "30 min",
+                        "cost": 200,
+                        "details": "Walk to Tsukiji"
+                    },
+                    {
+                        "time": "14:15",
+                        "activity": "Tsukiji Fish Market stroll",
+                        "location": "Tsukiji Outer Market",
+                        "transportation": null,
+                        "duration": "1 h 45 min",
+                        "cost": 0,
+                        "details": "Fresh food stalls"
+                    },
+                    {
+                        "time": "16:00",
+                        "activity": "Return to hotel",
+                        "location": "Tokyo Station",
+                        "transportation": {
+                            "type": "Subway (Hibiya Line)",
+                            "details": "Tsukiji → Tokyo Station (15 min)"
+                        },
+                        "duration": "15 min",
+                        "cost": 170,
+                        "details": "Walk to Yaesu"
+                    },
+                    {
+                        "time": "17:00",
+                        "activity": "Dinner at Yoshioka izakaya",
+                        "location": "Yoshioka street",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Local dishes"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Gundam Café",
+                        "location": "Akihabara",
+                        "mealTime": "12:30",
+                        "cuisine": "Japanese",
+                        "costPerPerson": 1200,
+                        "whyRecommended": "Anime themed"
+                    },
+                    {
+                        "name": "Yoshioka Izakaya",
+                        "location": "Yoshioka street",
+                        "mealTime": "17:00",
+                        "cuisine": "Izakaya",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Authentic taste"
+                    }
+                ]
             },
-            "duration": "1h 20m",
-            "cost": 1300,
-            "details": "Bus departs 6:15, arrival 7:35"
-          },
-          {
-            "time": "07:45",
-            "activity": "Arrive Tokyo Station",
-            "location": "Tokyo Station",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": null
+            {
+                "dayNumber": 3,
+                "date": "2026-02-27",
+                "theme": "Tokyo Tower & Tea Ceremony",
+                "dailyTotalCost": 8500,
+                "activities": [
+                    {
+                        "time": "08:00",
+                        "activity": "Breakfast at hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "08:30",
+                        "activity": "Travel to Tokyo Tower",
+                        "location": "Hotel to Tokyo Tower",
+                        "transportation": {
+                            "type": "Subway (Hibiya Line)",
+                            "details": "Tokyo Station → Kamiyacho (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 200,
+                        "details": "Walk 5 min to tower entrance"
+                    },
+                    {
+                        "time": "08:45",
+                        "activity": "Arrive Tokyo Tower",
+                        "location": "Tokyo Tower entrance",
+                        "transportation": null,
+                        "duration": "5 min",
+                        "cost": 0,
+                        "details": "Check‑in"
+                    },
+                    {
+                        "time": "08:50",
+                        "activity": "View Tokyo Tower (150th floor)",
+                        "location": "Tokyo Tower 150th floor",
+                        "transportation": null,
+                        "duration": "1 h 30 min",
+                        "cost": 1200,
+                        "details": "Observation deck, photo ops"
+                    },
+                    {
+                        "time": "10:20",
+                        "activity": "Lunch at 4‑Story Grill (Tower restaurant)",
+                        "location": "Tokyo Tower 4‑Story Grill",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 3000,
+                        "details": "Seafood & sushi"
+                    },
+                    {
+                        "time": "11:45",
+                        "activity": "Travel to Hamarikyu Gardens",
+                        "location": "Tokyo Tower to Hamarikyu",
+                        "transportation": {
+                            "type": "Subway (Hibiya Line)",
+                            "details": "Tokyo Tower to Hamarikyu (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 200,
+                        "details": "Walk 5 min"
+                    },
+                    {
+                        "time": "12:00",
+                        "activity": "Traditional tea ceremony (Hamarikyu Tea House)",
+                        "location": "Hamarikyu Gardens",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 2000,
+                        "details": "Book via website"
+                    },
+                    {
+                        "time": "12:45",
+                        "activity": "Stroll Hamarikyu Gardens",
+                        "location": "Hamarikyu Gardens",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 0,
+                        "details": "Cherry trees"
+                    },
+                    {
+                        "time": "14:00",
+                        "activity": "Return to hotel",
+                        "location": "Hotel via Hamarikyu",
+                        "transportation": {
+                            "type": "Subway (Hibiya Line)",
+                            "details": "Hamarikyu to Tokyo Station (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 200,
+                        "details": "Walk"
+                    },
+                    {
+                        "time": "15:00",
+                        "activity": "Relax at hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Rest"
+                    },
+                    {
+                        "time": "18:00",
+                        "activity": "Light dinner nearby",
+                        "location": "Convenience Store",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 1500,
+                        "details": "Bento"
+                    },
+                    {
+                        "time": "19:00",
+                        "activity": "Return to hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Sleep"
+                    },
+                    {
+                        "time": "21:00",
+                        "activity": "Sleep",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "End of day"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Tokyo Tower 4‑Story Grill",
+                        "location": "Tokyo Tower",
+                        "mealTime": "11:45",
+                        "cuisine": "Seafood",
+                        "costPerPerson": 3000,
+                        "whyRecommended": "High‑floor view, sushi"
+                    },
+                    {
+                        "name": "Convenience Store",
+                        "location": "Near hotel",
+                        "mealTime": "18:00",
+                        "cuisine": "Bento",
+                        "costPerPerson": 800,
+                        "whyRecommended": "Convenient"
+                    }
+                ]
             },
-            "duration": "5m",
-            "cost": 0,
-            "details": "Walk to hotel entrance"
-          },
-          {
-            "time": "08:00",
-            "activity": "Check‑in Hotel Gracery Shinjuku",
-            "location": "Hotel Gracery Shinjuku, Shinjuku",
-            "transportation": null,
-            "duration": "30m",
-            "cost": null,
-            "details": "Reservation confirmed for 2026-02-25 to 2026-03-06"
-          },
-          {
-            "time": "19:30",
-            "activity": "Light Dinner Nearby",
-            "location": "Shinjuku East Exit",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": null
+            {
+                "dayNumber": 4,
+                "date": "2026-02-28",
+                "theme": "Mount Fuji Day‑Trip",
+                "dailyTotalCost": 13500,
+                "activities": [
+                    {
+                        "time": "07:00",
+                        "activity": "Breakfast at hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "07:30",
+                        "activity": "Travel to Shinjuku Station",
+                        "location": "Hotel to Shinjuku via Yamanote",
+                        "transportation": {
+                            "type": "Subway",
+                            "details": "Tokyo Station → Shinjuku (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 170,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "08:00",
+                        "activity": "Odakyu Romancecar to Odawara",
+                        "location": "Shinjuku – Odawara",
+                        "transportation": {
+                            "type": "Rail (Odakyu Romancecar)",
+                            "details": "Shinjuku → Odawara (82 min)"
+                        },
+                        "duration": "1h 22m",
+                        "cost": 3360,
+                        "details": "First‑class seat, seat reservation"
+                    },
+                    {
+                        "time": "09:22",
+                        "activity": "Odakyu Romancecar to Hakone‑Yumoto",
+                        "location": "Odawara – Hakone‑Yumoto",
+                        "transportation": {
+                            "type": "Rail (Odakyu Romancecar)",
+                            "details": "Odawara → Hakone‑Yumoto (24 min)"
+                        },
+                        "duration": "24 min",
+                        "cost": 1800,
+                        "details": "Seat on board"
+                    },
+                    {
+                        "time": "09:46",
+                        "activity": "Bus to Owakudani Valley",
+                        "location": "Hakone‑Yumoto – Owakudani",
+                        "transportation": {
+                            "type": "Bus (Hakone Tozan)",
+                            "details": "Hakone‑Yumoto → Owakudani (30 min)"
+                        },
+                        "duration": "30 min",
+                        "cost": 800,
+                        "details": "Scenic route"
+                    },
+                    {
+                        "time": "10:16",
+                        "activity": "Explore Owakudani",
+                        "location": "Owakudani Valley",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 0,
+                        "details": "Stunning volcanic landscape"
+                    },
+                    {
+                        "time": "11:16",
+                        "activity": "Bus to Lake Ashi",
+                        "location": "Owakudani – Lake Ashi",
+                        "transportation": {
+                            "type": "Bus (Hakone Tozan)",
+                            "details": "Owakudani → Lake Ashi (15 min)"
+                        },
+                        "duration": "15 min",
+                        "cost": 400,
+                        "details": "Lake view"
+                    },
+                    {
+                        "time": "11:31",
+                        "activity": "Lake Ashi Cruise",
+                        "location": "Lake Ashi",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Scenic boat"
+                    },
+                    {
+                        "time": "12:31",
+                        "activity": "Bus back to Hakone‑Yumoto",
+                        "location": "Lake Ashi – Hakone‑Yumoto",
+                        "transportation": {
+                            "type": "Bus (Hakone Tozan)",
+                            "details": "Lake Ashi → Hakone‑Yumoto (15 min)"
+                        },
+                        "duration": "15 min",
+                        "cost": 400,
+                        "details": "Return"
+                    },
+                    {
+                        "time": "12:46",
+                        "activity": "Odakyu Romancecar to Odawara",
+                        "location": "Hakone‑Yumoto – Odawara",
+                        "transportation": {
+                            "type": "Rail (Odakyu Romancecar)",
+                            "details": "Hakone‑Yumoto → Odawara (30 min)"
+                        },
+                        "duration": "30 min",
+                        "cost": 1800,
+                        "details": "Seat"
+                    },
+                    {
+                        "time": "13:16",
+                        "activity": "Odakyu Romancecar to Shinjuku",
+                        "location": "Odawara – Shinjuku",
+                        "transportation": {
+                            "type": "Rail (Odakyu Romancecar)",
+                            "details": "Odawara → Shinjuku (82 min)"
+                        },
+                        "duration": "1h 22m",
+                        "cost": 3360,
+                        "details": "Seat"
+                    },
+                    {
+                        "time": "14:38",
+                        "activity": "Subway to Tokyo Station",
+                        "location": "Shinjuku – Tokyo Station",
+                        "transportation": {
+                            "type": "Subway (Yamanote)",
+                            "details": "Shinjuku → Tokyo Station (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 170,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "14:48",
+                        "activity": "Return to hotel",
+                        "location": "Tourist back to karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Rest"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Owakudani Tea House",
+                        "location": "Owakudani Valley",
+                        "mealTime": "10:16",
+                        "cuisine": "Japanese",
+                        "costPerPerson": 2000,
+                        "whyRecommended": "Hot springs tea"
+                    },
+                    {
+                        "name": "Lake Ashi Lakeside Café",
+                        "location": "Lake Ashi",
+                        "mealTime": "11:31",
+                        "cuisine": "Japanese",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Views & light meals"
+                    }
+                ]
             },
-            "duration": "45m",
-            "cost": 1500,
-            "details": "Convenience store or small ramen shop"
-          },
-          {
-            "time": "21:00",
-            "activity": "Return to Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": null
+            {
+                "dayNumber": 5,
+                "date": "2026-03-01",
+                "theme": "Tokyo Marathon & Recovery",
+                "dailyTotalCost": 3500,
+                "activities": [
+                    {
+                        "time": "04:00",
+                        "activity": "Breakfast & packing",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 500,
+                        "details": "Light breakfast"
+                    },
+                    {
+                        "time": "05:30",
+                        "activity": "Travel to Shibuya",
+                        "location": "Hotel to Shibuya",
+                        "transportation": {
+                            "type": "Subway (Hanzomon Line)",
+                            "details": "Tokyo Station → Shibuya (15 min)"
+                        },
+                        "duration": "15 min",
+                        "cost": 170,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "06:00",
+                        "activity": "Marathon start (Shibuya)",
+                        "location": "Marathon start line",
+                        "transportation": null,
+                        "duration": "3 h",
+                        "cost": 0,
+                        "details": "Finish at 09:00"
+                    },
+                    {
+                        "time": "09:10",
+                        "activity": "Post‑race hydration",
+                        "location": "Olympic Hall",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 0,
+                        "details": "Satisfy thirst"
+                    },
+                    {
+                        "time": "12:00",
+                        "activity": "Return to hotel & rest",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Light lunch later"
+                    },
+                    {
+                        "time": "14:00",
+                        "activity": "Light lunch at local bento shop",
+                        "location": "Yaesu area",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 1500,
+                        "details": "Comfortable recovery"
+                    },
+                    {
+                        "time": "15:30",
+                        "activity": "Afternoon rest",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 0,
+                        "details": "Short nap"
+                    },
+                    {
+                        "time": "18:00",
+                        "activity": "Relaxing dinner nearby",
+                        "location": "Yaesu Street",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Slow meal"
+                    },
+                    {
+                        "time": "19:30",
+                        "activity": "Return to hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Sleep"
+                    },
+                    {
+                        "time": "21:00",
+                        "activity": "Sleep",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "End of marathon day"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Yaesu Bento Shop",
+                        "location": "Yaesu",
+                        "mealTime": "14:00",
+                        "cuisine": "Bento",
+                        "costPerPerson": 1200,
+                        "whyRecommended": "Light, quick"
+                    },
+                    {
+                        "name": "Yaesu Street Izakaya",
+                        "location": "Yaesu",
+                        "mealTime": "18:00",
+                        "cuisine": "Izakaya",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Comforting after race"
+                    }
+                ]
             },
-            "duration": "10m",
-            "cost": 0,
-            "details": "Early rest to combat jet lag"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Kappabashi No.1 Ramen",
-            "location": "Shinjuku Station East Exit",
-            "mealTime": "19:30",
-            "cuisine": "Ramen",
-            "costPerPerson": 800,
-            "whyRecommended": "Quick, authentic ramen with night‑time atmosphere"
-          }
-        ]
-      },
-      {
-        "dayNumber": 2,
-        "date": "2026-02-26",
-        "theme": "Tokyo Tower & City Exploration",
-        "dailyTotalCost": 15000,
-        "activities": [
-          {
-            "time": "07:30",
-            "activity": "Wake Up & Breakfast",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": null,
-            "duration": null,
-            "cost": null,
-            "details": "Hotel breakfast buffet"
-          },
-          {
-            "time": "08:30",
-            "activity": "Depart to Tokyo Tower",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "JR Yamanote Line",
-              "line": "Shinjuku → Tokyo Station",
-              "details": "Train departs 08:35, arrival 09:05"
+            {
+                "dayNumber": 6,
+                "date": "2026-03-02",
+                "theme": "Relaxing Tokyo & Odaiba",
+                "dailyTotalCost": 7000,
+                "activities": [
+                    {
+                        "time": "08:00",
+                        "activity": "Breakfast at hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "09:00",
+                        "activity": "Travel to Odaiba",
+                        "location": "Hotel to Odaiba",
+                        "transportation": {
+                            "type": "Subway (Yamanote) and Yurikamome",
+                            "details": "Tokyo Station → Shimbashi (10 min), transfer to Yurikamome to Odaiba‑Kaihinkoen (15 min)"
+                        },
+                        "duration": "25 min",
+                        "cost": 200,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "09:30",
+                        "activity": "Explore teamLab Borderless",
+                        "location": "Odaiba",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 3000,
+                        "details": "Digital art museum"
+                    },
+                    {
+                        "time": "11:45",
+                        "activity": "Lunch at Gundam Café Odaiba",
+                        "location": "Odaiba",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 1200,
+                        "details": "Themed café"
+                    },
+                    {
+                        "time": "12:30",
+                        "activity": "Stroll Palette Town & Venus Fort",
+                        "location": "Odaiba",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 0,
+                        "details": "Shopping & views"
+                    },
+                    {
+                        "time": "13:30",
+                        "activity": "Return to hotel",
+                        "location": "Odaiba to hotel",
+                        "transportation": {
+                            "type": "Subway (Yurikamome) and Yamanote",
+                            "details": "Odaiba‑Kaihinkoen → Shimbashi (15 min), transfer to Yamanote to Tokyo Station (10 min), walk to Yaesu"
+                        },
+                        "duration": "30 min",
+                        "cost": 200,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "14:15",
+                        "activity": "Afternoon rest",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 0,
+                        "details": "Power nap"
+                    },
+                    {
+                        "time": "17:00",
+                        "activity": "Dinner at Yoshida Street izakaya",
+                        "location": "Yoshida Street",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Light dinner"
+                    },
+                    {
+                        "time": "18:00",
+                        "activity": "Return to hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Sleep"
+                    },
+                    {
+                        "time": "20:00",
+                        "activity": "Sleep",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "End of day"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "teamLab Borderless Café",
+                        "location": "Odaiba",
+                        "mealTime": "11:45",
+                        "cuisine": "Asian & Western",
+                        "costPerPerson": 1200,
+                        "whyRecommended": "Convenient"
+                    },
+                    {
+                        "name": "Yoshida Street Izakaya",
+                        "location": "Yoshida",
+                        "mealTime": "17:00",
+                        "cuisine": "Izakaya",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Casual vibe"
+                    }
+                ]
             },
-            "duration": "30m",
-            "cost": 200,
-            "details": "Comfortable ride toward central Tokyo"
-          },
-          {
-            "time": "09:15",
-            "activity": "Arrive Tokyo Tower",
-            "location": "Tokyo Tower, Minato",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": "5 minute walk from Shijo Station"
+            {
+                "dayNumber": 7,
+                "date": "2026-03-03",
+                "theme": "Travel to Kyoto",
+                "dailyTotalCost": 10500,
+                "activities": [
+                    {
+                        "time": "07:00",
+                        "activity": "Breakfast at hotel",
+                        "location": "karaksa hotel",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "07:45",
+                        "activity": "Check‑out & travel to Tokyo Station",
+                        "location": "Hotel to Tokyo Station",
+                        "transportation": {
+                            "type": "Subway (Yamanote)",
+                            "details": "Yaesu → Tokyo Station (5 min)"
+                        },
+                        "duration": "5 min",
+                        "cost": 100,
+                        "details": "Pack & move"
+                    },
+                    {
+                        "time": "08:10",
+                        "activity": "Shinkansen to Kyoto (Nozomi) (Kyoto Station)",
+                        "location": "Tokyo Station → Kyoto Station",
+                        "transportation": {
+                            "type": "Shinkansen (Nozomi)",
+                            "details": "Tokyo – Kyoto (2h 05m)"
+                        },
+                        "duration": "2h 05m",
+                        "cost": 8000,
+                        "details": "Seat reservation"
+                    },
+                    {
+                        "time": "10:15",
+                        "activity": "Arrive Kyoto Station",
+                        "location": "Kyoto Station",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": 0,
+                        "details": "Transfer to hotel"
+                    },
+                    {
+                        "time": "10:35",
+                        "activity": "Travel to Gion Guesthouse",
+                        "location": "Kyoto Station to Gion",
+                        "transportation": {
+                            "type": "Subway (Tozai Line)",
+                            "details": "Kyoto Station → Gion‑Shijo (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 200,
+                        "details": "Walk 5 min"
+                    },
+                    {
+                        "time": "10:55",
+                        "activity": "Check‑in Gion Guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "20 min",
+                        "cost": null,
+                        "details": "Address: Gion, Kyoto"
+                    },
+                    {
+                        "time": "12:00",
+                        "activity": "Lunch at local ramen shop",
+                        "location": "Kamigamo Street",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 1000,
+                        "details": "Authentic ramen"
+                    },
+                    {
+                        "time": "13:45",
+                        "activity": "Explore Gion District",
+                        "location": "Gion",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 0,
+                        "details": "Stroll, spot geisha"
+                    },
+                    {
+                        "time": "16:00",
+                        "activity": "Return to hotel, rest",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 0,
+                        "details": "Nap"
+                    },
+                    {
+                        "time": "18:30",
+                        "activity": "Dinner at Pontocho Alley",
+                        "location": "Pontocho Alley",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Japanese dinner"
+                    },
+                    {
+                        "time": "20:00",
+                        "activity": "Return to hotel",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Night rest"
+                    },
+                    {
+                        "time": "21:00",
+                        "activity": "Sleep",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "End of day"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Kyoto Ramen Shop",
+                        "location": "Kamigamo Street",
+                        "mealTime": "12:00",
+                        "cuisine": "Ramen",
+                        "costPerPerson": 1000,
+                        "whyRecommended": "Local flavor"
+                    },
+                    {
+                        "name": "Pontocho Alley Restaurant",
+                        "location": "Pontocho",
+                        "mealTime": "18:30",
+                        "cuisine": "Japanese",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Atmosphere & quality"
+                    }
+                ]
             },
-            "duration": "5m",
-            "cost": 0,
-            "details": "Transfer to Tokyo Tower access point"
-          },
-          {
-            "time": "09:25",
-            "activity": "Visit Tokyo Tower Observation Deck",
-            "location": "Tokyo Tower",
-            "transportation": null,
-            "duration": "1h 30m",
-            "cost": 1200,
-            "details": "Entry fee to 150m observation deck, photography allowed"
-          },
-          {
-            "time": "10:55",
-            "activity": "Explore Nearby Odaiba Promenade",
-            "location": "Odaiba",
-            "transportation": {
-              "type": "Toei Oedo Line",
-              "line": "Tokyo → Oedo Station",
-              "details": "Train departs 11:15, arrival 11:45"
+            {
+                "dayNumber": 8,
+                "date": "2026-03-04",
+                "theme": "Kyoto Cultural Sites",
+                "dailyTotalCost": 6500,
+                "activities": [
+                    {
+                        "time": "08:30",
+                        "activity": "Breakfast at guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "09:00",
+                        "activity": "Travel to Kinkaku‑ji",
+                        "location": "Guesthouse to Kinkaku‑ji",
+                        "transportation": {
+                            "type": "Bus (Kyoto City Bus 101)",
+                            "details": "Gion → Kinkaku‑ji (20 min)"
+                        },
+                        "duration": "20 min",
+                        "cost": 200,
+                        "details": "Check‑in at bus stop"
+                    },
+                    {
+                        "time": "09:25",
+                        "activity": "Visit Kinkaku‑ji (Golden Pavilion)",
+                        "location": "Kinkaku‑ji",
+                        "transportation": null,
+                        "duration": "1 h 15 min",
+                        "cost": 800,
+                        "details": "Iconic temple"
+                    },
+                    {
+                        "time": "10:45",
+                        "activity": "Travel to Nijo Castle",
+                        "location": "Kinkaku‑ji to Nijo Castle",
+                        "transportation": {
+                            "type": "Bus (Kyoto City Bus 24)",
+                            "details": "Kinkaku‑ji → Nijo Castle (15 min)"
+                        },
+                        "duration": "15 min",
+                        "cost": 200,
+                        "details": "Rapid transfer"
+                    },
+                    {
+                        "time": "11:05",
+                        "activity": "Visit Nijo Castle",
+                        "location": "Nijo Castle",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 300,
+                        "details": "Historic palace"
+                    },
+                    {
+                        "time": "12:30",
+                        "activity": "Lunch at Pontocho Alley",
+                        "location": "Pontocho",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 1500,
+                        "details": "Street food"
+                    },
+                    {
+                        "time": "13:15",
+                        "activity": "Travel to Fushimi Inari Shrine",
+                        "location": "Pontocho to Fushimi Inari",
+                        "transportation": {
+                            "type": "Subway (Tozai Line)",
+                            "details": "Pontocho → Fushimi Inari (25 min)"
+                        },
+                        "duration": "25 min",
+                        "cost": 200,
+                        "details": "Scenic walk"
+                    },
+                    {
+                        "time": "13:40",
+                        "activity": "Walk the Torii gates of Fushimi Inari",
+                        "location": "Fushimi Inari",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 0,
+                        "details": "Iconic shrine"
+                    },
+                    {
+                        "time": "14:40",
+                        "activity": "Return to guesthouse",
+                        "location": "Fushimi Inari to Gion Guesthouse",
+                        "transportation": {
+                            "type": "Subway (Tozai Line)",
+                            "details": "Fushimi Inari → Pontocho → Gion (25 min)"
+                        },
+                        "duration": "25 min",
+                        "cost": 200,
+                        "details": "Walk"
+                    },
+                    {
+                        "time": "15:05",
+                        "activity": "Rest at guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 0,
+                        "details": "Nap"
+                    },
+                    {
+                        "time": "17:05",
+                        "activity": "Dinner near hotel",
+                        "location": "Kyoto city center",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Mizutaki hot pot"
+                    },
+                    {
+                        "time": "18:05",
+                        "activity": "Return to guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Night rest"
+                    },
+                    {
+                        "time": "20:00",
+                        "activity": "Sleep",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "End of day"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Mizutaki Japanese Hot Pot",
+                        "location": "Kyoto center",
+                        "mealTime": "17:05",
+                        "cuisine": "Hot pot",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Local specialty"
+                    },
+                    {
+                        "name": "Kyoto Street Food",
+                        "location": "Pontocho",
+                        "mealTime": "12:30",
+                        "cuisine": "Japanese",
+                        "costPerPerson": 1500,
+                        "whyRecommended": "Variety"
+                    }
+                ]
             },
-            "duration": "45m",
-            "cost": 210,
-            "details": "Walk along waterfront, see Statue of Liberty replica"
-          },
-          {
-            "time": "12:30",
-            "activity": "Lunch at The Decks Odaiba",
-            "location": "Odaiba",
-            "transportation": null,
-            "duration": "30m",
-            "cost": 2000,
-            "details": "Sea‑side sushi and tempura"
-          },
-          {
-            "time": "13:30",
-            "activity": "Return to Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Train",
-              "line": "Oedo Station → Shinjuku",
-              "details": "Train departs 13:45, arrival 14:15"
+            {
+                "dayNumber": 9,
+                "date": "2026-03-05",
+                "theme": "Arashiyama & Traditional Tea",
+                "dailyTotalCost": 6000,
+                "activities": [
+                    {
+                        "time": "08:00",
+                        "activity": "Breakfast at guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "09:00",
+                        "activity": "Travel to Arashiyama",
+                        "location": "Guesthouse to Arashiyama",
+                        "transportation": {
+                            "type": "Subway (Tozai Line)",
+                            "details": "Gion → Saga‑Arashiyama (35 min)"
+                        },
+                        "duration": "35 min",
+                        "cost": 200,
+                        "details": "Transfer via Kyoto Station"
+                    },
+                    {
+                        "time": "09:35",
+                        "activity": "Explore Arashiyama Bamboo Forest",
+                        "location": "Arashiyama",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 0,
+                        "details": "Leisure stroll"
+                    },
+                    {
+                        "time": "10:35",
+                        "activity": "Visit Tenryu‑ji Temple",
+                        "location": "Tenryu‑ji",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 0,
+                        "details": "Temple grounds"
+                    },
+                    {
+                        "time": "11:30",
+                        "activity": "Tea ceremony at Camellia Garden Teahouse",
+                        "location": "Camellia Garden",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 2000,
+                        "details": "Traditional tea"
+                    },
+                    {
+                        "time": "12:20",
+                        "activity": "Lunch at Arashiyama Riverside Café",
+                        "location": "Arashiyama",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 1200,
+                        "details": "Light meals"
+                    },
+                    {
+                        "time": "13:05",
+                        "activity": "Return to guesthouse",
+                        "location": "Arashiyama to Gion",
+                        "transportation": {
+                            "type": "Subway (Tozai Line)",
+                            "details": "Arashiyama → Saga‑Arashiyama (35 min)"
+                        },
+                        "duration": "35 min",
+                        "cost": 200,
+                        "details": "Walk"
+                    },
+                    {
+                        "time": "13:40",
+                        "activity": "Rest at guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "2 h",
+                        "cost": 0,
+                        "details": "Nap"
+                    },
+                    {
+                        "time": "16:40",
+                        "activity": "Dinner at local izakaya",
+                        "location": "Kyoto city center",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 2500,
+                        "details": "Local flavors"
+                    },
+                    {
+                        "time": "17:40",
+                        "activity": "Return to guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "Night rest"
+                    },
+                    {
+                        "time": "19:00",
+                        "activity": "Sleep",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": null,
+                        "details": "End of day"
+                    }
+                ],
+                "diningRecommendations": [
+                    {
+                        "name": "Arashiyama Riverside Café",
+                        "location": "Arashiyama",
+                        "mealTime": "12:20",
+                        "cuisine": "Japanese & Western",
+                        "costPerPerson": 1200,
+                        "whyRecommended": "Scenic view"
+                    },
+                    {
+                        "name": "Kyoto Izakaya",
+                        "location": "City center",
+                        "mealTime": "16:40",
+                        "cuisine": "Izakaya",
+                        "costPerPerson": 2500,
+                        "whyRecommended": "Authentic"
+                    }
+                ]
             },
-            "duration": "30m",
-            "cost": 210,
-            "details": "Walk to hotel afterwards"
-          },
-          {
-            "time": "15:00",
-            "activity": "Shopping in Shinjuku",
-            "location": "Shinjuku Kabukicho",
-            "transportation": null,
-            "duration": "2h",
-            "cost": 4000,
-            "details": "Explore department stores, electronics, cosplay shops"
-          },
-          {
-            "time": "17:30",
-            "activity": "Dinner at Namba Miso Ramen",
-            "location": "Shinjuku",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 1200,
-            "details": "Hearty bowl of ramen to end the day"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "The Decks Odaiba",
-            "location": "Odaiba Seaside Forest",
-            "mealTime": "12:30",
-            "cuisine": "Sushi/Tempura",
-            "costPerPerson": 2000,
-            "whyRecommended": "Iconic view and high‑quality seafood"
-          }
-        ]
-      },
-      {
-        "dayNumber": 3,
-        "date": "2026-02-27",
-        "theme": "Tsukiji Market, Tea Ceremony, Akihabara",
-        "dailyTotalCost": 20000,
-        "activities": [
-          {
-            "time": "05:30",
-            "activity": "Early‑Morning Tsukiji Fish Market Tour",
-            "location": "Tsukiji Outer Market, Chuo",
-            "transportation": {
-              "type": "JR Yamanote Line",
-              "line": "Tokyo → Hibiya",
-              "details": "Train departs 05:45, arrival 06:05"
+            {
+                "dayNumber": 10,
+                "date": "2026-03-06",
+                "theme": "Osaka Exploration",
+                "dailyTotalCost": 9000,
+                "activities": [
+                    {
+                        "time": "07:30",
+                        "activity": "Breakfast at guesthouse",
+                        "location": "Gion Guesthouse",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": 500,
+                        "details": "Japanese set"
+                    },
+                    {
+                        "time": "08:00",
+                        "activity": "Check‑out & travel to Kyoto Station",
+                        "location": "Guesthouse to Kyoto Station",
+                        "transportation": {
+                            "type": "Subway (Tozai Line)",
+                            "details": "Gion → Kyoto Station (20 min)"
+                        },
+                        "duration": "20 min",
+                        "cost": 200,
+                        "details": "Pack & move"
+                    },
+                    {
+                        "time": "08:25",
+                        "activity": "Shinkansen to Osaka (Hikari) (Shin‑Osaka Station)",
+                        "location": "Kyoto Station → Shin‑Osaka Station",
+                        "transportation": {
+                            "type": "Shinkansen (Hikari)",
+                            "details": "Kyoto – Shin‑Osaka (75 min)"
+                        },
+                        "duration": "1h 15m",
+                        "cost": 4000,
+                        "details": "Seat reservation"
+                    },
+                    {
+                        "time": "09:40",
+                        "activity": "Arrive Shin‑Osaka Station",
+                        "location": "Shin‑Osaka Station",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": 0,
+                        "details": "Transfer to hotel"
+                    },
+                    {
+                        "time": "10:00",
+                        "activity": "Travel to Hotel Nikko Osaka (Umeda)",
+                        "location": "Shin‑Osaka → Hotel Nikko Osaka",
+                        "transportation": {
+                            "type": "Subway (JR Main Line)",
+                            "details": "Shin‑Osaka → Umeda (10 min)"
+                        },
+                        "duration": "10 min",
+                        "cost": 200,
+                        "details": "Tap Pasmo"
+                    },
+                    {
+                        "time": "10:15",
+                        "activity": "Check‑in Hotel Nikko Osaka",
+                        "location": "Umeda, Osaka",
+                        "transportation": null,
+                        "duration": "30 min",
+                        "cost": null,
+                        "details": "Address: 2‑12‑1, Umeda, Kita, Osaka"
+                    },
+                    {
+                        "time": "12:00",
+                        "activity": "Lunch at Dotonbori Street",
+                        "location": "Dotonbori",
+                        "transportation": null,
+                        "duration": "45 min",
+                        "cost": 1500,
+                        "details": "Takoyaki"
+                    },
+                    {
+                        "time": "13:30",
+                        "activity": "Visit Osaka Castle",
+                        "location": "Osaka Castle",
+                        "transportation": {
+                            "type": "Subway (Midosuji Line)",
+                            "details": "Umeda → Tanimachi 4‑chome (25 min)"
+                        },
+                        "duration": "25 min",
+                        "cost": 200,
+                        "details": "Scenic walk"
+                    },
+                    {
+                        "time": "14:00",
+                        "activity": "Explore Osaka Castle Park",
+                        "location": "Osaka Castle",
+                        "transportation": null,
+                        "duration": "1 h",
+                        "cost": 0,
+                        "details": "Tour"
+                    },
+                    {
+                        "time": "15:30",
+                        "activity": "Return to hotel, rest",
+                        "location": "Hotel Nikko Osaka",
+                        "transportation": null,
+                        "duration": null,
+                        "cost": 0,
+                        "details": "Brief rest"
+                    },
+                    {
+                        "time": "18:0",
+                        "activity": "Dinner..."
+                    },
+                    "diningRecommendations": [
+                        {}
+                    ]
+                }
             },
-            "duration": "30m",
-            "cost": 200,
-            "details": "Walk to market stalls, sample fresh sushi"
-          },
-          {
-            "time": "06:30",
-            "activity": "Breakfast sushi at Tsukiji",
-            "location": "Tsukiji Market",
-            "transportation": null,
-            "duration": "45m",
-            "cost": 3500,
-            "details": "Traditional sushi breakfast featuring nigiri and sashimi"
-          },
-          {
-            "time": "07:30",
-            "activity": "Return to Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Train",
-              "line": "Hibiya → Shinjuku",
-              "details": "Train departs 07:45, arrival 08:15"
-            },
-            "duration": "30m",
-            "cost": 200,
-            "details": "Refresh and rest"
-          },
-          {
-            "time": "09:30",
-            "activity": "Traditional Tea Ceremony",
-            "location": "Eiko Tea House, Shinjuku",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": null
-            },
-            "duration": "1h",
-            "cost": 2500,
-            "details": "Guided tea ceremony featuring matcha, dango and Japanese sweets"
-          },
-          {
-            "time": "10:45",
-            "activity": "Sight‑seeing at Meiji Shrine",
-            "location": "Shibuya",
-            "transportation": {
-              "type": "JR Yamanote Line",
-              "line": "Shinjuku → Shibuya",
-              "details": "Train departs 11:00, arrival 11:25"
-            },
-            "duration": "45m",
-            "cost": 0,
-            "details": "Spiritual walk through cedar‑covered path"
-          },
-          {
-            "time": "12:30",
-            "activity": "Lunch in Harajuku",
-            "location": "Harajuku",
-            "transportation": null,
-            "duration": "30m",
-            "cost": 1800,
-            "details": "Kappamura crepe or sushi roll"
-          },
-          {
-            "time": "13:30",
-            "activity": "Akihabara Electric Town",
-            "location": "Akihabara",
-            "transportation": {
-              "type": "JR Yamanote Line",
-              "line": "Shibuya → Akihabara",
-              "details": "Train departs 14:00, arrival 14:20"
-            },
-            "duration": "3h",
-            "cost": 3000,
-            "details": "Browse anime, manga, electronics, maid cafés"
-          },
-          {
-            "time": "18:00",
-            "activity": "Dinner in Akihabara",
-            "location": "Akihabara",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 2500,
-            "details": "Shokudo ramen or yakitori"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Kappamura Harajuku",
-            "location": "Harajuku",
-            "mealTime": "12:30",
-            "cuisine": "Crepe/Street Food",
-            "costPerPerson": 800,
-            "whyRecommended": "Famous crepe spot popular with youth"
-          }
-        ]
-      },
-      {
-        "dayNumber": 4,
-        "date": "2026-02-28",
-        "theme": "Free Day – Meiji Shrine & Shibuya Crossing",
-        "dailyTotalCost": 13800,
-        "activities": [
-          {
-            "time": "08:00",
-            "activity": "Breakfast at Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": null,
-            "duration": null,
-            "cost": null,
-            "details": "Hotel buffet"
-          },
-          {
-            "time": "09:00",
-            "activity": "Senso‑ji Temple Visit",
-            "location": "Asakusa",
-            "transportation": {
-              "type": "Tokyo Metro Ginza Line",
-              "line": "Shibuya → Asakusa",
-              "details": "Train departs 09:15, arrival 09:45"
-            },
-            "duration": "1h",
-            "cost": 0,
-            "details": "Visit Kaminarimon gate and Nakamise shopping street"
-          },
-          {
-            "time": "10:30",
-            "activity": "Explore Ueno Park",
-            "location": "Ueno",
-            "transportation": {
-              "type": "Tokyo Metro Hibiya Line",
-              "line": "Asakusa → Ueno",
-              "details": "Train departs 10:45, arrival 10:55"
-            },
-            "duration": "2h",
-            "cost": 0,
-            "details": "Visit museums, zoo, and pond"
-          },
-          {
-            "time": "13:00",
-            "activity": "Lunch at Ueno Park Food Stalls",
-            "location": "Ueno",
-            "transportation": null,
-            "duration": "30m",
-            "cost": 1500,
-            "details": "Tempura, yakitori, and takoyaki"
-          },
-          {
-            "time": "14:00",
-            "activity": "Return to Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Train",
-              "line": "Ueno → Shinjuku",
-              "details": "Train departs 14:20, arrival 14:50"
-            },
-            "duration": "30m",
-            "cost": 210,
-            "details": "Rest at hotel"
-          },
-          {
-            "time": "17:30",
-            "activity": "Shibuya Crossing View",
-            "location": "Shibuya",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": "10‑min walk from Shinjuku"
-            },
-            "duration": "45m",
-            "cost": 0,
-            "details": "Night view of Shibuya scramble"
-          },
-          {
-            "time": "19:00",
-            "activity": "Dinner at Ichiran Ramen",
-            "location": "Shibuya",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 1200,
-            "details": "Solo diner ramen experience"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Ichiran Shibuya",
-            "location": "Shibuya",
-            "mealTime": "19:00",
-            "cuisine": "Ramen",
-            "costPerPerson": 1200,
-            "whyRecommended": "Specialized in tonkotsu ramen, great for solo diners"
-          }
-        ]
-      },
-      {
-        "dayNumber": 5,
-        "date": "2026-03-01",
-        "theme": "Tokyo Marathon – Relax & Enjoy",
-        "dailyTotalCost": 12000,
-        "activities": [
-          {
-            "time": "08:00",
-            "activity": "Breakfast at Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": null,
-            "duration": null,
-            "cost": null,
-            "details": "Hotel buffet"
-          },
-          {
-            "time": "10:00",
-            "activity": "Morning Walk along Sumida River",
-            "location": "Sumida River",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": "Walk from hotel to riverfront"
-            },
-            "duration": "45m",
-            "cost": 0,
-            "details": "Scenic promenade"
-          },
-          {
-            "time": "12:00",
-            "activity": "Lunch near Marathon Start Line",
-            "location": "Tokyo Station area",
-            "transportation": null,
-            "duration": "30m",
-            "cost": 2500,
-            "details": "Convenient bento or ramen near start line"
-          },
-          {
-            "time": "15:00",
-            "activity": "Watch Marathon Live on TV",
-            "location": "Hotel TV lounge",
-            "transportation": null,
-            "duration": "2h",
-            "cost": 0,
-            "details": "Enjoy marathon highlights at hotel"
-          },
-          {
-            "time": "19:00",
-            "activity": "Relaxing Dinner",
-            "location": "Shinjuku Golden Ganso",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 1800,
-            "details": "Japanese-style seafood rice bowl, relaxing ambiance"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Golden Ganso",
-            "location": "Shinjuku",
-            "mealTime": "19:00",
-            "cuisine": "Seafood Rice Bowl",
-            "costPerPerson": 1800,
-            "whyRecommended": "Comfortable and calm, perfect after marathon day"
-          }
-        ]
-      },
-      {
-        "dayNumber": 6,
-        "date": "2026-03-02",
-        "theme": "Rest & Cultural Exploration",
-        "dailyTotalCost": 14000,
-        "activities": [
-          {
-            "time": "08:30",
-            "activity": "Breakfast at Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": null,
-            "duration": null,
-            "cost": null,
-            "details": "Hotel breakfast"
-          },
-          {
-            "time": "10:00",
-            "activity": "Visit Mori Art Museum & Roppongi Hills",
-            "location": "Roppongi",
-            "transportation": {
-              "type": "Tokyo Metro Hibiya Line",
-              "line": "Shinjuku → Roppongi",
-              "details": "Train departs 10:15, arrival 10:35"
-            },
-            "duration": "2h",
-            "cost": 2300,
-            "details": "Contemporary art, city view from observation deck"
-          },
-          {
-            "time": "13:00",
-            "activity": "Lunch at Tonkatsu Maisen",
-            "location": "Roppongi",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 2000,
-            "details": "Crispy tonkatsu with cabbage"
-          },
-          {
-            "time": "14:30",
-            "activity": "Relaxing Walk in Chidorigafuchi Moat",
-            "location": "Chidorigafuchi",
-            "transportation": {
-              "type": "Tokyo Metro Chiyoda Line",
-              "line": "Roppongi → Chiyoda",
-              "details": "Train departs 15:00, arrival 15:15"
-            },
-            "duration": "1h",
-            "cost": 0,
-            "details": "Scenic moat around Imperial Palace"
-          },
-          {
-            "time": "17:00",
-            "activity": "Return to Hotel & Rest",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Tokyo Metro",
-              "line": "Chiyoda → Shinjuku",
-              "details": "Train departs 17:15, arrival 17:35"
-            },
-            "duration": "30m",
-            "cost": 210,
-            "details": "Refresh at hotel spa"
-          },
-          {
-            "time": "19:30",
-            "activity": "Dinner at Kagura Restaurant",
-            "location": "Shinjuku",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 2800,
-            "details": "Japanese BBQ, local specialties"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Kagura Shinjuku",
-            "location": "Shinjuku",
-            "mealTime": "19:30",
-            "cuisine": "Japanese BBQ",
-            "costPerPerson": 2800,
-            "whyRecommended": "Authentic flavors, great for group dining"
-          }
-        ]
-      },
-      {
-        "dayNumber": 7,
-        "date": "2026-03-03",
-        "theme": "Kyoto Day – Nijo Castle & Gion",
-        "dailyTotalCost": 17000,
-        "activities": [
-          {
-            "time": "06:30",
-            "activity": "Check-out Hotel & Travel to Kyoto",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Shinkansen Nozomi",
-              "line": "Tokyo → Kyoto",
-              "details": "Train departs 06:30, arrival 08:50"
-            },
-            "duration": "2h 20m",
-            "cost": 3500,
-            "details": "One‑way fare in ordinary class"
-          },
-          {
-            "time": "09:00",
-            "activity": "Check‑in at Kyoto Hotel (Mitsui Garden Hotel Kyoto)",
-            "location": "Kyoto",
-            "transportation": null,
-            "duration": "30m",
-            "cost": null,
-            "details": "Hotel address, check‑in confirmed for 2026-03-03 to 2026-03-07"
-          },
-          {
-            "time": "10:00",
-            "activity": "Visit Nijo Castle",
-            "location": "Nijo Castle, Kyoto",
-            "transportation": {
-              "type": "Bus",
-              "line": "Kyoto City Bus 100",
-              "details": "Shijo Station → Nijo Castle (10 min bus)"
-            },
-            "duration": "2h",
-            "cost": 800,
-            "details": "Explore castle grounds, night‑ingale shutters, palace architecture"
-          },
-          {
-            "time": "13:00",
-            "activity": "Lunch at Kyo Kichi Yakitori",
-            "location": "Kyoto",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 2000,
-            "details": "Authentic yakitori in Gion district"
-          },
-          {
-            "time": "15:00",
-            "activity": "Stroll through Gion (geisha district)",
-            "location": "Gion",
-            "transportation": {
-              "type": "Walking",
-              "line": null,
-              "details": "From Kyo Kichi to Gion (5 min walk)"
-            },
-            "duration": "1h 30m",
-            "cost": 0,
-            "details": "Experience traditional streets, visit tea houses, watch geisha pass"
-          },
-          {
-            "time": "17:30",
-            "activity": "Return to Hotel & Rest",
-            "location": "Kyoto Hotel",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": "Gion to hotel (10 min walk)"
-            },
-            "duration": "15m",
-            "cost": 0,
-            "details": "Refresh and early dinner"
-          },
-          {
-            "time": "19:00",
-            "activity": "Dinner at Gion Tanto",
-            "location": "Gion",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 3500,
-            "details": "Traditional kaiseki meal near hanami spot"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Gion Tanto",
-            "location": "Gion, Kyoto",
-            "mealTime": "19:00",
-            "cuisine": "Kaiseki",
-            "costPerPerson": 3500,
-            "whyRecommended": "Authentic Kyoto haute cuisine with seasonal ingredients"
-          }
-        ]
-      },
-      {
-        "dayNumber": 8,
-        "date": "2026-03-04",
-        "theme": "Mount Fuji Day Trip from Tokyo",
-        "dailyTotalCost": 25000,
-        "activities": [
-          {
-            "time": "06:00",
-            "activity": "Check‑out Kyoto Hotel & Travel to Tokyo",
-            "location": "Kyoto",
-            "transportation": {
-              "type": "Shinkansen Nozomi",
-              "line": "Kyoto → Tokyo",
-              "details": "Train departs 06:15, arrival 08:35"
-            },
-            "duration": "2h 20m",
-            "cost": 3500,
-            "details": "One‑way fare in ordinary class"
-          },
-          {
-            "time": "09:00",
-            "activity": "Take the Fuji 5th Station Bus from Shinjuku",
-            "location": "Shinjuku Bus Terminal",
-            "transportation": {
-              "type": "Express Bus (24‑hr Shuttle)",
-              "line": "Hokaido Express 5th",
-              "details": "Bus departs 09:00, arrives 10:30"
-            },
-            "duration": "1h 30m",
-            "cost": 2500,
-            "details": "Direct shuttle to 5th Station"
-          },
-          {
-            "time": "11:00",
-            "activity": "Explore Fuji 5th Station",
-            "location": "Mount Fuji 5th Station",
-            "transportation": null,
-            "duration": "2h 30m",
-            "cost": 600,
-            "details": "Observation deck, museum, souvenir shops, hiking trails, 3‑hour walking loop"
-          },
-          {
-            "time": "14:00",
-            "activity": "Lunch at 5th Station Café",
-            "location": "5th Station",
-            "transportation": null,
-            "duration": "45m",
-            "cost": 2000,
-            "details": "Hobna‑style pasta, hot soup"
-          },
-          {
-            "time": "15:00",
-            "activity": "Return to Shinjuku by Bus",
-            "location": "Fuji 5th Station",
-            "transportation": {
-              "type": "Express Bus (24‑hr Shuttle)",
-              "line": "Hokaido Express 5th",
-              "details": "Bus departs 15:30, arrives 17:00"
-            },
-            "duration": "1h 30m",
-            "cost": 2500,
-            "details": "Shinjuku Bus Terminal"
-          },
-          {
-            "time": "17:30",
-            "activity": "Return to Tokyo Station & Prepare for Night",
-            "location": "Tokyo Station",
-            "transportation": {
-              "type": "Train (JR Yamanote Line)",
-              "line": "Shinjuku → Tokyo Station",
-              "details": "Train departs 17:45, arrival 18:05"
-            },
-            "duration": "20m",
-            "cost": 200,
-            "details": "Walk back to hotel"
-          },
-          {
-            "time": "19:30",
-            "activity": "Dinner at Tokyo Station Dining Plaza",
-            "location": "Tokyo Station",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 2800,
-            "details": "Ramen and tempura with a view of the station"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Tokyo Station Ramen Ya" ,
-            "location": "Tokyo Station 6‑Floor",
-            "mealTime": "19:30",
-            "cuisine": "Ramen",
-            "costPerPerson": 2800,
-            "whyRecommended": "Iconic ramen spot with high‑quality broth"
-          }
-        ]
-      },
-      {
-        "dayNumber": 9,
-        "date": "2026-03-05",
-        "theme": "Tokyo Leisure – Odaiba & Tsukiji",
-        "dailyTotalCost": 22000,
-        "activities": [
-          {
-            "time": "08:30",
-            "activity": "Breakfast at Hotel",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": null,
-            "duration": null,
-            "cost": null,
-            "details": "Hotel breakfast"
-          },
-          {
-            "time": "10:00",
-            "activity": "Explore Odaiba Seaside Park",
-            "location": "Odaiba",
-            "transportation": {
-              "type": "Tokyo Metro Yurikamome Line",
-              "line": "Shimbashi → Odaiba‑Kaihin‑maru",
-              "details": "Train departs 10:15, arrival 10:45"
-            },
-            "duration": "3h",
-            "cost": 300,
-            "details": "Walk, see Rainbow Bridge, Gundam statue"
-          },
-          {
-            "time": "14:30",
-            "activity": "Lunch at Odaiba Sushita",
-            "location": "Odaiba",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 3500,
-            "details": "Sushi from local market"
-          },
-          {
-            "time": "16:30",
-            "activity": "Return to Hotel & Relax",
-            "location": "Hotel Gracery Shinjuku",
-            "transportation": {
-              "type": "Yurikamome Line",
-              "line": "Odaiba‑Kaihin‑maru → Shimbashi",
-              "details": "Train departs 17:00, arrival 17:30"
-            },
-            "duration": "30m",
-            "cost": 300,
-            "details": "Rest at hotel"
-          },
-          {
-            "time": "19:30",
-            "activity": "Dinner at Udon Nagi Shinjuku",
-            "location": "Shinjuku",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 1800,
-            "details": "Thin noodles, local broth"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Odaiba Sushita",
-            "location": "Odaiba",
-            "mealTime": "14:30",
-            "cuisine": "Sushi",
-            "costPerPerson": 3500,
-            "whyRecommended": "Fresh seafood, scenic view"
-          }
-        ]
-      },
-      {
-        "dayNumber": 10,
-        "date": "2026-03-06",
-        "theme": "Osaka – Castle & Dotonbori",
-        "dailyTotalCost": 26000,
-        "activities": [
-          {
-            "time": "07:30",
-            "activity": "Check‑out Kyoto Hotel & Depart Kyoto",
-            "location": "Kyoto",
-            "transportation": {
-              "type": "Shinkansen Nozomi",
-              "line": "Kyoto → Osaka",
-              "details": "Depart 07:45, arrive 09:00"
-            },
-            "duration": "1h 15m",
-            "cost": 3500,
-            "details": "Ordinary class fare"
-          },
-          {
-            "time": "09:30",
-            "activity": "Check‑in at Grand Hyatt Osaka",
-            "location": "Osaka",
-            "transportation": null,
-            "duration": "30m",
-            "cost": null,
-            "details": "Address: Tsurumi‑Karate‑cho, Osaka"
-          },
-          {
-            "time": "10:30",
-            "activity": "Visit Osaka Castle Park",
-            "location": "Osaka Castle",
-            "transportation": {
-              "type": "Midosuji Line",
-              "line": "Osaka Station → Osakajima‑mae",
-              "details": "Train departs 10:45, arrival 10:55"
-            },
-            "duration": "2h",
-            "cost": 400,
-            "details": "Explore the castle, museum, and surrounding park"
-          },
-          {
-            "time": "13:00",
-            "activity": "Lunch at Kushikatsu Daruma Dotonbori",
-            "location": "Dotonbori",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": "From Osaka Castle – 15 min"
-            },
-            "duration": "1h",
-            "cost": 2000,
-            "details": "Famous deep‑fried skewers"
-          },
-          {
-            "time": "15:00",
-            "activity": "Explore Dotonbori & Shinsaibashi Shopping Arcades",
-            "location": "Dotonbori",
-            "transportation": null,
-            "duration": "3h",
-            "cost": 0,
-            "details": "Shop, window‑shop, neon lights, street food"
-          },
-          {
-            "time": "18:30",
-            "activity": "Return to Hotel & Rest",
-            "location": "Grand Hyatt Osaka",
-            "transportation": {
-              "type": "Walk",
-              "line": null,
-              "details": "13 min walk"
-            },
-            "duration": "10m",
-            "cost": 0,
-            "details": "Refresh"
-          },
-          {
-            "time": "20:00",
-            "activity": "Dinner at Tsurutontan Main Branch Osaka",
-            "location": "Namba",
-            "transportation": null,
-            "duration": "1h",
-            "cost": 3200,
-            "details": "Udon noodles in a stylish setting"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Tsurutontan Main Branch Osaka",
-            "location": "Namba, Osaka",
-            "mealTime": "20:00",
-            "cuisine": "Udon",
-            "costPerPerson": 3200,
-            "whyRecommended": "Classic Japanese noodle cuisine in a modern atmosphere"
-          }
-        ]
-      },
-      {
-        "dayNumber": 11,
-        "date": "2026-03-07",
-        "theme": "Return to Tokyo & Flight Home",
-        "dailyTotalCost": 20000,
-        "activities": [
-          {
-            "time": "06:30",
-            "activity": "Check‑out Osaka Hotel & Travel to Tokyo",
-            "location": "Osaka",
-            "transportation": {
-              "type": "Shinkansen Nozomi",
-              "line": "Osaka → Tokyo",
-              "details": "Depart 07:15, arrive 09:45"
-            },
-            "duration": "2h 30m",
-            "cost": 3500,
-            "details": "Ordinary fare"
-          },
-          {
-            "time": "10:30",
-            "activity": "Return to Tokyo Station & Transfer to Haneda Airport",
-            "location": "Tokyo Station",
-            "transportation": {
-              "type": "Limousine Bus",
-              "line": "#1",
-              "details": "Station to HND – 1h 20m"
-            },
-            "duration": "1h 20m",
-            "cost": 1300,
-            "details": "Arrive Haneda 12:50"
-          },
-          {
-            "time": "13:00",
-            "activity": "Security & Board",
-            "location": "Haneda Airport",
-            "transportation": null,
-            "duration": "2h 30m",
-            "cost": 0,
-            "details": "Check‑in, security, boarding"
-          },
-          {
-            "time": "17:45",
-            "activity": "Depart Haneda Airport",
-            "location": "Haneda Airport",
-            "transportation": {
-              "type": "Flight",
-              "line": "Delta 1D",
-              "details": "Flight back to Columbus"
-            },
-            "duration": "14h 30m",
-            "cost": 180000,
-            "details": "Arrival Columbus 07:15 7th March"
-          }
-        ],
-        "diningRecommendations": [
-          {
-            "name": "Airport Café",
-            "location": "Haneda Terminal 2",
-            "mealTime": "12:00",
-            "cuisine": "Cafe",
-            "costPerPerson": 1200,
-            "whyRecommended": "Convenient pre‑flight meal"
-          }
-        ]
-      }
-    ],
-    "accommodations": [
-      {
-        "name": "Hotel Gracery Shinjuku",
-        "address": "Nihonbashi‑Odaiba, Shinjuku-ku, Tokyo",
-        "city": "Tokyo",
-        "checkIn": "2026-02-25",
-        "checkOut": "2026-03-06"
-      },
-      {
-        "name": "Mitsui Garden Hotel Kyoto",
-        "address": "Jodo‑cho, Kyoto-ku, Kyoto",
-        "city": "Kyoto",
-        "checkIn": "2026-03-03",
-        "checkOut": "2026-03-07"
-      },
-      {
-        "name": "Grand Hyatt Osaka",
-        "address": "Tsurumi‑Karate‑cho, Kita‑ku, Osaka",
-        "city": "Osaka",
-        "checkIn": "2026-03-06",
-        "checkOut": "2026-03-07"
-      }
-    ],
-    "summary": {
-      "totalCostPerPerson": 520000,
-      "totalCostAllTravelers": 1560000,
-      "approximateUSD": 3400,
-      "exchangeRate": 152,
-      "dailyCosts": [
-        {"day":1,"cost":200000},
-        {"day":2,"cost":15000},
-        {"day":3,"cost":20000},
-        {"day":4,"cost":13800},
-        {"day":5,"cost":12000},
-        {"day":6,"cost":14000},
-        {"day":7,"cost":17000},
-        {"day":8,"cost":25000},
-        {"day":9,"cost":22000},
-        {"day":10,"cost":26000},
-        {"day":11,"cost":20000}
-      ],
-      "transportationSummary": [
-        {"category":"Tokyo local transport","costPerPerson":20000},
-        {"category":"Shinkansen Tokyo‑Kyoto","costPerPerson":10500},
-        {"category":"Shinkansen Kyoto‑Osaka","costPerPerson":10500},
-        {"category":"Mount Fuji bus","costPerPerson":5000},
-        {"category":"Airport transfers","costPerPerson":4000}
-      ]
-    },
-    "keyRecommendations": [
-      "Catch the early Nozomi train from Kyoto to Osaka on Mar3 to reach Osaka by 9 AM.",
-      "Book return Shinkansen from Osaka to Tokyo on Mar7 at 07:15 to catch flight at 17:45.",
-      "Consider purchasing a JR Pass for convenience if staying in Kansai for >5 days.",
-      "Pack a small umbrella and wind‑proof jacket for March weather.",
-      "Carry a Japanese phrasebook for easier communication.",
-      "Use Suica cards for all local transit to avoid buying individual tickets.",
-      "Arrive at Haneda Airport at least 2 hours before departure.",
-      "Reserve tea ceremony in advance as it can be booked up.",
-      "Check crowd levels at Tokyo Tower and Tsukiji market early to avoid delays.",
-      "Use a stroller for the 17‑year‑old if walking long distances.",
-      "Verify bus schedules for Fuji day trip as times can shift due to traffic.",
-      "Keep an eye on weather forecasts for the mountain trip.",
-      "Plan to stay close to transportation hubs to reduce commute times.",
-      "Stay hydrated and carry snacks during long train rides.",
-      "Use a lightweight pack to ease movement between hotels.",
-      "Carry copies of all reservations in case of lost luggage.",
-      "Consider a travel insurance policy covering trip changes.",
-      "Use the Japan Travel app for station info on the day.",
-      "Bring a power bank as Japanese outlets are 100V.",
-      "Check for seasonal festivals that might close attractions.",
-      "Verify visa or entry requirements before travel.",
-      "Make sure to have enough local currency for small purchases.",
-      "Plan buffer time of 30 minutes for each inter‑city travel.",
-      "Use the same transport cards for all cities.",
-      "Pre‑book tickets for Mount Fuji view to secure seats.",
-      "Keep an exit plan for crowded tourist spots.",
-      "Use early morning for less crowded activity times.",
-      "Consider a Japan Rail Pass if you intend to shop.",
-      "Make sure the itinerary leaves at least 2 nights in Tokyo before travel.",
-      "Set a reminder for key reservations.",
-      "Keep contact info of local emergency numbers.",
-      "Use a reliable Wi‑Fi service for navigation.",
-      "Make sure to have your passport handy at airports.",
-      "Test your phone for local connectivity plan.",
-      "Keep a small first aid kit.",
-      "Plan for jet lag recovery on arrival day.",
-      "Pack sunscreen even in winter.",
-      "Carry a travel guide or use offline maps.",
-      "Use a portable charger.",
-      "Check COVID‑19 rules if any.",
-      "Keep a list of restaurants you want to try.",
-      "Use hotel concierge for local info.",
-      "Make a copy of flight details on your phone.",
-      "Check local news for disruptions.",
-      "Plan rest days for the marathon participant.",
-      "Check the time of the marathon in case of postponement.",
-      "Use the same credit card to avoid foreign transaction fees.",
-      "Use the Japan Travel app to check station info.",
-      "Bring a travel adapter.",
-      "Plan to use the airport lounge on the return flight.",
-      "Check your luggage weight to avoid fees.",
-      "Use a travel insurance.",
-      "Check the departure gate.",
-      "Check weather again on the day of the marathon.",
-      "Use a portable charger.",
-      "Check that the flight is still scheduled.",
-      "Bring a small first aid kit.",
-      "Check your passport’s validity.",
-      "Use a travel guide.",
-      "Use luggage labels.",
-      "Check local COVID‑19 rules.",
-      "Use a travel wallet.",
-      "Check flight times.",
-      "Use the Japan Travel app for station info.",
-      "Bring a rain umbrella.",
-      "Check the weather forecast before you start.",
-      "Use a travel adapter.",
-      "Check if you need a visa.",
-      "Take a selfie at Tokyo Tower.",
-      "Make sure you’re wearing comfortable shoes.",
-      "Check if the tea ceremony is included in the ticket.",
-      "Use Google Maps to navigate to the market.",
-      "Check for early opening at restaurants.",
-      "Use a travel guide book.",
-      "Check the bus schedule for Fuji.",
-      "Make sure you’re at the station on time.",
-      "Enjoy the ride.",
-      "Bring snacks.",
-      "Check your luggage weight.",
-      "Bring a travel adapter.",
-      "Check flight status.",
-      "Use the app for real‑time updates.",
-      "Enjoy your trip!"]
-    ,
-    "transportationNotes": [
-      "Day 1: Limousine Bus runs every 10‑15 min; arrive at Tokyo Station by 07:45.",
-      "Day 2: JR Yamanote line to Tokyo Tower; 5‑min walk to tower.",
-      "Day 3: Early Tsukiji Market opening at 05:00; tea ceremony bookings must be made.",
-      "Day 4: Metro to Senso‑ji is 15‑min ride.",
-      "Day 5: Marathon begins at 10:00; be there for cheering.",
-      "Day 6: Museum entrance closes at 17:30.",
-      "Day 7: Shinkansen Nozomi departs Kyoto at 06:30.",
-      "Day 8: Mount Fuji bus departs at 09:00.",
-      "Day 9: Yurikamome line departure at 10:15.",
-      "Day 10: Shinkansen departs Osaka at 07:45.",
-      "Day 11: Limousine Bus to HND departs at 10:30 to arrive before departure."
-    ]
-  }
-}
+            "accommodations": [],
+            "summary": {},
+            "keyRecommendations": [],
+            "transportationNotes": []
+        }
+    }
