@@ -1,6 +1,6 @@
 research_activities_task:
   description: >
-    Conduct a thorough research about activities for a traveller to {location}
+    Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
     Make sure you find any interesting and relevant information given.
   expected_output: >
     A list with 10-20 bullet points of the most interesting activities to do in at {location} with a short description for each.
@@ -9,7 +9,9 @@ research_activities_task:
 reporting_task:
   description: >
     Review the context you got and expand each topic into a day by day itinerary for a trip to {location}.
+    The arrival date at {location} is {arrival_date} and the departure date is {departure_date}
     Make sure the report is detailed and contains any and all relevant information.  It should contain a daily breakdown of activities and relevant details.
+    Include the calendar date and day of the week for each day of the trip.
   expected_output: >
     A detailed trip plan for a vacation to {location}.
     Formatted as markdown without '```'

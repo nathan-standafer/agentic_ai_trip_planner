@@ -19,6 +19,8 @@ def run():
     """
     inputs = {
         'location': 'Tokyo, Kyoto, and Osaka',
+        'arrival_date': '2026-02-26',
+        'departure_date': '2026-03-07'
         #'current_year': str(datetime.now().year)
     }
 
@@ -34,6 +36,8 @@ def train():
     """
     inputs = {
         "location": 'Tokyo, Kyoto, and Osaka',
+        'arrival_date': '2026-02-26',
+        'departure_date': '2026-03-07'
         #'current_year': str(datetime.now().year)
     }
     try:

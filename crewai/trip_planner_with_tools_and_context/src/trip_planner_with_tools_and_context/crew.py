@@ -1,7 +1,11 @@
+
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
+from crewai_tools import SerperDevTool
+from crewai.tools import tool
+
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -19,9 +23,21 @@ class TripPlannerWithToolsAndContext():
     # CrewAI/LiteLLM uses: http://localhost:11434 (adds /v1 automatically)
     # Model: gpt-oss:20b (or gpt-oss_131k_context:20b for larger context)
     llm = LLM(
-        model="ollama/gpt-oss_131k_context:20b",
+        #model="ollama/gpt-oss_131k_context:20b",  # this model doesn't seem to work as well with the SerperDevTool
+        model="ollama/gemma3:12b",        
         base_url="http://localhost:11434"
     )
+    #llm = LLM(model="openai/gpt-4o-mini")
+
+    @tool('search_tool')
+    def search_tool(search_query: str):
+        """Search the web for information on a given topic"""
+        print(f"Searching the web for: {search_query}")
+        response = SerperDevTool().run(search_query=search_query)
+        return response
+    
+    
+    #search_tool = search
 
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
@@ -34,6 +50,7 @@ class TripPlannerWithToolsAndContext():
         return Agent(
             config=self.agents_config['researcher'], # type: ignore[index]
             verbose=True,
+            tools=[self.search_tool],
             llm=self.llm
         )
 
