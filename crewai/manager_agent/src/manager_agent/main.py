@@ -17,11 +17,25 @@ def run():
     """
     Run the crew.
     """
+
+    trip_considerations_list = [
+        "The family lives in Columbus, OH.",
+        "The family has 3 members. Nathan (51), Laura (50), and Lydia (17).",
+        "The departure date is Feb 25, 2026, returning March 7.",
+        "Flights have already been purchased. Departing Columbus Ohio (CMH) Feb 25 at 10:20AM, arriving in Tokyo (HND) Feb 26 at 5:45PM. The Return flight is March 7, departing Tokyo at 4:15, returning to CMH at 11:00 PM.",
+        "Hotel reservations have already been made at the karaksa hotel TOKYO STATION. Check-in on Feb 26, check-out on March 3.",
+        "One family member (Nathan) will be running the Tokyo Marathon on Sunday March 1, 2026.",
+        "2026 is not leap year, so the last day of Febuary is Feb 28.",
+        "The family wants to take the train from Tokyo to visit Kyoto and Osaka on March 3 and spend the rest of the vacation in that area, returning to Tokyo (HND) on March 7 to return home."
+    ]
+    
+    trip_considerations = "; ".join(trip_considerations_list)
+
     inputs = {
         'location': 'Tokyo, Kyoto, and Osaka',
         'arrival_date': '2026-02-26',
-        'departure_date': '2026-03-07'
-        #'current_year': str(datetime.now().year)
+        'departure_date': '2026-03-07',
+        'trip_considerations': trip_considerations
     }
 
     try:

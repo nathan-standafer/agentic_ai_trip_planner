@@ -1,7 +1,7 @@
 research_activities_task:
   description: >
     Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
-    Make sure you find any interesting and relevant information given.
+    Make sure you find any interesting and relevant information given.  Be sure to take the following into consideration when researching activities: {trip_considerations}
   expected_output: >
     A list with about enough activities for each date of the trip to fill the vacation plan, with some extra activities to allow flexibility when choosing which activities to do.
   agent: researcher_activities
@@ -11,11 +11,12 @@ coordinator_activities_task:
   description: >
     Given a list of activities for a traveller to {location} between the dates of {arrival_date} and {departure_date},
     group them by date so that each date of the vacation to {location} has a set of activities assigned to it.
+    Be sure to take the following into consideration when researching activities: {trip_considerations}
   expected_output: >
     A list of dates with a sub-list of activities for each day of the trip to {location}, making
     it easy for others to understand and act on the information you provide.
-  # context:
-  #   - research_activities_task
+  context:
+    - research_activities_task
   agent: coordinator_activities
   output_file: output/daily_activities_list.md
 
@@ -27,8 +28,8 @@ research_food_task:
     Be sure to fit the food options into the overall trip plan with respect to timing and location.
   expected_output: >
     An updated daily trip activities list that includes food options.
-  # context:
-  #   - coordinator_activities_task
+  context:
+    - coordinator_activities_task
   agent: researcher_food
   output_file: output/daily_activities_with_food.md
 
@@ -38,10 +39,11 @@ research_lodging_task:
     You will be given a list of activities with locations during the trip.  Add lodging options near those locations.
     Include a variety of lodging options, including hotels, hostels, vacation rentals, and unique accommodations.
     Be sure to fit the lodging options into the overall trip plan with respect to timing and location.
+    Be sure to take the following into consideration when researching lodging: {trip_considerations}
   expected_output: >
     An updated daily trip activities list that includes activities, food and lodging options.
-  # context:
-  #   - coordinator_activities_task
+  context:
+    - research_food_task
   agent: researcher_lodging
   output_file: output/daily_activities_with_lodging.md
 
@@ -51,10 +53,11 @@ research_transportation_task:
     You will be given a list of activities with locations during the trip.  Add transportation options between those locations.
     Include a variety of transportation options, including public transit, rideshares, bike rentals, and walking routes.
     Be sure to fit the transportation options into the overall trip plan with respect to timing and location.
+    Be sure to take the following into consideration when researching transportation: {trip_considerations}
   expected_output: >
     An updated daily trip plan that includes activities, food, lodging options, and transportation options for each date of the trip.
-  # context:
-  #   - coordinator_activities_task
+  context:
+    - research_lodging_task
   agent: researcher_transportation
   output_file: output/daily_activities_with_transportation.md 
 
@@ -64,6 +67,7 @@ reporting_task:
     The arrival date at {location} is {arrival_date} and the departure date is {departure_date}
     Make sure the report is detailed and contains any and all relevant information.  It should contain a daily breakdown of activities and relevant details.
     Include the calendar date and day of the week for each day of the trip.
+    Be sure to take the following into consideration when creating the final report: {trip_considerations}
   expected_output: >
     A detailed trip plan for a vacation to {location}.
     Formatted as markdown without '```'
@@ -99,7 +103,7 @@ reporting_task:
       | 04:00 PM | Free time / hotel relaxation | – | – | – | – |
       | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | – | – | ¥15,000 |
       | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | – | – | – |
-  # context:
-  #   - coordinator_activities_task
+  context:
+    - research_transportation_task
   agent: reporting_analyst 
   output_file: output/trip_plan.md

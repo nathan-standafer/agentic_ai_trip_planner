@@ -49,6 +49,17 @@ class ManagerAgent():
         base_url="http://localhost:11434"
     )
 
+    # Using gemma3 didn't work well for this project. Errors were being thrown when passing between agents, so switching to gpt-4o-mini
+    # Note: gemma3 did better when I defined context for each task.  
+    # This seemt to produce the same errors
+    # llm = LLM(
+    #     model="openai/gpt-4o-mini",
+    #     temperature=0.1,  # Lower temperature for more consistent function calling
+    #     #function_calling=True  # Explicitly enable function calling
+    # )
+
+
+
     @tool('search_tool')
     def search_tool(search_query: str):
         """
@@ -175,18 +186,18 @@ class ManagerAgent():
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
 
-        manager = Agent(
-            config=self.agents_config['manager'], # type: ignore[index]
-            verbose=True,
-            allow_delegation=True,
-            llm=self.llm
-        )
+        # manager = Agent(
+        #     config=self.agents_config['manager'], # type: ignore[index]
+        #     verbose=True,
+        #     allow_delegation=True,
+        #     llm=self.llm
+        # )
 
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
-            #process=Process.sequential,
+            process=Process.sequential,
             verbose=True,
-            process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
-            manager_agent=manager
+            #process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            #manager_agent=manager
         )
