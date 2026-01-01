@@ -85,6 +85,16 @@ class StructuredOutputsWithMoreAgents():
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
         )
+    
+    @agent
+    def researcher_food(self) -> Agent:
+        return Agent(
+            config=self.agents_config['researcher_food'], # type: ignore[index]
+            verbose=True,
+            tools=[self.search_tool],
+            llm=self.llm,
+            output_pydantic=DailyActivityPlanList
+        )
 
     @agent
     def reporting_analyst(self) -> Agent:
@@ -107,13 +117,19 @@ class StructuredOutputsWithMoreAgents():
     def coordinator_activities_task(self) -> Task:
         return Task(
             config=self.tasks_config['coordinator_activities_task'], # type: ignore[index]
-        )   
+        )  
+
+    @task
+    def research_food_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['research_food_task'], # type: ignore[index]
+        )  
 
     @task
     def reporting_task(self) -> Task:
         return Task(
             config=self.tasks_config['reporting_task'], # type: ignore[index]
-            output_file='report.md'
+            #output_file='report.md'
         )
 
     @crew

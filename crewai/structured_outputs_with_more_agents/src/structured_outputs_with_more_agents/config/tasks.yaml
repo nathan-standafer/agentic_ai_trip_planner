@@ -3,8 +3,9 @@ research_activities_task:
     Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
     Make sure you find any interesting and relevant information given.
   expected_output: >
-    A list with about 5 activities for each day of the trip in {location}.
+    A list with about enough activities to fill the vacation plan, with some extra activities to allow flexibility.
   agent: researcher_activities
+  output_file: output/activities_list.md
 
 coordinator_activities_task:
   description: >
@@ -16,26 +17,20 @@ coordinator_activities_task:
   context:
     - research_activities_task
   agent: coordinator_activities
+  output_file: output/daily_activities_list.md
 
-
-# research_food_task:
-#   description: >
-#     Conduct a thorough research about food options for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
-#     Make sure you find any interesting and relevant information given.
-#   expected_output: >
-#     A list with 10-20 bullet points of the most interesting food options to do in at {location} with a short description for each.
-#   agent: researcher
-
-
-
-# research_transportation_task:
-#   description: >
-#     Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
-#     Make sure you find any interesting and relevant information given.
-#   expected_output: >
-#     A list with 10-20 bullet points of the most interesting activities to do in at {location} with a short description for each.
-#   agent: researcher
-
+research_food_task:
+  description: >
+    Conduct a thorough research about food options for a traveller to {location}.
+    You will be given a list of activities with locations during the trip.  Add food options near those locations.
+    Include a variety of food options, including local specialties, popular restaurants, street food, and unique dining experiences.
+    Be sure to fit the food options into the overall trip plan with respect to timing and location.
+  expected_output: >
+    An updated daily trip activities list that includes food options.
+  context:
+    - coordinator_activities_task
+  agent: researcher_food
+  output_file: output/daily_activities_with_food.md
 
 reporting_task:
   description: >
@@ -79,6 +74,6 @@ reporting_task:
       | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | – | – | ¥15,000 |
       | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | – | – | – |
   context:
-    - coordinator_activities_task
+    - research_food_task
   agent: reporting_analyst 
   output_file: output/trip_plan.md
