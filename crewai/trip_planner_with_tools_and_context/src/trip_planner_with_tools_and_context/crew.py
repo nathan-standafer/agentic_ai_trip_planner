@@ -24,7 +24,7 @@ class TripPlannerWithToolsAndContext():
     # Model: gpt-oss:20b (or gpt-oss_131k_context:20b for larger context)
     llm = LLM(
         #model="ollama/gpt-oss_131k_context:20b",  # this model doesn't seem to work as well with the SerperDevTool
-        model="ollama/gemma3:12b",        
+        model="ollama/gemma3_128k:12b",        
         base_url="http://localhost:11434"
     )
     #llm = LLM(model="openai/gpt-4o-mini")
@@ -35,9 +35,6 @@ class TripPlannerWithToolsAndContext():
         print(f"Searching the web for: {search_query}")
         response = SerperDevTool().run(search_query=search_query)
         return response
-    
-    
-    #search_tool = search
 
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
