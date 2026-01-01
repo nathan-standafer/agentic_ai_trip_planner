@@ -1,0 +1,84 @@
+research_activities_task:
+  description: >
+    Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
+    Make sure you find any interesting and relevant information given.
+  expected_output: >
+    A list with about 5 activities for each day of the trip in {location}.
+  agent: researcher_activities
+
+coordinator_activities_task:
+  description: >
+    Given a list of activities for a traveller to {location} between the dates of {arrival_date} and {departure_date},
+    group them by date so that each date of the vacation to {location} has a set of activities assigned to it.
+  expected_output: >
+    A list of dates with a sub-list of activities for each day of the trip to {location}, making
+    it easy for others to understand and act on the information you provide.
+  context:
+    - research_activities_task
+  agent: coordinator_activities
+
+
+# research_food_task:
+#   description: >
+#     Conduct a thorough research about food options for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
+#     Make sure you find any interesting and relevant information given.
+#   expected_output: >
+#     A list with 10-20 bullet points of the most interesting food options to do in at {location} with a short description for each.
+#   agent: researcher
+
+
+
+# research_transportation_task:
+#   description: >
+#     Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
+#     Make sure you find any interesting and relevant information given.
+#   expected_output: >
+#     A list with 10-20 bullet points of the most interesting activities to do in at {location} with a short description for each.
+#   agent: researcher
+
+
+reporting_task:
+  description: >
+    Review the context you got and expand each topic into a day by day itinerary for a trip to {location}.
+    The arrival date at {location} is {arrival_date} and the departure date is {departure_date}
+    Make sure the report is detailed and contains any and all relevant information.  It should contain a daily breakdown of activities and relevant details.
+    Include the calendar date and day of the week for each day of the trip.
+  expected_output: >
+    A detailed trip plan for a vacation to {location}.
+    Formatted as markdown without '```'
+
+
+    Generate the output in the following structure:
+    |-
+      # Trip Itinerary for {location}, from {arrival_date} to {departure_date}
+
+      ## Summary
+      **Major Transportation:**
+      - List the main transportation methods, routes, and any passes or tickets required for the trip.
+
+      **Hotel Accommodations:**
+      - List the primary hotel(s) with name, address, check-in/check-out dates, and any relevant notes.
+
+      ## Day X – YYYY/MM/DD (Day of the week)
+      **Theme:** Classic Tokyo – Tower & Tsukiji
+
+      | Time | Activity | Details | Transportation | Duration | Cost |
+      |------|----------|---------|----------------|----------|------|
+      | 07:00 AM | Breakfast | **Café Boulangerie** (hotel) | – | – | ¥1,200 |
+      | 08:00 AM | Depart Tokyo Station | Take **JR Keihin‑Tohoku Line** to **Hamamatsu** for Tokyo Tower | Train | 15 min | ¥170 |
+      | 08:20 AM | Arrive Hamamatsu, transfer to **Tokyo Tower Bus** (free shuttle) | 10 min | Bus | 10 min | Free |
+      | 08:35 AM | Arrive Tokyo Tower | Main Deck visit | – | 1 h 30 min | ¥1,500 |
+      | 10:15 AM | Walk to **Tokyo Tower Garden** | 5 min | – | 5 min | – |
+      | 10:45 AM | Return to Tokyo Station | Bus 10 min | – | 10 min | – |
+      | 11:00 AM | Train to **Tsukiji** | JR Yamanote line | 15 min | ¥170 |
+      | 11:20 AM | Arrive Tsukiji | Explore inner market | – | – | – |
+      | 12:00 PM | Lunch at **Sushi Dai** (reserv. needed) | 1 h | – | – | ¥5,000 |
+      | 01:30 PM | Walk to **Hamarikyu Gardens** (15 min) | 1 h | – | – | – |
+      | 02:45 PM | Return to hotel | Walk 15 min | – | – | – |
+      | 04:00 PM | Free time / hotel relaxation | – | – | – | – |
+      | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | – | – | ¥15,000 |
+      | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | – | – | – |
+  context:
+    - coordinator_activities_task
+  agent: reporting_analyst 
+  output_file: output/trip_plan.md
