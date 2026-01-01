@@ -171,14 +171,22 @@ class ManagerAgent():
 
     @crew
     def crew(self) -> Crew:
-        """Creates the StructuredOutputsWithMoreAgents crew"""
+        """Creates the ManagerAgent crew"""
         # To learn how to add knowledge sources to your crew, check out the documentation:
         # https://docs.crewai.com/concepts/knowledge#what-is-knowledge
+
+        manager = Agent(
+            config=self.agents_config['manager'], # type: ignore[index]
+            verbose=True,
+            allow_delegation=True,
+            llm=self.llm
+        )
 
         return Crew(
             agents=self.agents, # Automatically created by the @agent decorator
             tasks=self.tasks, # Automatically created by the @task decorator
-            process=Process.sequential,
+            #process=Process.sequential,
             verbose=True,
-            # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+            manager_agent=manager
         )
