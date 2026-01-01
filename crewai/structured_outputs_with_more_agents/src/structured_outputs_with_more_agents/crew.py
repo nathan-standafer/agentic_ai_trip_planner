@@ -40,7 +40,6 @@ class StructuredOutputsWithMoreAgents():
     agents: List[BaseAgent]
     tasks: List[Task]
 
-
     # Learn more about YAML configuration files here:
     # Agents: https://docs.crewai.com/concepts/agents#yaml-configuration-recommended
     # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
@@ -95,6 +94,26 @@ class StructuredOutputsWithMoreAgents():
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
         )
+    
+    @agent
+    def researcher_lodging(self) -> Agent:
+        return Agent(
+            config=self.agents_config['researcher_lodging'], # type: ignore[index]
+            verbose=True,
+            tools=[self.search_tool],
+            llm=self.llm,
+            output_pydantic=DailyActivityPlanList
+        )   
+    
+    @agent
+    def researcher_transportation(self) -> Agent:
+        return Agent(
+            config=self.agents_config['researcher_transportation'], # type: ignore[index]
+            verbose=True,
+            tools=[self.search_tool],
+            llm=self.llm,
+            output_pydantic=DailyActivityPlanList
+        )
 
     @agent
     def reporting_analyst(self) -> Agent:
@@ -124,6 +143,18 @@ class StructuredOutputsWithMoreAgents():
         return Task(
             config=self.tasks_config['research_food_task'], # type: ignore[index]
         )  
+    
+    @task
+    def research_lodging_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['research_lodging_task'], # type: ignore[index]
+        )  
+        
+    @task
+    def research_transportation_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['research_transportation_task'], # type: ignore[index]
+        )
 
     @task
     def reporting_task(self) -> Task:

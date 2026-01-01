@@ -32,6 +32,32 @@ research_food_task:
   agent: researcher_food
   output_file: output/daily_activities_with_food.md
 
+research_lodging_task:
+  description: >
+    Conduct a thorough research about lodging options for a traveller to {location}.
+    You will be given a list of activities with locations during the trip.  Add lodging options near those locations.
+    Include a variety of lodging options, including hotels, hostels, vacation rentals, and unique accommodations.
+    Be sure to fit the lodging options into the overall trip plan with respect to timing and location.
+  expected_output: >
+    An updated daily trip activities list that includes food and lodging options.
+  context:
+    - research_food_task
+  agent: researcher_lodging
+  output_file: output/daily_activities_with_lodging.md
+
+research_transportation_task:
+  description: >
+    Conduct a thorough research about transportation options for a traveller to {location}.
+    You will be given a list of activities with locations during the trip.  Add transportation options between those locations.
+    Include a variety of transportation options, including public transit, rideshares, bike rentals, and walking routes.
+    Be sure to fit the transportation options into the overall trip plan with respect to timing and location.
+  expected_output: >
+    An updated daily trip activities list that includes food lodging, and transportation options.
+  context:
+    - research_lodging_task
+  agent: researcher_transportation
+  output_file: output/daily_activities_with_transportation.md 
+
 reporting_task:
   description: >
     Review the context you got and expand each topic into a day by day itinerary for a trip to {location}.
@@ -74,6 +100,6 @@ reporting_task:
       | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | – | – | ¥15,000 |
       | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | – | – | – |
   context:
-    - research_food_task
+    - research_transportation_task
   agent: reporting_analyst 
   output_file: output/trip_plan.md
