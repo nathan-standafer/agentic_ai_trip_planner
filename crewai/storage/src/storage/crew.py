@@ -2,9 +2,10 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-from crewai_tools import SerperDevTool
-from crewai.tools import tool
+# from crewai_tools import SerperDevTool
+# from crewai.tools import tool
 from pydantic import BaseModel, Field
+from .tools.serper_tool import SerperTool
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
@@ -47,51 +48,17 @@ class ManagerAgent():
     # https://docs.crewai.com/concepts/agents#agent-tools
     #gemma3 seems to work the best for this project.  I experimmented with other local LLMs and openai models, but they would never perform as well as gemma3.
     llm = LLM(
-        model="ollama/gemma3_128k:12b",        
+        #model="openai/gpt-4o-mini",
+        model="ollama/gemma3_128k:12b",       
         base_url="http://localhost:11434"
     )
-
-    # llm = LLM(
-    #     model="openai/gpt-4.1-mini"
-    # )
-
-    # Using gemma3 didn't work well for this project. Errors were being thrown when passing between agents, so switching to gpt-4o-mini
-    # Note: gemma3 did better when I defined context for each task.  
-    # This seemt to produce the same errors
-    # llm = LLM(
-    #     model="openai/gpt-4o-mini",
-    #     temperature=0.1,  # Lower temperature for more consistent function calling
-    #     #function_calling=True  # Explicitly enable function calling
-    # )
-
-    @tool('search_tool')
-    def search_tool(search_query: str):
-        """
-        Search the web for information on a given topic.
-
-        Usage:
-        - Pass a clear and concise search_query string describing what you want to find.
-        - The tool will use SerperDevTool to perform a web search and return the results.
-        - Use this tool when you need up-to-date information or details not present in local knowledge sources.
-
-        Example:
-        search_tool('Best sightseeing spots in Paris')
-
-        Args:
-            search_query (str): The topic or question to search for online.
-        Returns:
-            str: The search results from SerperDevTool.
-        """
-        print(f"Searching the web for: {search_query}")
-        response = SerperDevTool().run(search_query=search_query)
-        return response
     
     @agent
     def researcher_activities(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher_activities'], # type: ignore[index]
+            config=self.agents_config['researcher_activities'],
             verbose=True,
-            tools=[self.search_tool],
+            tools=[SerperTool()],
             llm=self.llm,
             output_pydantic=ActivityList
         )
@@ -99,9 +66,9 @@ class ManagerAgent():
     @agent
     def coordinator_activities(self) -> Agent:
         return Agent(
-            config=self.agents_config['coordinator_activities'], # type: ignore[index]
+            config=self.agents_config['coordinator_activities'],
             verbose=True,
-            #tools=[self.search_tool],
+            #tools=[SerperTool()],
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
         )
@@ -109,9 +76,9 @@ class ManagerAgent():
     @agent
     def researcher_food(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher_food'], # type: ignore[index]
+            config=self.agents_config['researcher_food'],
             verbose=True,
-            tools=[self.search_tool],
+            tools=[SerperTool()],
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
         )
@@ -119,9 +86,9 @@ class ManagerAgent():
     @agent
     def researcher_lodging(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher_lodging'], # type: ignore[index]
+            config=self.agents_config['researcher_lodging'],
             verbose=True,
-            tools=[self.search_tool],
+            tools=[SerperTool()],
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
         )   
@@ -129,9 +96,9 @@ class ManagerAgent():
     @agent
     def researcher_transportation(self) -> Agent:
         return Agent(
-            config=self.agents_config['researcher_transportation'], # type: ignore[index]
+            config=self.agents_config['researcher_transportation'],
             verbose=True,
-            tools=[self.search_tool],
+            tools=[SerperTool()],
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
         )
@@ -139,7 +106,7 @@ class ManagerAgent():
     @agent
     def reporting_analyst(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
+            config=self.agents_config['reporting_analyst'],
             verbose=True,
             llm=self.llm,
             output_pydantic=DailyActivityPlanList
