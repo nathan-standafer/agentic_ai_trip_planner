@@ -1,17 +1,23 @@
 research_activities_task:
   description: >
-    Conduct a thorough research about activities for a traveller to {location} between the dates of {arrival_date} and {departure_date}.
-    Make sure you find any interesting and relevant information given.  Be sure to take the following into consideration when researching activities: {trip_considerations}
+    Conduct a thorough research about activities for a vacation to {location} between the dates of {arrival_date} and {departure_date}.
+    Make sure you find any interesting and relevant information given.  Be sure to take the following into consideration when researching 
+    activities: {trip_considerations}.  Food and lodging will be handled by other agents.
+    The family's desired activities include: {activity_considerations}.
   expected_output: >
-    A list with about enough activities for each date of the trip to fill the vacation plan, with some extra activities to allow flexibility when choosing which activities to do.
+    A list with about enough activities for each date of the trip to fill the vacation plan, with some extra activities to allow flexibility when 
+    choosing which activities to do.  Include a summary of each activity about 20 words in length, location details, and any relevant information 
+    about why the activity is recommended.
   agent: researcher_activities
   output_file: output/activities_list.md
 
 coordinator_activities_task:
   description: >
     Given a list of activities for a traveller to {location} between the dates of {arrival_date} and {departure_date},
-    group them by date so that each date of the vacation to {location} has a set of activities assigned to it.
+    group them by date so that each date of the vacation to {location} has a set of activities assigned to it.  Organzize the 
+    activities in a logical order for each day taking transportation between activities into account.
     Be sure to take the following into consideration when researching activities: {trip_considerations}
+    The family's desired activities include: {activity_considerations}.
   expected_output: >
     A list of dates with a sub-list of activities for each day of the trip to {location}, making
     it easy for others to understand and act on the information you provide.
@@ -26,6 +32,7 @@ research_food_task:
     You will be given a list of activities with locations during the trip.  Add food options near those locations.
     Include a variety of food options, including local specialties, popular restaurants, street food, and unique dining experiences.
     Be sure to fit the food options into the overall trip plan with respect to timing and location.
+    Be sure to take the following desired food optons when researching food: {food_considerations}
   expected_output: >
     An updated daily trip activities list that includes food options.
   context:
@@ -50,12 +57,14 @@ research_lodging_task:
 research_transportation_task:
   description: >
     Conduct a thorough research about transportation options for a traveller to {location}.
-    You will be given a list of activities with locations during the trip.  Add transportation options between those locations.
-    Include a variety of transportation options, including public transit, rideshares, bike rentals, and walking routes.
+    You will be given a list of activities with locations during the trip.  Add the best transportation option 
+    between those locations, including public transit, rideshares, bike rentals, and walking routes.
     Be sure to fit the transportation options into the overall trip plan with respect to timing and location.
-    Be sure to take the following into consideration when researching transportation: {trip_considerations}
+    Each transportaion option should include estimated travel time and cost as well as a link to google maps to get
+    details about the route.
   expected_output: >
-    An updated daily trip plan that includes activities, food, lodging options, and transportation options for each date of the trip.
+    An updated daily trip plan that includes activities, food, lodging options, and transportation methods for 
+    each date of the trip.
   context:
     - research_lodging_task
   agent: researcher_transportation
@@ -107,3 +116,4 @@ reporting_task:
     - research_transportation_task
   agent: reporting_analyst 
   output_file: output/trip_plan.md
+

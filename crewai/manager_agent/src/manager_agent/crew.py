@@ -16,6 +16,7 @@ class Activity(BaseModel):
     suggested_duration: str = Field(description="The suggested duration for the activity, e.g., '2 hours', 'half day', 'full day'.")
     location: str = Field(description="The location where the activity takes place, e.g., city or specific venue.")
     sublocation: str = Field(description="The specific sub-location or venue within the main location where the activity takes place.")
+    http_link: str = Field(description="A URL link to more information about the activity, if available.")
 
 class ActivityList(BaseModel):
     """A list of activities with their details."""
@@ -49,6 +50,10 @@ class ManagerAgent():
         base_url="http://localhost:11434"
     )
 
+    # llm = LLM(
+    #     model="openai/gpt-4o-mini"
+    # )
+
     # Using gemma3 didn't work well for this project. Errors were being thrown when passing between agents, so switching to gpt-4o-mini
     # Note: gemma3 did better when I defined context for each task.  
     # This seemt to produce the same errors
@@ -57,8 +62,6 @@ class ManagerAgent():
     #     temperature=0.1,  # Lower temperature for more consistent function calling
     #     #function_calling=True  # Explicitly enable function calling
     # )
-
-
 
     @tool('search_tool')
     def search_tool(search_query: str):
@@ -137,7 +140,8 @@ class ManagerAgent():
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
             verbose=True,
-            llm=self.llm
+            llm=self.llm,
+            output_pydantic=DailyActivityPlanList
         )
 
     # To learn more about structured task outputs,
@@ -179,7 +183,7 @@ class ManagerAgent():
             config=self.tasks_config['reporting_task'], # type: ignore[index]
             #output_file='report.md'
         )
-
+    
     @crew
     def crew(self) -> Crew:
         """Creates the ManagerAgent crew"""
