@@ -1,157 +1,164 @@
-# Trip Itinerary for Tokyo, Kyoto, and Osaka, from 2026-02-26 to 2026-03-07
+# Trip Itinerary for Tokyo, Kyoto, and Osaka: 2026-02-26 to 2026-03-07
 
 ## Summary
-**Major Transportation:** The family will utilize a combination of Shinkansen (bullet train) for long-distance travel between Tokyo, Kyoto, and Osaka. Within cities, they'll rely on local JR lines, subway lines, and occasional buses. Suica/Pasmo cards are recommended for ease of payment. A Japan Rail Pass might be beneficial depending on the final itinerary and travel distances. Luggage forwarding (Takkyubin) will be considered for convenience.
+**Major Transportation:**  
+- **Tokyo:** JR Lines, Tokyo Metro, buses, and Shinkansen.  
+- **Kyoto/Osaka:** JR Lines, Kyoto City Bus, Osaka Metro.  
+- Consider purchasing a Suica or Pasmo card for ease of travel in Tokyo.
 
-**Hotel Accommodations:**
-*   **Karaksa Hotel TOKYO STATION (Tokyo):** 2026-02-26 to 2026-03-03 (Check-in: Feb 26, Check-out: Mar 3) – Convenient location near Tokyo Station for Shinkansen access.
-*   **Cat Spa & Cat Ryokan by Neco Republic Osaka (Osaka):** 2026-03-03 to 2026-03-07 (Check-in: Mar 3, Check-out: Mar 7) – Unique experience with cat-themed accommodations. Backup: MIMARU OSAKA NAMBA
+**Hotel Accommodations:**  
+1. Karaksa Hotel TOKYO STATION: Check-in 2026-02-26, Check-out 2026-03-03 (Tokyo).  
+2. Resi Stay Kyoto: Check-in 2026-03-03, Check-out 2026-03-07 (Kyoto).
 
-## Day 1 – 2026/02/26 (Thursday)
-**Theme:** Arrival in Tokyo & Shinjuku Exploration
+---
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 10:20 AM | Departure from CMH | – | – | – | – |
-| 5:45 PM | Arrival at HND | Clear Customs & Immigration | – | – | – |
-| 6:00 PM | HND to Karaksa Hotel | Limousine Bus (~90 mins)  | Limousine Bus | 90 mins | 1,500 |
-| 7:30 PM | Check-in Karaksa Hotel | – | – | – | – |
-| 8:00 PM | Dinner in Shinjuku | Explore local restaurants | JR Yamanote Line (~15 mins) | 15 mins | 2,000 |
-| 9:30 PM | Shinjuku Gyoen National Garden (Optional evening stroll)| Evening ambiance. | – | 1 hour | 500|
+## Day 1 – 2026/02/26 (Sunday)  
+**Theme:** Arrival & Relaxation  
 
-## Day 2 – 2026/02/27 (Friday)
-**Theme:** Electric Town & Trendsetting Shibuya
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 17:45 | Arrive Tokyo | At HND Airport | – | – | – |  
+| 20:00 | Check-in | Karaksa Hotel, Tokyo Station | – | – | ¥10,000/night |  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Hotel | – | – | – | 1,200 |
-| 09:00 AM | Karaksa Hotel to Akihabara | JR Yamanote Line | 15 mins | 200 |
-| 09:15 AM | Akihabara Exploration | Explore anime stores (Animate, Mandarake), electronics shops, and themed cafes (Gundam Cafe, AKB48 Cafe). Lydia’s interests. | – | 3-4 hours | Variable |
-| 12:30 PM | Lunch in Akihabara | Ramen or themed cafe | – | 1 hour | 2,500 |
-| 1:30 PM | Akihabara to Shibuya | JR Yamanote Line | 35 mins | 200 |
-| 2:05 PM | Shibuya Exploration | Hachiko statue, Shibuya Crossing, trendy shops. | – | 3-4 hours | Variable |
-| 5:00 PM | Dinner in Shibuya |  Explore diverse restaurant options. | – | 1 hour | 3,000 |
-| 6:00 PM | Shopping in Shibuya | Explore the fashion districts. | – | 2 hours | Variable |
-| 8:00 PM | Return to Hotel | JR Yamanote Line | 25 mins | 200 |
+---
 
-## Day 3 – 2026/02/28 (Saturday)
-**Theme:** Serenity & Style
+## Day 2 – 2026/02/27 (Monday)  
+**Theme:** Classic Tokyo – Tower & Tsukiji  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Hotel | – | – | – | 1,200 |
-| 09:00 AM | Karaksa Hotel to Meiji Jingu Shrine | JR Yamanote Line + Walk | 20 mins + 15 min walk | 35 mins | 200 |
-| 09:35 AM | Meiji Jingu Shrine | Peaceful walk through the forest, visit the shrine. | – | 1.5-2 hours | Free |
-| 11:30 AM | Harajuku Exploration | Takeshita Street (youth fashion, quirky snacks), Omotesando (upscale boutiques). | Walk | 2-3 hours | Variable |
-| 1:30 PM | Lunch in Harajuku | Crepes, street food | – | 1 hour | 2,000 |
-| 2:30 PM | Shopping in Harajuku | Unique clothing and accessories. | – | 2 hours | Variable |
-| 4:30 PM | Return to Hotel | JR Yamanote Line | 20 mins | 200 |
-| 6:00 PM | Dinner near Hotel | – | – | 1 hour | 3,000 |
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Café Boulangerie (hotel) | – | – | ¥1,200 |  
+| 08:00 | Depart Tokyo Station | JR Keihin-Tohoku Line to Hamamatsu | Train | 15 min | ¥170 |  
+| 08:20 | Arrive Hamamatsu | Transfer to Tokyo Tower Bus (free shuttle) | Bus | 10 min | Free |  
+| 08:35 | Visit Tokyo Tower | Main Deck visit | – | 1 h 30 min | ¥1,500 |  
+| 10:15 | Walk to Tokyo Tower Garden | 5 min | – | 5 min | – |  
+| 10:45 | Return to Tokyo Station | Bus | 10 min | – | Free |  
+| 11:00 | Train to Tsukiji | JR Yamanote Line | 15 min | ¥170 |  
+| 11:20 | Explore Tsukiji Market | Inner market visit | – | – | – |  
+| 12:00 | Lunch | Sushi Dai (reservations needed) | 1 h | – | ¥5,000 |  
+| 01:30 | Walk to Hamarikyu Gardens | 15 min | – | – | – |  
+| 02:45 | Return to hotel | Walk | 15 min | – | – |  
+| 06:30 | Dinner | Ginza Kojyu (kaiseki) | – | – | ¥15,000 |  
+| 08:30 | Evening stroll | Chuo Street | Walk | 20 min | – |  
 
-## Day 4 – 2026/03/01 (Sunday) - Tokyo Marathon Day
+---
 
-**Theme:** Nathan's Marathon & Family Fun
+## Day 3 – 2026/02/28 (Tuesday)  
+**Theme:** Imperial Tokyo & Asakusa  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 06:00 AM | Breakfast | Quick and easy breakfast | – | – | 1,000 |
-| 07:00 AM | Karaksa Hotel to Tokyo Metropolitan Gov. Bldg. | JR Line | 30 mins | 200 |
-| 07:30 AM | Nathan to Marathon Start | Follow Marathon instructions. | – | – | – |
-| 07:30 AM | Laura & Lydia – Ueno Park | Explore Ueno Park museums (Tokyo National Museum, Ueno Zoo) | Local train/subway | 1 hour | Variable |
-| 09:10 AM | Tokyo Marathon Start | Nathan runs the marathon. | – | ~4-5 hours (estimated) | – |
-| 1:00 PM | Lunch (Laura & Lydia) | Casual lunch in Ueno | – | 1 hour | 2,500 |
-| 2:00 PM | Ginza Shopping (Laura & Lydia) | Upscale shopping district | Subway | 30 mins | Variable |
-| 4:00 PM | Reunion (Near Tokyo Station) | Meet Nathan after the marathon | – | – | – |
-| 5:00 PM | Dinner | Celebrate Nathan's accomplishment | – | 1 hour | 4,000 |
-| 7:00 PM | Relax at Hotel | – | – | – | – |
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Café Boulangerie (hotel) | – | – | ¥1,200 |  
+| 08:00 | Train to Imperial Palace | JR Chiyoda Line to Chiyoda | Train | 15 min | ¥230 |  
+| 09:00 | Visit Imperial Palace | East Gardens tour | – | 2 h | Free |  
+| 11:00 | Lunch | Nakano Broadway Food Street | – | – | ¥2,000 |  
+| 12:30 | Visit Senso-ji Temple | Asakusa area | Walk | – | – |  
+| 02:00 | Visit Tokyo Skytree | Observation Deck | – | 1 h | ¥670 |  
+| 05:00 | Return to hotel | Train/Metro | – | – | – |  
+| 07:00 | Dinner | Ippudo Ramen (near hotel) | – | – | ¥2,500 |  
 
-## Day 5 – 2026/03/02 (Monday)
-**Theme:** Tokyo Skytree & Asakusa's Charm
+---
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Hotel | – | – | – | 1,200 |
-| 09:00 AM | Karaksa Hotel to Tokyo Skytree | Tobu Skytree Line | 30-40 mins | 300 |
-| 09:40 AM | Tokyo Skytree | Observation decks, shopping, restaurants. | – | 2-3 hours | 2,000 |
-| 12:00 PM | Lunch near Skytree | – | – | 1 hour | 2,500 |
-| 1:00 PM | Tokyo Skytree to Asakusa | Tobu Skytree Line + Asakusa Line | 20 mins | 200 |
-| 1:20 PM | Asakusa Exploration | Senso-ji Temple, Nakamise-dori (shopping street). | – | 3-4 hours | Variable |
-| 4:00 PM | Dinner in Asakusa | Traditional Japanese cuisine | – | 1 hour | 3,000 |
-| 5:00 PM | Return to Hotel | JR Yamanote Line | 20 mins | 200 |
+## Day 4 – 2026/03/01 (Wednesday)  
+**Theme:** Tokyo Marathon & Family Outing  
 
-## Day 6 – 2026/03/03 (Tuesday)
-**Theme:** Shinkansen to Kyoto/Osaka & Initial Exploration
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Café Boulangerie (hotel) | – | – | ¥1,200 |  
+| 08:30 | Support Nathan | Tokyo Metropolitan Government Building | Walk | – | – |  
+| 09:10 | Tokyo Marathon | Watch Nathan run | – | – | Free |  
+| 12:00 | Lunch | Nakano Broadway Food Street | – | – | ¥2,000 |  
+| 02:00 | Visit Akihabara | Anime/Manga stores | Metro/S Bus | – | – |  
+| 06:00 | Return to hotel | Metro/S Bus | – | – | – |  
+| 07:30 | Dinner | Ghibli-themed Cafe (near hotel) | – | – | ¥4,000 |  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Hotel | – | – | – | 1,200 |
-| 09:00 AM | Karaksa Hotel to Tokyo Station | Walk | 5-10 mins | – | Free |
-| 09:10 AM | Tokyo Station to Kyoto/Osaka | Shinkansen (Hikari or Kodama) | ~2.5-3 hours | 13,000-15,000 |
-| 12:10 PM | Arrive Kyoto/Osaka Station | – | – | – | – |
-| 12:30 PM | Kyoto/Osaka Station to Cat Spa & Cat Ryokan | Local train | 30 mins | 300 |
-| 1:00 PM | Check-in & Relax | – | – | – | – |
-| 2:00 PM | Dotonbori Exploration (Osaka) | Street food, entertainment, iconic Glico sign. | Walk | 2-3 hours | Variable |
-| 4:00 PM | Dinner in Dotonbori | Takoyaki, Okonomiyaki | – | 1 hour | 3,000 |
-| 5:00 PM | Namba Exploration | Shopping and local atmosphere. | Walk | 2 hours | Variable |
-| 7:00 PM | Return to Ryokan | Local train | 30 mins | 300 |
+---
 
-## Day 7 – 2026/03/04 (Wednesday)
-**Theme:** Nara's Deer & Ancient Temples
+## Day 5 – 2026/03/02 (Thursday)  
+**Theme:** Odaiba & Tokyo Bay  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Ryokan | – | – | – | 1,500 |
-| 09:00 AM | Cat Spa & Cat Ryokan to Nara Park | Osaka Loop Line to Kintetsu Nara Line | ~1 hr 15 mins | 900 |
-| 10:15 AM | Nara Park | Interact with wild deer, Todai-ji Temple (Great Buddha), Kasuga Taisha Shrine. | – | 4-5 hours | Variable |
-| 1:00 PM | Lunch in Nara | – | – | 1 hour | 2,500 |
-| 2:00 PM | Explore Nara |  More temples and surrounding areas | – | 2 hours | Variable |
-| 4:00 PM | Return to Osaka | Kintetsu Nara Line to Osaka Loop Line | ~1 hr 15 mins | 900 |
-| 5:15 PM | Dinner in Osaka |  Explore local restaurants | – | 1 hour | 3,000 |
-| 6:15 PM | Relax at Ryokan | – | – | – | – |
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Café Boulangerie (hotel) | – | – | ¥1,200 |  
+| 08:30 | Train to Odaiba | JR Yurikamome Line | Train | 25 min | ¥430 |  
+| 09:15 | Visit TeamLab Borderless | Digital Art Museum | – | 2 h | ¥4,200 |  
+| 11:30 | Lunch | Palette Town Food Court | – | – | ¥2,000 |  
+| 01:30 | Ride Ferris Wheel | Palette Town | – | 30 min | Free |  
+| 03:00 | Return to hotel | Train/Metro | – | – | – |  
+| 06:30 | Dinner | Sushi Restaurant (near hotel) | – | – | ¥3,500 |  
 
-## Day 8 – 2026/03/05 (Thursday)
-**Theme:** Osaka's Heights & Shopping Spree
+---
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Ryokan | – | – | – | 1,500 |
-| 09:00 AM | Cat Spa & Cat Ryokan to Tsutenkaku | Osaka Metro | ~30 mins | 250 |
-| 09:30 AM | Tsutenkaku & Shinsekai | Iconic tower, retro district. | – | 2-3 hours | 1,000 |
-| 12:00 PM | Lunch in Shinsekai | Kushikatsu | – | 1 hour | 2,500 |
-| 1:00 PM | Shopping in Namba | Department stores, electronics, souvenirs | – | 3-4 hours | Variable |
-| 4:00 PM | Dinner in Namba |  Explore diverse restaurant options | – | 1 hour | 3,000 |
-| 5:00 PM | Relax at Ryokan | – | – | – | – |
+## Day 6 – 2026/03/03 (Friday)  
+**Theme:** Transfer to Kyoto/Osaka  
 
-## Day 9 – 2026/03/06 (Friday)
-**Theme:** Kyoto's Beauty & Final Shopping
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 10:00 | Depart Tokyo | Shinkansen from HND to Kansai Airport | – | – | ¥25,000 |  
+| 12:30 | Arrive Kansai Airport | Transfer to Kyoto via JR Shinkansen | Train | 15 min | ¥300 |  
+| 01:45 | Check-in | Resi Stay Kyoto near Kyoto Station | – | – | ¥8,000/night |  
+| 02:30 | Explore Fushimi Inari | Walk from station | – | – | – |  
+| 05:00 | Return to hotel | Walk | – | – | – |  
+| 07:00 | Dinner | Local Kyoto Restaurant | – | – | ¥4,000 |  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Ryokan | – | – | – | 1,500 |
-| 09:00 AM | Cat Spa & Cat Ryokan to Kyoto Activities | Keihan Line or Hankyu Railway | Varies | 30 mins | 200-400 |
-| 09:30 AM | Nishiki Market | Explore Kyoto's kitchen, sample local delicacies. | – | 2-3 hours | Variable |
-| 12:30 PM | Lunch in Nishiki Market | – | – | 1 hour | 2,500 |
-| 1:30 PM | Fushimi Inari Shrine (Optional) | Thousands of red torii gates. | Train | 2-3 hours | Variable |
-| 4:30 PM | Dinner in Kyoto | – | – | 1 hour | 3,000 |
-| 5:30 PM | Final Shopping | Souvenirs and gifts. | – | 2 hours | Variable |
-| 7:30 PM | Return to Osaka | Keihan Line | 30 mins | 300 |
+---
 
-## Day 10 – 2026/03/07 (Saturday)
-**Theme:** Departure
+## Day 7 – 2026/03/04 (Saturday)  
+**Theme:** Osaka Exploration  
 
-| Time | Activity | Details | Transportation | Duration | Cost (¥) |
-|------|----------|---------|----------------|----------|-----------|
-| 08:00 AM | Breakfast at Ryokan | – | – | – | 1,500 |
-| 09:00 AM | Check-out | – | – | – | – |
-| 09:30 AM | Cat Spa & Cat Ryokan to KIX | Nankai Railway | 40-50 mins | 1300-1500 |
-| 10:20 AM | Arrive at KIX | – | – | – | – |
-| 4:15 PM | Departure from KIX to CMH | – | – | – | – |
-| 11:00 PM | Arrival at CMH | – | – | – | – |
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 08:00 | Train to Osaka | Keihan Main Line from Kyoto Station | Train | 20 min | ¥350 |  
+| 10:00 | Visit TSuten-KAKU Tower | Namba Area | – | – | Free |  
+| 12:00 | Lunch | Second Street near Namba | – | – | ¥2,000 |  
+| 02:00 | Explore Dotonbori | Evening stroll | Walk | – | – |  
+| 06:30 | Return to hotel | Train/Metro | – | – | – |  
+| 07:30 | Dinner | Okonomiyaki Restaurant (Dotonbori) | – | – | ¥3,500 |  
 
-**Notes:**
+---
 
-*   The costs listed are estimates and may vary.
-*   Always check Google Maps for the most accurate transportation information and schedules.
-*   Purchase a Japan Rail Pass if extensive travel on Shinkansen is planned.
-*   Consider purchasing a Pocket WiFi device or a local SIM card for internet access.
-*   Pack light and utilize luggage forwarding services (Takkyubin) for a more comfortable travel experience. Lydia's interests in Anime, Manga, and cats have been incorporated into the itinerary with specific shopping and entertainment options. Nathan's marathon participation is accommodated with a dedicated day and adjusted family activities.
+## Day 8 – 2026/03/05 (Sunday)  
+**Theme:** Nara Day Trip  
+
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Resi Stay Kyoto | – | – | ¥1,000 |  
+| 08:30 | Train to Nara | JR Nara Line from Kyoto Station | Train | 30 min | ¥470 |  
+| 09:30 | Visit Nara Park | Deer encounter | – | 2 h | Free |  
+| 11:30 | Lunch | Local Nara Restaurant | – | – | ¥2,500 |  
+| 02:00 | Visit Todai-ji Temple | Buddhist temple | – | 1 h | ¥600 |  
+| 04:00 | Return to Kyoto | Train/Metro | – | – | – |  
+
+---
+
+## Day 9 – 2026/03/06 (Monday)  
+**Theme:** Kyoto Highlights  
+
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Resi Stay Kyoto | – | – | ¥1,000 |  
+| 08:30 | Visit Fushimi Inari | Walk from station | – | – | Free |  
+| 11:30 | Lunch | Fushimi Inari Area | – | – | ¥2,000 |  
+| 02:00 | Visit Kinkaku-ji | Golden Pavilion | Bus | 20 min | ¥350 |  
+| 04:00 | Explore Gion District | Geisha culture | Walk | – | – |  
+| 06:30 | Return to hotel | Walk | – | – | – |  
+| 07:30 | Dinner | Kaiseki Restaurant (Gion) | – | – | ¥12,000 |  
+
+---
+
+## Day 10 – 2026/03/07 (Tuesday)  
+**Theme:** Departure & Last-minute Shopping  
+
+| Time | Activity | Details | Transportation | Duration | Cost |  
+|------|----------|---------|----------------|----------|------|  
+| 07:00 | Breakfast | Resi Stay Kyoto | – | – | ¥1,000 |  
+| 09:30 | Train to Tokyo | Shinkansen from Kyoto Station | Train | 2.5 h | ¥14,300 |  
+| 12:00 | Last-minute shopping | Don Kioto or Mega Donki | – | – | – |  
+| 06:00 | Final Meal | Ghibli-themed Cafe (Osaka) | – | – | ¥4,000 |  
+
+---
+
+**Notes:**  
+- **Transportation Cards:** Obtain a Suica or Pasmo card for Tokyo travel.  
+- **Bike Rentals:** Consider renting bikes in Kyoto for local exploration.  
+- **Cultural Etiquette:** Respect local customs and shrine/c temple protocols.

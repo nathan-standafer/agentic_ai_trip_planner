@@ -9,7 +9,7 @@ research_activities_task:
     choosing which activities to do.  Include a summary of each activity about 20 words in length, location details, and any relevant information 
     about why the activity is recommended.
   agent: researcher_activities
-  output_file: output/activities_list.md
+  #output_file: output/activities_list.md
 
 coordinator_activities_task:
   description: >

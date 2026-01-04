@@ -49,8 +49,23 @@ class ManagerAgent():
     #gemma3 seems to work the best for this project.  I experimmented with other local LLMs and openai models, but they would never perform as well as gemma3.
     llm = LLM(
         #model="openai/gpt-4o-mini",
-        model="ollama/gemma3_128k:12b",       
+
+        #model="ollama/gemma3_128k:12b",       #the best local LLM so far
+        #model="ollama/granite4:3b",   #failed to call the SerperDev tool and lost its say.  But, it really followed the general instructions.  I might needd to increase the context length
+        #model="ollama/granite4_128k:3b",  #it was able to call the SerperDev tool, but the final report was not very good.
+        #model="ollama/deepseek-r1:14b",  #this worked pretty well, but was slower.  
+        model="ollama/deepseek-r1_32k:14b", #this did well, but got the days of the week wrong.
         base_url="http://localhost:11434"
+
+        #model='gemini/gemini-3-pro-preview',  #it immediately tells me I need to pay up
+        #model='gemini/gemini-3-flash-preview', #this works well, but I ran out of free credits quickly.  Having trought setting up a key with billing.  
+
+        #model="groq/qwen/qwen3-32b"  #this one seems to work well with tool calling, but didn't produce a good final report
+        #model="groq/moonshotai/kimi-k2-instruct-0905" #fails. Produces an error: Received None or empty response from LLM call.  An unknown error occurred. Please check the details below.
+        #model="groq/openai/gpt-oss-120b"  #fails as well with same error as above.
+        #model="groq/llama-3.3-70b-versatile"  #tool calling works well.  produces a final report, although the durations are a little wonky.
+        #model="groq/meta-llama/llama-4-maverick-17b-128e-instruct" # same errors as kimi and oss
+
     )
     
     @agent
@@ -60,7 +75,9 @@ class ManagerAgent():
             verbose=True,
             tools=[SerperTool()],
             llm=self.llm,
-            output_pydantic=ActivityList
+            #output_pydantic=ActivityList
+            output_json=ActivityList,
+            output_file='output/activities_list_json.json'
         )
     
     @agent
@@ -109,7 +126,7 @@ class ManagerAgent():
             config=self.agents_config['reporting_analyst'],
             verbose=True,
             llm=self.llm,
-            output_pydantic=DailyActivityPlanList
+            markdown=True
         )
 
     # To learn more about structured task outputs,

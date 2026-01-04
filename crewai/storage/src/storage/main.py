@@ -21,8 +21,8 @@ def run():
     trip_considerations_list = [
         "The family lives in Columbus, OH.",
         "The family has 3 members. Nathan (51), Laura (50), and Lydia (17).",
-        "The departure date is Feb 25, 2026, returning March 7.",
-        "Flights have already been purchased. Departing Columbus Ohio (CMH) Feb 25 at 10:20AM, arriving in Tokyo (HND) Feb 26 at 5:45PM on Delta flight DL0275. The Return flight is March 7, departing Tokyo at 4:15 PM (Delta flight DL0274), returning to CMH at 11:00 PM.",
+        "The departure date is Wednesday Feb 25, 2026, returning Saturday March 7.",
+        "Flights have already been purchased. Departing Columbus Ohio (CMH) Feb 25 at 10:20AM, arriving in Tokyo (HND) Thursday Feb 26 at 5:45PM on Delta flight DL0275. The Return flight is March 7, departing Tokyo at 4:15 PM (Delta flight DL0274), returning to CMH at 11:00 PM.",
         "Hotel reservations have already been made at the karaksa hotel TOKYO STATION. Check-in on Feb 26, check-out on March 3. We will need a hotel for March 3 to March 7 in the Kyoto/Osaka area.",
         "One family member (Nathan) will be running the Tokyo Marathon on Sunday March 1, 2026.  The marathon starts at 9:10AM from the Tokyo Metropolitan Government Building.  Laura and Lydia can do other activities that day while Nathan is running the marathon.",
         "2026 is not a leap year, so the last day of Febuary is Feb 28.",

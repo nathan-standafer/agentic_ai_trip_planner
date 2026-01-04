@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 from crewai_tools import SerperDevTool
 
 class SerperToolInput(BaseModel):
-    """Input schema for using the Serper Dev tool to perform web searches."""
+    """Input schema for using the SerperTool to perform web searches."""
     search_query: str = Field(..., description="The topic or question to search for online.")
 
 class SerperTool(BaseTool):
@@ -13,21 +13,13 @@ class SerperTool(BaseTool):
     name: str = "SerperTool"
     description: str = (
         """
-        Search the web for information on a given topic.
-
-        Usage:
-        - Pass a clear and concise search_query string describing what you want to find.
-        - The tool will use SerperDevTool to perform a web search and return the results.
-        - Use this tool when you need up-to-date information or details not present in local knowledge sources.
-
-         Returns:
-            str: The search results from SerperDevTool.
+        Search the web for information on a given topic.  Returns a stgring representing the raw search results.
         """
     )
     args_schema: Type[BaseModel] = SerperToolInput
 
     def _run(self, search_query: str) -> str:
-        # Implementation goes here
-        print(f"Searching the web for: {search_query}")
+        """Perform a web search and return the raw results."""
+        print(f"****************************************** Searching the web for: {search_query}")
         response = SerperDevTool().run(search_query=search_query)
         return response
