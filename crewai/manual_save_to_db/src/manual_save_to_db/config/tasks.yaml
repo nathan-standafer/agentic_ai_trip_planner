@@ -1,0 +1,87 @@
+activity_research_task:
+  description: >
+    Conduct a thorough research about activities for a vacation to {location} between the dates of {arrival_date} and {departure_date}.
+    Make sure you find any interesting and relevant information given. Food and lodging will be handled by other agents. There must be enough
+    activities to ensure the entire vacation is adequately filled with activities. A rule of thumb is to have two or three activities per day. 
+    Be sure to take the following into consideration when researching activities: {trip_considerations}.  
+
+    The family's desired activities include: {activity_considerations}.
+
+    Once you have identified the activities, pass the list of activities to the save_activities_task for saving. Each activity must include the following fields:
+
+    "name": "<<Activity Name>>",
+    "description": "<<Activity Description>>",
+    "suggested_duration": "<<Suggested Duration>>",
+    "location": "<<Location Name, e.g., city>>",
+    "sublocation": "<<Sublocation Name, e.g., neighborhood>>",
+    "http_link": "<<URL to more information>>",
+    "type": "<<Activity Type, e.g., Shopping & Food>>",
+    "estimated_duration": "<<Estimated Duration>>",
+    "cost": "<<Cost Range>>",
+    "suitability": "<<Suitability, e.g. All ages, families, tourists>>"
+  expected_output: >
+    A list of the activities you found in markdown format, with confirmation that they were passed to the save_activities_task. Provide justification as to the number of activities found and how they will fill the vacation.
+  agent: activity_researcher_agent
+
+save_activities_task:
+  description: >
+    Save the list of activities provided by the activity_research_task to the database. Ensure each activity is saved individually using the SaveActivityTool tool.
+
+    activites are saved using this format to ensure no errors:
+    {
+      "name": "<<Activity Name>>",
+      "description": "<<Activity Description>>",
+      "suggested_duration": "<<Suggested Duration>>",
+      "location": "<<Location Name, e.g., city>>",
+      "sublocation": "<<Sublocation Name, e.g., neighborhood>>",
+      "http_link": "<<URL to more information>>",
+      "type": "<<Activity Type, e.g., Shopping & Food>>",
+      "estimated_duration": "<<Estimated Duration>>",
+      "cost": "<<Cost Range>>",
+      "suitability": "<<Suitability, e.g. All ages, families, tourists>>"
+    }
+  expected_output: >
+    Confirmation that all activities were successfully saved to the database.
+  context: 
+    - activity_research_task
+  agent: activity_saver_agent
+
+reporting_task:
+  description: >
+    Using the RetrieveActivitiesTool tool, retrieve all vacation activities from the database about {location} and generate a comprehensive report. 
+  expected_output: >
+    A detailed trip plan for a vacation to {location}, formatted as markdown without '```'
+
+    The output needs to adhere to the following structure.  Make adjustments as necessary to adhere to the structure while still including all relevant information
+    |-
+      # Trip Itinerary for {location}, from {arrival_date} to {departure_date}
+
+      ## Summary
+      **Major Transportation:**
+      - List the main transportation methods, routes, and any passes or tickets required for the trip.
+
+      **Hotel Accommodations:**
+      - List the primary hotel(s) with name, address, check-in/check-out dates, and any relevant notes.
+
+      ## Day X  - YYYY/MM/DD (Day of the week)
+      **Theme:** Classic Tokyo  - Tower & Tsukiji
+
+      | Time | Activity | Details | Transportation | Duration | Cost |
+      |------|----------|---------|----------------|----------|------|
+      | 07:00 AM | Breakfast | **Café Boulangerie** (hotel) | - | - | ¥1,200 |
+      | 08:00 AM | Depart Tokyo Station | Take **JR Keihin-Tohoku Line** to **Hamamatsu** for Tokyo Tower | Train | 15 min | ¥170 |
+      | 08:20 AM | Arrive Hamamatsu, transfer to **Tokyo Tower Bus** (free shuttle) | 10 min | Bus | 10 min | Free |
+      | 08:35 AM | Arrive Tokyo Tower | Main Deck visit | - | 1 h 30 min | ¥1,500 |
+      | 10:15 AM | Walk to **Tokyo Tower Garden** | 5 min | - | 5 min | - |
+      | 10:45 AM | Return to Tokyo Station | Bus 10 min | - | 10 min | - |
+      | 11:00 AM | Train to **Tsukiji** | JR Yamanote line | 15 min | ¥170 |
+      | 11:20 AM | Arrive Tsukiji | Explore inner market | - | - | - |
+      | 12:00 PM | Lunch at **Sushi Dai** (reserv. needed) | 1 h | - | - | ¥5,000 |
+      | 01:30 PM | Walk to **Hamarikyu Gardens** (15 min) | 1 h | - | - | - |
+      | 02:45 PM | Return to hotel | Walk 15 min | - | - | - |
+      | 04:00 PM | Free time / hotel relaxation | - | - | - | - |
+      | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | - | - | ¥15,000 |
+      | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | - | - | - |
+
+      Note that the activity should included the link to more information about the activity.
+  agent: reporting_analyst

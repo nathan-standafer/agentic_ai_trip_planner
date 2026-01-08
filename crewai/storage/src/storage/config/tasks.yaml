@@ -15,7 +15,8 @@ coordinator_activities_task:
   description: >
     Given a list of activities for a traveller to {location} between the dates of {arrival_date} and {departure_date},
     group them by date so that each date of the vacation to {location} has a set of activities assigned to it.  Organzize the 
-    activities in a logical order for each day taking transportation between activities into account.
+    activities in a logical order for each day taking transportation between activities into account.  Be sure to evaluate the timing of each activity
+    to make sure they fit well into the day and allow for travel time between activities.  Make adjustments as necessary to ensure a smooth and enjoyable daily itinerary.
     Be sure to take the following into consideration when researching activities: {trip_considerations}
     The family's desired activities include: {activity_considerations}.
   expected_output: >
@@ -78,11 +79,9 @@ reporting_task:
     Include the calendar date and day of the week for each day of the trip.
     Be sure to take the following into consideration when creating the final report: {trip_considerations}
   expected_output: >
-    A detailed trip plan for a vacation to {location}.
-    Formatted as markdown without '```'
+    A detailed trip plan for a vacation to {location}, formatted as markdown without '```'
 
-
-    Generate the output in the following structure:
+    The output needs to adhere to the following structure.  Make adjustments as necessary to adhere to the structure while still including all relevant information
     |-
       # Trip Itinerary for {location}, from {arrival_date} to {departure_date}
 
@@ -93,25 +92,25 @@ reporting_task:
       **Hotel Accommodations:**
       - List the primary hotel(s) with name, address, check-in/check-out dates, and any relevant notes.
 
-      ## Day X – YYYY/MM/DD (Day of the week)
-      **Theme:** Classic Tokyo – Tower & Tsukiji
+      ## Day X  - YYYY/MM/DD (Day of the week)
+      **Theme:** Classic Tokyo  - Tower & Tsukiji
 
       | Time | Activity | Details | Transportation | Duration | Cost |
       |------|----------|---------|----------------|----------|------|
-      | 07:00 AM | Breakfast | **Café Boulangerie** (hotel) | – | – | ¥1,200 |
-      | 08:00 AM | Depart Tokyo Station | Take **JR Keihin‑Tohoku Line** to **Hamamatsu** for Tokyo Tower | Train | 15 min | ¥170 |
-      | 08:20 AM | Arrive Hamamatsu, transfer to **Tokyo Tower Bus** (free shuttle) | 10 min | Bus | 10 min | Free |
-      | 08:35 AM | Arrive Tokyo Tower | Main Deck visit | – | 1 h 30 min | ¥1,500 |
-      | 10:15 AM | Walk to **Tokyo Tower Garden** | 5 min | – | 5 min | – |
-      | 10:45 AM | Return to Tokyo Station | Bus 10 min | – | 10 min | – |
-      | 11:00 AM | Train to **Tsukiji** | JR Yamanote line | 15 min | ¥170 |
-      | 11:20 AM | Arrive Tsukiji | Explore inner market | – | – | – |
-      | 12:00 PM | Lunch at **Sushi Dai** (reserv. needed) | 1 h | – | – | ¥5,000 |
-      | 01:30 PM | Walk to **Hamarikyu Gardens** (15 min) | 1 h | – | – | – |
-      | 02:45 PM | Return to hotel | Walk 15 min | – | – | – |
-      | 04:00 PM | Free time / hotel relaxation | – | – | – | – |
-      | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | – | – | ¥15,000 |
-      | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | – | – | – |
+      | 07:00 AM | Breakfast | **Café Boulangerie** (hotel) | - | - | ¥1,200 |
+      | 08:00 AM | Depart Tokyo Station | Take **JR Keihin-Tohoku Line** to **Hamamatsu** for Tokyo Tower | Train | 15 min | ¥170 |
+      | 08:20 AM | Arrive Hamamatsu, transfer to **Tokyo Tower Bus** (free shuttle) | 10 min | Bus | 10 min | Free |
+      | 08:35 AM | Arrive Tokyo Tower | Main Deck visit | - | 1 h 30 min | ¥1,500 |
+      | 10:15 AM | Walk to **Tokyo Tower Garden** | 5 min | - | 5 min | - |
+      | 10:45 AM | Return to Tokyo Station | Bus 10 min | - | 10 min | - |
+      | 11:00 AM | Train to **Tsukiji** | JR Yamanote line | 15 min | ¥170 |
+      | 11:20 AM | Arrive Tsukiji | Explore inner market | - | - | - |
+      | 12:00 PM | Lunch at **Sushi Dai** (reserv. needed) | 1 h | - | - | ¥5,000 |
+      | 01:30 PM | Walk to **Hamarikyu Gardens** (15 min) | 1 h | - | - | - |
+      | 02:45 PM | Return to hotel | Walk 15 min | - | - | - |
+      | 04:00 PM | Free time / hotel relaxation | - | - | - | - |
+      | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | - | - | ¥15,000 |
+      | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | - | - | - |
   context:
     - research_transportation_task
   agent: reporting_analyst 

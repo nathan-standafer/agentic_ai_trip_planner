@@ -4,7 +4,7 @@ import warnings
 
 from datetime import datetime
 
-from storage.crew import ManagerAgent
+from manual_save_to_db.crew import ManualSaveToDb
 
 warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
@@ -17,7 +17,6 @@ def run():
     """
     Run the crew.
     """
-
     trip_considerations_list = [
         "The family lives in Columbus, OH.",
         "The family has 3 members. Nathan (51), Laura (50), and Lydia (17).",
@@ -72,7 +71,7 @@ def run():
     }
 
     try:
-        ManagerAgent().crew().kickoff(inputs=inputs)
+        ManualSaveToDb().crew().kickoff(inputs=inputs)
     except Exception as e:
         raise Exception(f"An error occurred while running the crew: {e}")
 
@@ -82,11 +81,11 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs",
+        "topic": "Tokyo, Japan",
         'current_year': str(datetime.now().year)
     }
     try:
-        ManagerAgent().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        ManualSaveToDb().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -96,7 +95,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        ManagerAgent().crew().replay(task_id=sys.argv[1])
+        ManualSaveToDb().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -111,7 +110,7 @@ def test():
     }
 
     try:
-        ManagerAgent().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
+        ManualSaveToDb().crew().test(n_iterations=int(sys.argv[1]), eval_llm=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
@@ -137,7 +136,7 @@ def run_with_trigger():
     }
 
     try:
-        result = ManagerAgent().crew().kickoff(inputs=inputs)
+        result = ManualSaveToDb().crew().kickoff(inputs=inputs)
         return result
     except Exception as e:
         raise Exception(f"An error occurred while running the crew with trigger: {e}")

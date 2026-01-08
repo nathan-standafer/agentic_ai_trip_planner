@@ -50,11 +50,11 @@ class ManagerAgent():
     llm = LLM(
         #model="openai/gpt-4o-mini",
 
-        #model="ollama/gemma3_128k:12b",       #the best local LLM so far
+        model="ollama/gemma3_128k:12b",       #GOOD the best local LLM so far
         #model="ollama/granite4:3b",   #failed to call the SerperDev tool and lost its say.  But, it really followed the general instructions.  I might needd to increase the context length
         #model="ollama/granite4_128k:3b",  #it was able to call the SerperDev tool, but the final report was not very good.
         #model="ollama/deepseek-r1:14b",  #this worked pretty well, but was slower.  
-        model="ollama/deepseek-r1_32k:14b", #this did well, but got the days of the week wrong.
+        #model="ollama/deepseek-r1_32k:14b", #GOOD this did well, but got the days of the week wrong.
         base_url="http://localhost:11434"
 
         #model='gemini/gemini-3-pro-preview',  #it immediately tells me I need to pay up
@@ -187,6 +187,7 @@ class ManagerAgent():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
+            memory=True
             #process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
             #manager_agent=manager
         )
