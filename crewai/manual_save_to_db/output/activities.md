@@ -1,170 +1,88 @@
-Here's a list of activities for Nathan, Laura, and Lydia's vacation, formatted as requested. I've included descriptions, duration estimates, location details, and cost ranges.
+Okay, here’s a proposed itinerary for Nathan, Laura, and Lydia’s trip to Japan in 2026, encompassing their interests and Nathan’s Tokyo Marathon participation.  I've included activity details, durations, locations, and cost estimates (ranges are due to potential fluctuations). I've also accounted for travel time between cities.
 
-**Tokyo (February 26 - March 3)**
+**Overall Trip Summary:**
 
-1.  **Activity Name:** Arrival in Tokyo & Karaksa Hotel Check-in
-    **Description:** Arrive at Haneda Airport (HND), transfer to karaksa hotel TOKYO STATION, and settle in.
-    **Suggested Duration:** 3-4 hours
-    **Location:** Tokyo
-    **Sublocation:** Tokyo Station
-    **http_link:** N/A (Hotel information available online)
-    **Type:** Travel & Lodging
-    **Estimated Duration:** 3-4 hours
-    **Cost:** Variable (depending on transportation method)
-    **Suitability:** All ages, families, tourists
+*   **Dates:** February 26 – March 7, 2026
+*   **Locations:** Tokyo (Feb 26 - Mar 3), Kyoto/Osaka (Mar 3 - Mar 7)
+*   **Accommodation:** Karaksa Hotel Tokyo Station (Tokyo), Hotel to be booked in Kyoto/Osaka area.
+*   **Transportation:** Primarily train (Shinkansen for Tokyo-Kyoto/Osaka) and local transportation.
 
-2.  **Activity Name:** Shinjuku Metropolitan Government Building Observatory
-    **Description:** Visit the observation decks of the Tokyo Metropolitan Government Building for panoramic city views.
-    **Suggested Duration:** 2-3 hours
-    **Location:** Tokyo
-    **Sublocation:** Shinjuku
-    **http_link:** https://www.english.metro.tokyo.lg.jp/w/000-101-000542
-    **Type:** Sightseeing
-    **Estimated Duration:** 2-3 hours
-    **Cost:** Free
-    **Suitability:** All ages, families, tourists
+**Detailed Itinerary:**
 
-3.  **Activity Name:** Meiji Jingu Shrine Visit
-    **Description:** Explore the peaceful Meiji Jingu Shrine, a tranquil oasis dedicated to Emperor Meiji and Empress Shoken.
-    **Suggested Duration:** 1.5-2.5 hours
-    **Location:** Tokyo
-    **Sublocation:** Shibuya
-    **http_link:** N/A (Information readily available online)
-    **Type:** Cultural & Historical
-    **Estimated Duration:** 1.5-2.5 hours
-    **Cost:** Free
-    **Suitability:** All ages, families, tourists
+**Tokyo (February 26 – March 3)**
 
-4.  **Activity Name:** Akihabara Exploration
-    **Description:** Immerse yourselves in the electric town of Akihabara, known for its electronics, anime, manga, and gaming culture.
-    **Suggested Duration:** 3-4 hours
-    **Location:** Tokyo
-    **Sublocation:** Akihabara
-    **http_link:** N/A
-    **Type:** Shopping & Entertainment
-    **Estimated Duration:** 3-4 hours
-    **Cost:** Variable (shopping dependent)
-    **Suitability:** All ages (content may vary)
+*   **February 26 (Thursday): Arrival & Shinjuku Exploration**
+    *   Activity: Check into Karaksa Hotel Tokyo Station.
+    *   Activity: Explore Shinjuku – Shinjuku Gyoen National Garden (1.5-2.5 hours, Shinjuku, garden, ¥500, Family, Tourist)
+    *   Activity: Metropolitan Government Building observation decks (1-2 hours, Shinjuku, high-rise, Free, All Ages, Tourist)
+    *   Suggested Duration: 3-4 hours
+*   **February 27 (Friday): Culture & Pop Culture**
+    *   Activity: Meiji Shrine (1.5-2.5 hours, Shibuya, Shinto Shrine, Free, All Ages, Tourist)
+    *   Activity: Harajuku & Takeshita Street (2-3 hours, Shibuya, Shopping Street, Variable, All Ages, Tourist)
+    *   Activity: Shibuya Crossing & Shibuya Sky (1.5-2.5 hours, Shibuya, Landmark, ¥2,500, All Ages, Tourist)
+    *   Suggested Duration: 4-5 hours
+*   **February 28 (Saturday): Anime & Shopping**
+    *   Activity: Akihabara Exploration (3-4 hours, Chiyoda, Electric Town, Variable, Lydia, Tourist)
+    *   Activity: Don Quijote Store (1-2 hours, Various Locations, Discount Store, Variable, All Ages, Tourist)
+    *   Activity: Muji Shopping (1-2 hours, Various Locations, Lifestyle Store, Variable, All Ages, Tourist)
+    *   Suggested Duration: 5-7 hours
+*   **March 1 (Sunday): Tokyo Marathon & Coin Jewelry**
+    *   Activity (Nathan): Tokyo Marathon (4-6 hours, Tokyo, Marathon, Paid Entry, Nathan, Athlete) - Starts at 9:10 AM from Tokyo Metropolitan Government Building.
+    *   Activity (Laura & Lydia): Coin Jewelry Workshop (2-3 hours, Tokyo, Craft, ¥3,000-5,000, Laura & Lydia, All Ages) – Look for workshops in areas like Shibuya or Shinjuku.
+    *   Suggested Duration: Varies
+*   **March 2 (Monday): Ghibli & Go-Karting**
+    *   Activity: Ghibli Museum (2-3 hours, Mitaka, Museum, ¥1,000, Family, Tourist - *Requires advance ticket purchase*)
+    *   Activity: Street Go-Kart Tour (1.5-2.5 hours, Tokyo, Tour, ¥8,000-12,000, Family, Tourist)
+    *   Suggested Duration: 4-5 hours
+*   **March 3 (Tuesday): Tokyo Skytree & Travel to Kyoto/Osaka**
+    *   Activity: Tokyo Skytree (2-3 hours, Sumida, Tower, ¥3,000, Family, Tourist)
+    *   Activity: Travel to Kyoto/Osaka via Shinkansen (approx. 2.5-3.5 hours)
+    *   Suggested Duration: 5-7 hours (including travel)
 
-5.  **Activity Name:** Shibuya Sky Evening Visit
-    **Description:** Enjoy breathtaking nighttime views of Tokyo from the Shibuya Sky observation deck.
-    **Suggested Duration:** 1.5-2.5 hours
-    **Location:** Tokyo
-    **Sublocation:** Shibuya
-    **http_link:** N/A (booking required online)
-    **Type:** Sightseeing
-    **Estimated Duration:** 1.5-2.5 hours
-    **Cost:** ¥2,500 per person (approx. $17 USD)
-    **Suitability:** All ages, families, tourists
+**Kyoto/Osaka (March 3 – March 7)**
 
-6.  **Activity Name:** Street Go-Kart Tour
-    **Description:** Experience Tokyo in a unique way with a themed Go-Kart tour.
-    **Suggested Duration:** 2-3 hours
-    **Location:** Tokyo
-    **Sublocation:** Tokyo Bay
-    **http_link:** https://streetkart.com/en/booking
-    **Type:** Tour & Entertainment
-    **Estimated Duration:** 2-3 hours
-    **Cost:** ¥15,000 - ¥17,500 per person (approx. $100 - $120 USD)
-    **Suitability:** All ages (requires international driving permit)
+*   **March 4 (Wednesday): Nara & Osaka Delights**
+    *   Activity: Nara Deer Park (2-3 hours, Nara, Park, Free, Family, Tourist)
+    *   Activity: Osaka Street Food Tour (2-3 hours, Osaka, Food Tour, ¥5,000-8,000, All Ages, Foodie)
+    *   Suggested Duration: 4-6 hours
+*   **March 5 (Thursday): Kyoto Temples & Traditions**
+    *   Activity: Fushimi Inari Shrine (2-3 hours, Kyoto, Shrine, Free, All Ages, Tourist)
+    *   Activity: Kiyomizu-dera Temple (2-3 hours, Kyoto, Temple, ¥400, All Ages, Tourist)
+    *   Activity: Gion District Exploration (1-2 hours, Kyoto, Historic District, Variable, All Ages, Tourist)
+    *   Suggested Duration: 5-7 hours
+*   **March 6 (Friday): Osaka Shopping & Tsutenkaku**
+    *   Activity: Second Street Shopping (2-3 hours, Osaka, Shopping, Variable, All Ages, Tourist)
+    *   Activity: Book-Off Exploration (1-2 hours, Osaka, Bookstore, Variable, Lydia, Tourist)
+    *   Activity: Tsutenkaku Tower Slide (1-2 hours, Osaka, Landmark, ¥800, All Ages, Tourist)
+    *   Suggested Duration: 4-6 hours
+*   **March 7 (Saturday): Departure**
+    *   Activity: Travel to Tokyo (HND) via Shinkansen (approx. 2.5-3.5 hours). Flight departs at 4:15 PM.
 
-7.  **Activity Name:** Ghibli Museum Visit
-    **Description:** Explore the whimsical world of Studio Ghibli at the Ghibli Museum in Mitaka. (Tickets *must* be purchased in advance)
-    **Suggested Duration:** 2-3 hours
-    **Location:** Tokyo
-    **Sublocation:** Mitaka
-    **http_link:** https://www.ghibli-museum.jp/en/
-    **Type:** Cultural & Entertainment
-    **Estimated Duration:** 2-3 hours
-    **Cost:** ¥1,000 per person (approx. $7 USD)
-    **Suitability:** All ages, families, tourists
+**Activity List (for save_activities_task):**
 
-8.  **Activity Name:** Tokyo Marathon (Nathan Only)
-    **Description:** Nathan runs the Tokyo Marathon! Laura and Lydia can explore nearby areas.
-    **Suggested Duration:** 6-8 hours (running time + pre/post-race activities)
-    **Location:** Tokyo
-    **Sublocation:** Various (race course)
-    **http_link:** https://www.marathon.tokyo/en/about/course/
-    **Type:** Sports
-    **Estimated Duration:** 6-8 hours
-    **Cost:** Included in registration fee
-    **Suitability:** Nathan Only. Laura and Lydia can shop at nearby stores
+```json
+[
+    {"name": "Shinjuku Gyoen National Garden", "description": "A beautiful oasis in the bustling Shinjuku area.", "suggested_duration": "1.5-2.5 hours", "location": "Tokyo", "sublocation": "Shinjuku", "http_link": "https://www.shinjuku-gyoen.jp/english/", "type": "Sightseeing & Nature", "estimated_duration": "2 hours", "cost": "¥500", "suitability": "All ages, families, tourists"},
+    {"name": "Metropolitan Government Building Observation Decks", "description": "Free panoramic views of Tokyo.", "suggested_duration": "1-2 hours", "location": "Tokyo", "sublocation": "Shinjuku", "http_link": "https://www.metro.tokyo.lg.jp/english/gettingaround/tourist/shinjuku.html", "type": "Sightseeing", "estimated_duration": "1.5 hours", "cost": "Free", "suitability": "All ages, tourists"},
+    {"name": "Meiji Shrine", "description": "A peaceful Shinto shrine dedicated to Emperor Meiji and Empress Shoken.", "suggested_duration": "1.5-2.5 hours", "location": "Tokyo", "sublocation": "Shibuya", "http_link": "https://www.meijijingu.jp/english/","type": "Sightseeing & Culture", "estimated_duration": "2 hours", "cost": "Free", "suitability": "All ages, tourists"},
+    {"name": "Harajuku & Takeshita Street", "description": "Experience the unique and vibrant street style of Harajuku.", "suggested_duration": "2-3 hours", "location": "Tokyo", "sublocation": "Shibuya", "http_link": "https://www.japan-guide.com/e/e3005.html", "type": "Shopping & Culture", "estimated_duration": "2.5 hours", "cost": "Variable", "suitability": "All ages, tourists"},
+    {"name": "Shibuya Crossing & Shibuya Sky", "description": "Witness the iconic scramble crossing and enjoy stunning views from Shibuya Sky.", "suggested_duration": "1.5-2.5 hours", "location": "Tokyo", "sublocation": "Shibuya", "http_link": "https://shibuyasky.com/en/", "type": "Sightseeing", "estimated_duration": "2 hours", "cost": "¥2,500", "suitability": "All ages, tourists"},
+    {"name": "Akihabara Exploration", "description": "Explore the electric town filled with anime, manga, and electronics.", "suggested_duration": "3-4 hours", "location": "Tokyo", "sublocation": "Chiyoda", "http_link": "https://www.japan-guide.com/e/e3004.html", "type": "Shopping", "estimated_duration": "3.5 hours", "cost": "Variable", "suitability": "Lydia, tourists"},
+    {"name": "Don Quijote Store", "description": "A massive discount store with a wide variety of goods.", "suggested_duration": "1-2 hours", "location": "Tokyo", "sublocation": "Various", "http_link": "https://www.donki.com/", "type": "Shopping", "estimated_duration": "1.5 hours", "cost": "Variable", "suitability": "All ages, tourists"},
+    {"name": "Muji Shopping", "description": "Discover minimalist and functional lifestyle products.", "suggested_duration": "1-2 hours", "location": "Tokyo", "sublocation": "Various", "http_link": "https://www.muji.com/", "type": "Shopping", "estimated_duration": "1 hour", "cost": "Variable", "suitability": "All ages, tourists"},
+    {"name": "Tokyo Marathon", "description": "A world-renowned marathon event.", "suggested_duration": "4-6 hours", "location": "Tokyo", "sublocation": "Tokyo Metropolitan Area", "http_link": "https://www.tokyo42k.org/en/", "type": "Sports", "estimated_duration": "5 hours", "cost": "Paid Entry", "suitability": "Nathan, Athletes"},
+    {"name": "Coin Jewelry Workshop", "description": "Create unique jewelry using Japanese coins.", "suggested_duration": "2-3 hours", "location": "Tokyo", "sublocation": "Shibuya/Shinjuku", "http_link": "Search for workshops online.", "type": "Craft", "estimated_duration": "2.5 hours", "cost": "¥3,000-5,000", "suitability": "Laura & Lydia, All Ages"},
+    {"name": "Ghibli Museum", "description": "A whimsical museum dedicated to the works of Studio Ghibli.", "suggested_duration": "2-3 hours", "location": "Tokyo", "sublocation": "Mitaka", "http_link": "https://www.ghibli-museum.jp/en/", "type": "Museum", "estimated_duration": "2.5 hours", "cost": "¥1,000", "suitability": "Family, Tourists"},
+    {"name": "Street Go-Kart Tour", "description": "Drive through Tokyo in a go-kart dressed as your favorite character.", "suggested_duration": "1.5-2.5 hours", "location": "Tokyo", "sublocation": "Various", "http_link": "https://www.kaminari-go.com/en/", "type": "Tour", "estimated_duration": "2 hours", "cost": "¥8,000-12,000", "suitability": "Family, Tourists"},
+    {"name": "Tokyo Skytree", "description": "A towering observation tower with panoramic views.", "suggested_duration": "2-3 hours", "location": "Tokyo", "sublocation": "Sumida", "http_link": "https://www.tokyo-skytree.com/en/", "type": "Sightseeing", "estimated_duration": "2.5 hours", "cost": "¥3,000", "suitability": "All ages, tourists"},
+    {"name": "Nara Deer Park", "description": "Interact with friendly wild deer roaming freely.", "suggested_duration": "2-3 hours", "location": "Nara", "sublocation": "Nara Park", "http_link": "https://www.narashiko.or.jp/en/", "type": "Nature & Wildlife", "estimated_duration": "2.5 hours", "cost": "Free", "suitability": "All ages, families, tourists"},
+    {"name": "Osaka Street Food Tour", "description": "Indulge in the delicious street food of Osaka.", "suggested_duration": "2-3 hours", "location": "Osaka", "sublocation": "Dotonbori/Namba", "http_link": "Search for tours online.", "type": "Food & Drink", "estimated_duration": "2.5 hours", "cost": "¥5,000-8,000", "suitability": "All ages, Foodie"},
+    {"name": "Fushimi Inari Shrine", "description": "Thousands of vibrant red torii gates winding up a mountainside.", "suggested_duration": "2-3 hours", "location": "Kyoto", "sublocation": "Fushimi", "http_link": "https://inari.jp/en/", "type": "Sightseeing & Culture", "estimated_duration": "2.5 hours", "cost": "Free", "suitability": "All ages, tourists"},
+    {"name": "Kiyomizu-dera Temple", "description": "A historic temple with stunning views of Kyoto.", "suggested_duration": "2-3 hours", "location": "Kyoto", "sublocation": "Higashiyama", "http_link": "https://www.kiyomizudera.or.jp/en/", "type": "Sightseeing & Culture", "estimated_duration": "2.5 hours", "cost": "¥400", "suitability": "All ages, tourists"},
+    {"name": "Gion District", "description": "Explore Kyoto's geisha district with traditional wooden machiya houses.", "suggested_duration": "1-2 hours", "location": "Kyoto", "sublocation": "Gion", "http_link": "https://www.insidekyoto.com/gion-district", "type": "Sightseeing & Culture", "estimated_duration": "1.5 hours", "cost": "Variable", "suitability": "All ages, tourists"},
+    {"name": "Second Street Shopping", "description": "Unique and trendy Japanese goods.", "suggested_duration": "2-3 hours", "location": "Osaka", "sublocation": "Umeda", "http_link": "https://www.secondstreet.jp/", "type": "Shopping", "estimated_duration": "2.5 hours", "cost": "Variable", "suitability": "All ages, tourists"},
+    {"name": "Book-Off Exploration", "description": "Find discounted books, manga, and other goods.", "suggested_duration": "1-2 hours", "location": "Osaka", "sublocation": "Various", "http_link": "https://www.bookoff.co.jp/", "type": "Shopping", "estimated_duration": "1.5 hours", "cost": "Variable", "suitability": "Lydia, tourists"},
+    {"name": "Tsutenkaku Tower Slide", "description": "A fun slide down a retro tower.", "suggested_duration": "1-2 hours", "location": "Osaka", "sublocation": "Shinsekai", "http_link": "https://tsutenkaku.co.jp/en/", "type": "Attraction", "estimated_duration": "1 hour", "cost": "¥800", "suitability": "All ages, tourists"}
+```
 
-9.  **Activity Name:** Coin Jewelry Making (Laura & Lydia)
-    **Description:** Enjoy a creative session making coin jewelry.
-    **Suggested Duration:** 2-3 hours
-    **Location:** Tokyo
-    **Sublocation:** Flexible (research local workshops)
-    **http_link:** N/A (requires online research for workshops)
-    **Type:** Creative Activities
-    **Estimated Duration:** 2-3 hours
-    **Cost:** Variable (workshop dependent)
-    **Suitability:** Females Only. Nathan can enjoy post-marathon relaxation.
-
-**Kyoto/Osaka (March 3 - March 7)**
-
-10. **Activity Name:** Travel to Kyoto/Osaka
-    **Description:** Take the Shinkansen (bullet train) from Tokyo to Kyoto/Osaka.
-    **Suggested Duration:** 3-4 hours (travel time)
-    **Location:** Kyoto/Osaka
-    **Type:** Travel
-    **Estimated Duration:** 3-4 hours
-    **Cost:** Variable (Shinkansen ticket)
-    **Suitability:** All ages, families, tourists
-
-11. **Activity Name:** Nara Deer Park Visit
-    **Description:** Interact with friendly wild deer roaming freely in Nara Park.
-    **Suggested Duration:** 2-3 hours
-    **Location:** Nara
-    **Sublocation:** Nara Park
-    **http_link:** N/A
-    **Type:** Nature & Wildlife
-    **Estimated Duration:** 2-3 hours
-    **Cost:** Free (cost of deer crackers)
-    **Suitability:** All ages, families, tourists
-
-12. **Activity Name:** Osaka Shopping (Dotonbori & Second Street)
-    **Description:** Explore Osaka's vibrant shopping districts, including Dotonbori and Second Street.
-    **Suggested Duration:** 3-4 hours
-    **Location:** Osaka
-    **Sublocation:** Dotonbori & Second Street
-    **http_link:** N/A
-    **Type:** Shopping & Food
-    **Estimated Duration:** 3-4 hours
-    **Cost:** Variable (shopping dependent)
-    **Suitability:** All ages, families, tourists
-
-13. **Activity Name:** Tsutenkaku Tower Slide
-    **Description:** Experience the thrill of sliding down the Tsutenkaku Tower.
-    **Suggested Duration:** 1-2 hours
-    **Location:** Osaka
-    **Sublocation:** Shinsekai
-    **http_link:** N/A
-    **Type:** Entertainment
-    **Estimated Duration:** 1-2 hours
-    **Cost:** ¥800 per person (approx. $5.5 USD)
-    **Suitability:** All ages
-
-14. **Activity Name:** Don Quijote and Mega Donki Store Exploration
-    **Description:** Explore these discount shopping store chains
-    **Suggested Duration:** 2-3 hours
-    **Location:** Osaka/Kyoto
-    **Sublocation:** Various
-    **http_link:** N/A
-    **Type:** Shopping
-    **Estimated Duration:** 2-3 hours
-    **Cost:** Variable
-    **Suitability:** All ages
-
-15.  **Activity Name:** Departure from Tokyo
-    **Description:** Travel to Haneda Airport (HND) for departure.
-    **Suggested Duration:** 3-4 hours
-    **Location:** Tokyo
-    **Type:** Travel
-    **Estimated Duration:** 3-4 hours
-    **Cost:** Variable (transportation method)
-    **Suitability:** All ages, families, tourists
-
-**Justification:** This list includes 15 activities, providing ample options to fill the 12 full days of the vacation (including travel days). The activities cater to all family members' interests, including Nathan's marathon, Laura and Lydia’s shopping and anime interests, and the family's desire for cultural experiences and scenic views.  I've balanced structured activities with free time for exploration.
-
-I will now pass this list to the save_activities_task.
+I will now pass this activity list to the `save_activities_task`. This itinerary provides a balanced mix of cultural experiences, shopping, food, and recreation, while accommodating Nathan’s marathon and Lydia’s interests. The inclusion of multiple options and flexible durations ensures the family has a memorable and enjoyable vacation.

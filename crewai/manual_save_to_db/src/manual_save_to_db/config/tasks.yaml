@@ -25,9 +25,17 @@ activity_research_task:
 
 save_activities_task:
   description: >
-    Save the list of activities provided by the activity_research_task to the database. Ensure each activity is saved individually using the SaveActivityTool tool.
+    CRITICAL: You MUST save EVERY SINGLE activity from the activity_research_task to the database.
+    Do NOT stop until ALL activities have been saved. This is essential for the trip planning to work.
 
-    activites are saved using this format to ensure no errors:
+    Process:
+    1. Review the complete list of activities from the research task
+    2. Count the total number of activities
+    3. Save EACH activity ONE BY ONE using the SaveActivityTool
+    4. Keep track of how many you have saved
+    5. Continue until ALL activities are saved - do not stop early
+
+    Each activity MUST be saved using this exact format:
     {
       "name": "<<Activity Name>>",
       "description": "<<Activity Description>>",
@@ -40,15 +48,53 @@ save_activities_task:
       "cost": "<<Cost Range>>",
       "suitability": "<<Suitability, e.g. All ages, families, tourists>>"
     }
+
+    IMPORTANT: Call SaveActivityTool once for EACH activity. If there are 20 activities,
+    you must call the tool 20 times. Do not batch them or skip any.
   expected_output: >
-    Confirmation that all activities were successfully saved to the database.
-  context: 
+    A numbered list confirming each activity that was saved, with the total count.
+    Example: "Successfully saved 20 activities to the database: 1. Tokyo Tower, 2. Senso-ji Temple, ..."
+  context:
     - activity_research_task
   agent: activity_saver_agent
 
+daily_planning_task:
+  description: >
+    SAVE EVERY ACTIVITY TO THE DATABASE. DO NOT STOP UNTIL ALL ARE SAVED.
+
+    STEP 1: Call RetrieveActivitiesTool. Count the activities. Remember this number.
+
+    STEP 2: For EACH activity in the list, call SaveScheduledActivityTool with:
+    - date: Pick a date between {arrival_date} and {departure_date}
+    - time_slot: Pick a time (e.g., "09:00 AM", "02:00 PM")
+    - activity_name: The activity name
+    - activity_description: Brief description
+    - location: City name
+    - duration: "2-3 hours"
+    - transportation: "Train/Metro" or similar
+    - notes: Any tips
+
+    STEP 3: After EACH save, record the row ID. Continue to the next activity.
+
+    STEP 4: DO NOT give a final answer until you have saved ALL activities.
+    Count your row IDs. If you have fewer row IDs than activities, KEEP SAVING.
+
+    Example: If you found 15 activities, you need 15 row IDs before you can finish.
+
+    CRITICAL: Your ONLY job is to save activities. Do not write itineraries or reports.
+    Just save each activity and collect row IDs. The reporting agent will handle the rest.
+  expected_output: >
+    ONLY a numbered list of row IDs. Nothing else. Example:
+    "Saved 15 activities:
+    Row 1, Row 2, Row 3, Row 4, Row 5, Row 6, Row 7, Row 8, Row 9, Row 10, Row 11, Row 12, Row 13, Row 14, Row 15"
+  context:
+    - save_activities_task
+  agent: daily_planner_agent
+
 reporting_task:
   description: >
-    Using the RetrieveActivitiesTool tool, retrieve all vacation activities from the database about {location} and generate a comprehensive report. 
+    Using the RetrieveScheduleTool, retrieve all scheduled activities from the database for the vacation to {location} and generate a comprehensive trip itinerary report.
+    The schedule already contains dates, times, and logistics information for each activity.
   expected_output: >
     A detailed trip plan for a vacation to {location}, formatted as markdown without '```'
 
@@ -84,4 +130,6 @@ reporting_task:
       | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | - | - | - |
 
       Note that the activity should included the link to more information about the activity.
+  context:
+    - daily_planning_task
   agent: reporting_analyst

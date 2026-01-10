@@ -1,8 +1,8 @@
 from crewai.tools import BaseTool
 from typing import Type, List, Optional, Union
 from pydantic import BaseModel, Field
-from .entities import Activity
-from .db import save_activity, retrieve_activities
+from .entities import Activity, ScheduledActivity
+from .db import save_activity, retrieve_activities, save_scheduled_activity, retrieve_schedule
 from crewai_tools import SerperDevTool
 
 class SerperToolInput(BaseModel):
@@ -72,4 +72,68 @@ class RetrieveActivitiesTool(BaseTool):
             return activities
         except Exception as e:
             return f"Failed to retrieve activities: {e}"
+
+
+class ScheduledActivityInput(BaseModel):
+    """Input schema for the SaveScheduledActivityTool."""
+    date: str = Field(..., description="The date in YYYY-MM-DD format")
+    time_slot: str = Field(..., description="The time slot, e.g., '09:00 AM'")
+    activity_name: str = Field(..., description="Name of the activity")
+    activity_description: str = Field(..., description="Brief description of the activity")
+    location: str = Field(..., description="Location of the activity")
+    duration: str = Field(..., description="Expected duration")
+    transportation: Optional[str] = Field(None, description="How to get there")
+    notes: Optional[str] = Field(None, description="Additional notes")
+
+
+class SaveScheduledActivityTool(BaseTool):
+    name: str = "Save a Scheduled Activity to the Database"
+    description: str = (
+        "A tool to save a scheduled vacation activity to the database with date, time, and logistics information. "
+        "Pass the fields directly: date, time_slot, activity_name, activity_description, location, duration, transportation, notes."
+    )
+    args_schema: Type[BaseModel] = ScheduledActivityInput
+
+    def _run(self, date: str, time_slot: str, activity_name: str, activity_description: str,
+             location: str, duration: str, transportation: Optional[str] = None,
+             notes: Optional[str] = None) -> str:
+        """Save the provided scheduled activity to the database and return a status message."""
+        try:
+            scheduled = ScheduledActivity(
+                date=date,
+                time_slot=time_slot,
+                activity_name=activity_name,
+                activity_description=activity_description,
+                location=location,
+                duration=duration,
+                transportation=transportation,
+                notes=notes
+            )
+
+            rowid = save_scheduled_activity(scheduled)
+            return f"Saved ScheduledActivity '{scheduled.activity_name}' for {scheduled.date} at {scheduled.time_slot} with row id {rowid}."
+        except Exception as e:
+            return f"Failed to save ScheduledActivity: {e}"
+
+
+class RetrieveScheduleInput(BaseModel):
+    """Input schema for the RetrieveScheduleTool."""
+    argument: Optional[dict] = Field(default=None, description="Optional argument (not used by this tool).")
+
+
+class RetrieveScheduleTool(BaseTool):
+    name: str = "Retrieve Daily Schedule from the Database"
+    description: str = (
+        "Retrieve all scheduled activities from the database ordered by date and time. "
+        "Returns a list of ScheduledActivity objects with date, time_slot, activity details, and logistics."
+    )
+    args_schema: Type[BaseModel] = RetrieveScheduleInput
+
+    def _run(self, argument: Optional[dict] = None) -> Union[List[ScheduledActivity], str]:
+        """Return all scheduled activities from the DB ordered by date and time."""
+        try:
+            schedule = retrieve_schedule()
+            return schedule
+        except Exception as e:
+            return f"Failed to retrieve schedule: {e}"
 

@@ -2,8 +2,8 @@ from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-from .tools.entities import Activity
-from .tools.custom_tool import SaveActivityTool, RetrieveActivitiesTool, SerperTool
+from .tools.entities import Activity, ScheduledActivity
+from .tools.custom_tool import SaveActivityTool, RetrieveActivitiesTool, SerperTool, SaveScheduledActivityTool, RetrieveScheduleTool
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -34,6 +34,7 @@ class ManualSaveToDb():
             verbose=True,
             tools=[SerperTool()],
             llm=self.llm,
+            max_iter=25,  # Allow enough iterations for thorough research
         )
 
     @agent
@@ -43,15 +44,27 @@ class ManualSaveToDb():
             verbose=True,
             tools=[SaveActivityTool()],
             llm=self.llm,
+            max_iter=50,  # Must be high enough to save all activities (one tool call per activity)
         )
-    
+
+    @agent
+    def daily_planner_agent(self) -> Agent:
+        return Agent(
+            config=self.agents_config['daily_planner_agent'], # type: ignore[index]
+            verbose=True,
+            tools=[RetrieveActivitiesTool(), SaveScheduledActivityTool()],  # Only DB tools - focus on saving
+            llm=self.llm,
+            max_iter=100,  # Must be high enough to save all activities (one tool call per activity)
+        )
+
     @agent
     def reporting_analyst(self) -> Agent:
         return Agent(
             config=self.agents_config['reporting_analyst'], # type: ignore[index]
             verbose=True,
-            tools=[RetrieveActivitiesTool()],
+            tools=[RetrieveScheduleTool()],
             llm=self.llm,
+            max_iter=15,  # Default is fine for reporting
         )
     
     # To learn more about structured task outputs,
@@ -68,6 +81,12 @@ class ManualSaveToDb():
     def save_activities_task(self) -> Task:
         return Task(
             config=self.tasks_config['save_activities_task'], # type: ignore[index]
+        )
+
+    @task
+    def daily_planning_task(self) -> Task:
+        return Task(
+            config=self.tasks_config['daily_planning_task'], # type: ignore[index]
         )
 
     @task

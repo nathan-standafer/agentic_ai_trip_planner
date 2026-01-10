@@ -7,7 +7,7 @@ PYTHONPATH=src python -c "from manual_save_to_db.tools.db import retrieve_activi
 """
 from typing import Optional, List
 import sqlite3
-from .entities import Activity
+from .entities import Activity, ScheduledActivity
 
 DB_FILENAME = "VacationPlanner.db"
 
@@ -22,7 +22,7 @@ def get_connection(db_path: Optional[str] = None) -> sqlite3.Connection:
 
 
 def create_tables(db_path: Optional[str] = None) -> None:
-    """Create the `activities` table if it does not exist."""
+    """Create the `activities` and `daily_schedule` tables if they do not exist."""
     conn = get_connection(db_path)
     cur = conn.cursor()
     cur.execute(
@@ -42,6 +42,21 @@ def create_tables(db_path: Optional[str] = None) -> None:
         )
         """
     )
+    cur.execute(
+        """
+        CREATE TABLE IF NOT EXISTS daily_schedule (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TEXT NOT NULL,
+            time_slot TEXT NOT NULL,
+            activity_name TEXT NOT NULL,
+            activity_description TEXT,
+            location TEXT,
+            duration TEXT,
+            transportation TEXT,
+            notes TEXT
+        )
+        """
+    )
     conn.commit()
     conn.close()
 
@@ -56,6 +71,9 @@ def save_activity(activity: Activity, db_path: Optional[str] = None) -> int:
 
     Returns the inserted row id.
     """
+    # Ensure tables exist
+    create_tables(db_path)
+
     conn = get_connection(db_path)
     cur = conn.cursor()
     cur.execute(
@@ -114,6 +132,9 @@ def _show_tables(db_path: Optional[str] = None) -> list:
 
 def retrieve_activities(db_path: Optional[str] = None) -> List[Activity]:
     """Return all activities from the `activities` table as a list of `Activity` models."""
+    # Ensure tables exist
+    create_tables(db_path)
+
     conn = get_connection(db_path)
     cur = conn.cursor()
     cur.execute(
@@ -140,6 +161,70 @@ def retrieve_activities(db_path: Optional[str] = None) -> List[Activity]:
         )
 
     return activities
+
+
+def save_scheduled_activity(scheduled: ScheduledActivity, db_path: Optional[str] = None) -> int:
+    """Save a `ScheduledActivity` instance to the `daily_schedule` table.
+
+    Returns the inserted row id.
+    """
+    # Ensure tables exist
+    create_tables(db_path)
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        """
+        INSERT INTO daily_schedule
+            (date, time_slot, activity_name, activity_description, location, duration, transportation, notes)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            scheduled.date,
+            scheduled.time_slot,
+            scheduled.activity_name,
+            scheduled.activity_description,
+            scheduled.location,
+            scheduled.duration,
+            scheduled.transportation,
+            scheduled.notes,
+        ),
+    )
+    conn.commit()
+    rowid = cur.lastrowid
+    conn.close()
+    return rowid
+
+
+def retrieve_schedule(db_path: Optional[str] = None) -> List[ScheduledActivity]:
+    """Return all scheduled activities from the `daily_schedule` table ordered by date and time."""
+    # Ensure tables exist
+    create_tables(db_path)
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        "SELECT date, time_slot, activity_name, activity_description, location, duration, transportation, notes FROM daily_schedule ORDER BY date, time_slot"
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    scheduled_activities: List[ScheduledActivity] = []
+    for row in rows:
+        scheduled_activities.append(
+            ScheduledActivity(
+                date=row[0] or "",
+                time_slot=row[1] or "",
+                activity_name=row[2] or "",
+                activity_description=row[3] or "",
+                location=row[4] or "",
+                duration=row[5] or "",
+                transportation=row[6],
+                notes=row[7],
+            )
+        )
+
+    return scheduled_activities
 
 
 def _make_sample_activity(args) -> Activity:
