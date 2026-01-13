@@ -28,27 +28,47 @@ class SerperTool(BaseTool):
 
 class ActivityInput(BaseModel):
     """Input schema for the SaveActivityTool."""
-    argument: Union[Activity, dict] = Field(..., description="A vacation activity to be processed by the tool. Can be an Activity object or a dictionary.")
+    name: str = Field(..., description="The name of the activity")
+    description: str = Field(..., description="A description of the activity")
+    suggested_duration: str = Field(..., description="Suggested duration for the activity")
+    location: str = Field(..., description="The location (city) of the activity")
+    sublocation: Optional[str] = Field(None, description="Sublocation like neighborhood")
+    http_link: Optional[str] = Field(None, description="URL for more information")
+    type: Optional[str] = Field(None, description="Type of activity (e.g., Sightseeing, Shopping)")
+    estimated_duration: Optional[str] = Field(None, description="Estimated duration")
+    cost: Optional[str] = Field(None, description="Estimated cost")
+    suitability: Optional[str] = Field(None, description="Who the activity is suitable for")
 
 
 class SaveActivityTool(BaseTool):
     name: str = "Save an Activity to the Database"
     description: str = (
-        "A tool to save a vacation activity to the database with all its details."
+        "A tool to save a vacation activity to the database. "
+        "Pass the fields directly: name, description, suggested_duration, location, sublocation, http_link, type, estimated_duration, cost, suitability."
     )
     args_schema: Type[BaseModel] = ActivityInput
 
-    def _run(self, argument: Union[Activity, dict]) -> str:
-        """Save the provided `Activity` to the database and return a status message."""
+    def _run(self, name: str, description: str, suggested_duration: str, location: str,
+             sublocation: Optional[str] = None, http_link: Optional[str] = None,
+             type: Optional[str] = None, estimated_duration: Optional[str] = None,
+             cost: Optional[str] = None, suitability: Optional[str] = None) -> str:
+        """Save the provided activity to the database and return a status message."""
         try:
-            # Convert dict to Activity if needed
-            if isinstance(argument, dict):
-                activity = Activity(**argument)
-            else:
-                activity = argument
-            
+            activity = Activity(
+                name=name,
+                description=description,
+                suggested_duration=suggested_duration,
+                location=location,
+                sublocation=sublocation,
+                http_link=http_link,
+                type=type,
+                estimated_duration=estimated_duration,
+                cost=cost,
+                suitability=suitability
+            )
+
             rowid = save_activity(activity)
-            return f"Saved Activity with row id {rowid}."
+            return f"Saved Activity '{name}' with row id {rowid}."
         except Exception as e:
             return f"Failed to save Activity: {e}"
 

@@ -1,135 +1,146 @@
 activity_research_task:
   description: >
-    Conduct a thorough research about activities for a vacation to {location} between the dates of {arrival_date} and {departure_date}.
-    Make sure you find any interesting and relevant information given. Food and lodging will be handled by other agents. There must be enough
-    activities to ensure the entire vacation is adequately filled with activities. A rule of thumb is to have two or three activities per day. 
-    Be sure to take the following into consideration when researching activities: {trip_considerations}.  
+    Research activities for the vacation to {location} from {arrival_date} to {departure_date}.
 
-    The family's desired activities include: {activity_considerations}.
+    STEP 1: Calculate how many activities are needed.
+    - Count the number of days in the trip (from {arrival_date} to {departure_date})
+    - Multiply by 2-3 activities per day
+    - Example: 10-day trip needs 20-30 activities MINIMUM
 
-    Once you have identified the activities, pass the list of activities to the save_activities_task for saving. Each activity must include the following fields:
+    STEP 2: Check existing activities using RetrieveActivitiesTool.
+    - Count how many are already in the database
+    - Calculate: needed - existing = activities to research
 
-    "name": "<<Activity Name>>",
-    "description": "<<Activity Description>>",
-    "suggested_duration": "<<Suggested Duration>>",
-    "location": "<<Location Name, e.g., city>>",
-    "sublocation": "<<Sublocation Name, e.g., neighborhood>>",
-    "http_link": "<<URL to more information>>",
-    "type": "<<Activity Type, e.g., Shopping & Food>>",
-    "estimated_duration": "<<Estimated Duration>>",
-    "cost": "<<Cost Range>>",
-    "suitability": "<<Suitability, e.g. All ages, families, tourists>>"
+    STEP 3: If more activities are needed, use SerperTool to research NEW activities.
+    - Research activities for EACH destination within {location}
+    - Include a MIX of: cultural sites, entertainment, shopping, unique experiences
+    - Make sure to cover activities appropriate for the trip considerations
+
+    STEP 4: List ALL activities (existing + new) to ensure full trip coverage.
+
+    Trip considerations: {trip_considerations}
+    Family's desired activities: {activity_considerations}
+
+    Each NEW activity must include these fields:
+    "name", "description", "suggested_duration", "location", "sublocation",
+    "http_link", "type", "estimated_duration", "cost", "suitability"
+
+    CRITICAL: Calculate the exact number of days and ensure you have AT LEAST 2-3 activities
+    per day. Do not stop researching until you have enough activities to fill the ENTIRE trip duration.
   expected_output: >
-    A list of the activities you found in markdown format, with confirmation that they were passed to the save_activities_task. Provide justification as to the number of activities found and how they will fill the vacation.
+    A comprehensive list with:
+    1. Trip duration calculation (X days = need Y activities)
+    2. Existing activities count
+    3. New activities researched (with all required fields)
+    4. Total activities available (should be enough for 2-3 per day)
+
+    Format: Separate "Existing Activities" and "New Activities (To Be Saved)" sections.
   agent: activity_researcher_agent
 
 save_activities_task:
   description: >
-    CRITICAL: You MUST save EVERY SINGLE activity from the activity_research_task to the database.
-    Do NOT stop until ALL activities have been saved. This is essential for the trip planning to work.
+    Save ALL NEW activities from the activity_research_task to the database.
 
     Process:
-    1. Review the complete list of activities from the research task
-    2. Count the total number of activities
-    3. Save EACH activity ONE BY ONE using the SaveActivityTool
-    4. Keep track of how many you have saved
-    5. Continue until ALL activities are saved - do not stop early
+    1. Review the activities from the research task
+    2. Identify NEW activities (not already in database)
+    3. For EACH new activity, call SaveActivityTool with these fields:
+       - name: Activity name
+       - description: Description of the activity
+       - suggested_duration: e.g., "2-3 hours"
+       - location: City/area name
+       - sublocation: Neighborhood or area (optional)
+       - http_link: URL for more info (optional)
+       - type: Type like "Sightseeing", "Shopping", "Entertainment"
+       - estimated_duration: e.g., "2-3 hours"
+       - cost: e.g., "Free", "$10-20"
+       - suitability: e.g., "All ages, families"
 
-    Each activity MUST be saved using this exact format:
-    {
-      "name": "<<Activity Name>>",
-      "description": "<<Activity Description>>",
-      "suggested_duration": "<<Suggested Duration>>",
-      "location": "<<Location Name, e.g., city>>",
-      "sublocation": "<<Sublocation Name, e.g., neighborhood>>",
-      "http_link": "<<URL to more information>>",
-      "type": "<<Activity Type, e.g., Shopping & Food>>",
-      "estimated_duration": "<<Estimated Duration>>",
-      "cost": "<<Cost Range>>",
-      "suitability": "<<Suitability, e.g. All ages, families, tourists>>"
-    }
+    4. Continue until ALL new activities are saved
+    5. Count how many you saved
 
-    IMPORTANT: Call SaveActivityTool once for EACH activity. If there are 20 activities,
-    you must call the tool 20 times. Do not batch them or skip any.
+    IMPORTANT: Call SaveActivityTool once for EACH activity. If there are 20 new activities,
+    call the tool 20 times.
   expected_output: >
-    A numbered list confirming each activity that was saved, with the total count.
-    Example: "Successfully saved 20 activities to the database: 1. Tokyo Tower, 2. Senso-ji Temple, ..."
+    A list of saved activities with row IDs:
+    "Saved X new activities:
+    - Row 1: [Activity Name]
+    - Row 2: [Activity Name]
+    ..."
   context:
     - activity_research_task
   agent: activity_saver_agent
 
-daily_planning_task:
+scheduling_task:
   description: >
-    SAVE EVERY ACTIVITY TO THE DATABASE. DO NOT STOP UNTIL ALL ARE SAVED.
+    Schedule ALL activities for the trip to {location} from {arrival_date} to {departure_date}.
 
-    STEP 1: Call RetrieveActivitiesTool. Count the activities. Remember this number.
+    STEP 1: Calculate all dates in the trip.
+    - Start date: {arrival_date}
+    - End date: {departure_date}
+    - List every date between them (inclusive)
 
-    STEP 2: For EACH activity in the list, call SaveScheduledActivityTool with:
-    - date: Pick a date between {arrival_date} and {departure_date}
-    - time_slot: Pick a time (e.g., "09:00 AM", "02:00 PM")
-    - activity_name: The activity name
-    - activity_description: Brief description
-    - location: City name
-    - duration: "2-3 hours"
-    - transportation: "Train/Metro" or similar
-    - notes: Any tips
+    STEP 2: Call RetrieveActivitiesTool to get all available activities.
+    - Note which activities belong to which location/city
+    - Consider the trip_considerations for any special scheduling needs: {trip_considerations}
 
-    STEP 3: After EACH save, record the row ID. Continue to the next activity.
+    STEP 3: For EACH date in the trip, schedule 2-3 activities.
+    - Use SaveScheduledActivityTool for EVERY activity
+    - Required fields: date, time_slot, activity_name, activity_description, location, duration, transportation, notes
+    - Use appropriate time slots: "09:00 AM", "12:00 PM", "02:00 PM", "05:00 PM", etc.
+    - Match activities to the correct location based on trip itinerary
 
-    STEP 4: DO NOT give a final answer until you have saved ALL activities.
-    Count your row IDs. If you have fewer row IDs than activities, KEEP SAVING.
+    STEP 4: Verify completeness.
+    - Every date from {arrival_date} to {departure_date} must have at least 2 activities
+    - If any date is missing activities, schedule more
 
-    Example: If you found 15 activities, you need 15 row IDs before you can finish.
-
-    CRITICAL: Your ONLY job is to save activities. Do not write itineraries or reports.
-    Just save each activity and collect row IDs. The reporting agent will handle the rest.
+    IMPORTANT:
+    - Call SaveScheduledActivityTool for EVERY single activity
+    - Do NOT stop until ALL dates have 2-3 activities scheduled
+    - Count your tool calls to ensure you've scheduled enough
   expected_output: >
-    ONLY a numbered list of row IDs. Nothing else. Example:
-    "Saved 15 activities:
-    Row 1, Row 2, Row 3, Row 4, Row 5, Row 6, Row 7, Row 8, Row 9, Row 10, Row 11, Row 12, Row 13, Row 14, Row 15"
+    Complete scheduling summary:
+    "Scheduling complete for {location}:
+    - [Date 1]: Activity 1, Activity 2, Activity 3
+    - [Date 2]: Activity 1, Activity 2, Activity 3
+    ...
+    Total: X activities scheduled across Y days."
   context:
     - save_activities_task
   agent: daily_planner_agent
 
 reporting_task:
   description: >
-    Using the RetrieveScheduleTool, retrieve all scheduled activities from the database for the vacation to {location} and generate a comprehensive trip itinerary report.
+    Using the RetrieveScheduleTool, retrieve all scheduled activities from the database
+    for the vacation to {location} and generate a comprehensive trip itinerary report.
     The schedule already contains dates, times, and logistics information for each activity.
   expected_output: >
     A detailed trip plan for a vacation to {location}, formatted as markdown without '```'
 
-    The output needs to adhere to the following structure.  Make adjustments as necessary to adhere to the structure while still including all relevant information
-    |-
-      # Trip Itinerary for {location}, from {arrival_date} to {departure_date}
+    The output needs to adhere to the following structure. Make adjustments as necessary
+    to adhere to the structure while still including all relevant information:
 
-      ## Summary
-      **Major Transportation:**
-      - List the main transportation methods, routes, and any passes or tickets required for the trip.
+    # Trip Itinerary for {location}, from {arrival_date} to {departure_date}
 
-      **Hotel Accommodations:**
-      - List the primary hotel(s) with name, address, check-in/check-out dates, and any relevant notes.
+    ## Summary
+    **Major Transportation:**
+    - List the main transportation methods, routes, and any passes or tickets required for the trip.
 
-      ## Day X  - YYYY/MM/DD (Day of the week)
-      **Theme:** Classic Tokyo  - Tower & Tsukiji
+    **Hotel Accommodations:**
+    - List the primary hotel(s) with name, address, check-in/check-out dates, and any relevant notes.
 
-      | Time | Activity | Details | Transportation | Duration | Cost |
-      |------|----------|---------|----------------|----------|------|
-      | 07:00 AM | Breakfast | **Café Boulangerie** (hotel) | - | - | ¥1,200 |
-      | 08:00 AM | Depart Tokyo Station | Take **JR Keihin-Tohoku Line** to **Hamamatsu** for Tokyo Tower | Train | 15 min | ¥170 |
-      | 08:20 AM | Arrive Hamamatsu, transfer to **Tokyo Tower Bus** (free shuttle) | 10 min | Bus | 10 min | Free |
-      | 08:35 AM | Arrive Tokyo Tower | Main Deck visit | - | 1 h 30 min | ¥1,500 |
-      | 10:15 AM | Walk to **Tokyo Tower Garden** | 5 min | - | 5 min | - |
-      | 10:45 AM | Return to Tokyo Station | Bus 10 min | - | 10 min | - |
-      | 11:00 AM | Train to **Tsukiji** | JR Yamanote line | 15 min | ¥170 |
-      | 11:20 AM | Arrive Tsukiji | Explore inner market | - | - | - |
-      | 12:00 PM | Lunch at **Sushi Dai** (reserv. needed) | 1 h | - | - | ¥5,000 |
-      | 01:30 PM | Walk to **Hamarikyu Gardens** (15 min) | 1 h | - | - | - |
-      | 02:45 PM | Return to hotel | Walk 15 min | - | - | - |
-      | 04:00 PM | Free time / hotel relaxation | - | - | - | - |
-      | 06:30 PM | Dinner | **Ginza Kojyu** (kaiseki) | - | - | ¥15,000 |
-      | 08:30 PM | Evening stroll along **Chuo** | 20 min walk | - | - | - |
+    ## Day X - YYYY-MM-DD (Day of the week)
+    **Theme:** [Theme for the day based on activities]
 
-      Note that the activity should included the link to more information about the activity.
+    | Time | Activity | Details | Transportation | Duration | Cost |
+    |------|----------|---------|----------------|----------|------|
+    | 09:00 AM | Activity Name | Description with [link](url) | Transport method | Duration | Cost |
+    | 12:00 PM | Lunch | Restaurant name | Walk | 1 hour | Est. cost |
+    | 02:00 PM | Activity Name | Description with [link](url) | Transport method | Duration | Cost |
+    | 05:00 PM | Activity Name | Description with [link](url) | Transport method | Duration | Cost |
+    | 07:00 PM | Dinner | Restaurant suggestion | Walk | 1-2 hours | Est. cost |
+
+    Note: Include links to more information about each activity where available.
   context:
-    - daily_planning_task
+    - scheduling_task
   agent: reporting_analyst
