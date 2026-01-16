@@ -2,7 +2,7 @@ from crewai.tools import BaseTool
 from typing import Type, List, Optional, Union
 from pydantic import BaseModel, Field
 from .entities import Activity, ScheduledActivity
-from .db import save_activity, retrieve_activities, save_scheduled_activity, retrieve_schedule
+from .db import save_activity, retrieve_activities, save_scheduled_activity, retrieve_schedule, activity_exists
 from crewai_tools import SerperDevTool
 
 class SerperToolInput(BaseModel):
@@ -44,6 +44,7 @@ class SaveActivityTool(BaseTool):
     name: str = "Save an Activity to the Database"
     description: str = (
         "A tool to save a vacation activity to the database. "
+        "Automatically checks if the activity already exists for the given location and skips duplicates. "
         "Pass the fields directly: name, description, suggested_duration, location, sublocation, http_link, type, estimated_duration, cost, suitability."
     )
     args_schema: Type[BaseModel] = ActivityInput
@@ -54,6 +55,10 @@ class SaveActivityTool(BaseTool):
              cost: Optional[str] = None, suitability: Optional[str] = None) -> str:
         """Save the provided activity to the database and return a status message."""
         try:
+            # Check if activity already exists for this location
+            if activity_exists(name, location):
+                return f"Activity '{name}' already exists for location '{location}'. Skipped."
+
             activity = Activity(
                 name=name,
                 description=description,
@@ -75,20 +80,24 @@ class SaveActivityTool(BaseTool):
 
 class RetrieveActivitiesInput(BaseModel):
     """Input schema for the RetrieveActivitiesTool."""
-    argument: Optional[dict] = Field(default=None, description="Optional argument (not used by this tool).")
+    location: Optional[str] = Field(default=None, description="Optional location to filter activities (e.g., 'Tokyo', 'Paris'). If not provided, returns all activities.")
 
 
 class RetrieveActivitiesTool(BaseTool):
     name: str = "Retrieve Activities from the Database"
     description: str = (
-        "Retrieve all activities from the database and return them as a list of `Activity` objects."
+        "Retrieve activities from the database filtered by location. "
+        "Pass a location (e.g., 'Tokyo', 'Paris', 'Rome') to get only activities for that destination. "
+        "If no location is provided, returns all activities."
     )
     args_schema: Type[BaseModel] = RetrieveActivitiesInput
 
-    def _run(self, argument: Optional[dict] = None) -> Union[List[Activity], str]:
-        """Return all activities from the DB as a list of `Activity` objects."""
+    def _run(self, location: Optional[str] = None) -> Union[List[Activity], str]:
+        """Return activities from the DB as a list of `Activity` objects, optionally filtered by location."""
         try:
-            activities = retrieve_activities()
+            activities = retrieve_activities(location=location)
+            location_msg = f" for '{location}'" if location else ""
+            print(f"Retrieved {len(activities)} activities{location_msg} from database")
             return activities
         except Exception as e:
             return f"Failed to retrieve activities: {e}"

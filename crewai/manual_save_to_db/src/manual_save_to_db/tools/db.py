@@ -130,16 +130,30 @@ def _show_tables(db_path: Optional[str] = None) -> list:
     return rows
 
 
-def retrieve_activities(db_path: Optional[str] = None) -> List[Activity]:
-    """Return all activities from the `activities` table as a list of `Activity` models."""
+def retrieve_activities(db_path: Optional[str] = None, location: Optional[str] = None) -> List[Activity]:
+    """Return activities from the `activities` table as a list of `Activity` models.
+
+    If location is provided, only returns activities matching that location (case-insensitive partial match).
+    """
     # Ensure tables exist
     create_tables(db_path)
 
     conn = get_connection(db_path)
     cur = conn.cursor()
-    cur.execute(
-        "SELECT name, description, suggested_duration, location, sublocation, http_link, type, estimated_duration, cost, suitability FROM activities"
-    )
+
+    if location:
+        # Use LIKE for partial matching (e.g., "Tokyo" matches "Tokyo, Japan")
+        cur.execute(
+            """SELECT name, description, suggested_duration, location, sublocation, http_link,
+                      type, estimated_duration, cost, suitability
+               FROM activities
+               WHERE location LIKE ? OR location LIKE ? OR location LIKE ?""",
+            (f"%{location}%", f"%{location.lower()}%", f"%{location.upper()}%")
+        )
+    else:
+        cur.execute(
+            "SELECT name, description, suggested_duration, location, sublocation, http_link, type, estimated_duration, cost, suitability FROM activities"
+        )
     rows = cur.fetchall()
     conn.close()
 
@@ -161,6 +175,46 @@ def retrieve_activities(db_path: Optional[str] = None) -> List[Activity]:
         )
 
     return activities
+
+
+def activity_exists(name: str, location: str, db_path: Optional[str] = None) -> bool:
+    """Check if an activity with the given name and location already exists in the database.
+
+    Uses case-insensitive matching for the name and partial matching for location.
+    """
+    # Ensure tables exist
+    create_tables(db_path)
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        """SELECT COUNT(*) FROM activities
+           WHERE LOWER(name) = LOWER(?)
+           AND (location LIKE ? OR location LIKE ? OR location LIKE ?)""",
+        (name, f"%{location}%", f"%{location.lower()}%", f"%{location.upper()}%")
+    )
+    count = cur.fetchone()[0]
+    conn.close()
+
+    return count > 0
+
+
+def clear_schedule(db_path: Optional[str] = None) -> int:
+    """Clear all scheduled activities from the daily_schedule table.
+
+    Returns the number of rows deleted.
+    """
+    # Ensure tables exist
+    create_tables(db_path)
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute("DELETE FROM daily_schedule")
+    deleted_count = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    return deleted_count
 
 
 def save_scheduled_activity(scheduled: ScheduledActivity, db_path: Optional[str] = None) -> int:

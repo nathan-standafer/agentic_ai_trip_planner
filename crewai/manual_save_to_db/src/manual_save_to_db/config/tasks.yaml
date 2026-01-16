@@ -7,9 +7,11 @@ activity_research_task:
     - Multiply by 2-3 activities per day
     - Example: 10-day trip needs 20-30 activities MINIMUM
 
-    STEP 2: Check existing activities using RetrieveActivitiesTool.
-    - Count how many are already in the database
+    STEP 2: Check existing activities using RetrieveActivitiesTool with the location parameter.
+    - Call RetrieveActivitiesTool with location="{location}" to get only activities for this destination
+    - Count how many are already in the database for this location
     - Calculate: needed - existing = activities to research
+    - If enough activities already exist for this location, skip web research
 
     STEP 3: If more activities are needed, use SerperTool to research NEW activities.
     - Research activities for EACH destination within {location}
@@ -59,13 +61,18 @@ save_activities_task:
     4. Continue until ALL new activities are saved
     5. Count how many you saved
 
-    IMPORTANT: Call SaveActivityTool once for EACH activity. If there are 20 new activities,
-    call the tool 20 times.
+    IMPORTANT:
+    - Call SaveActivityTool once for EACH activity. If there are 20 new activities, call the tool 20 times.
+    - The tool automatically checks for duplicates and skips activities that already exist for the location.
+    - Report which activities were saved vs skipped as duplicates.
   expected_output: >
-    A list of saved activities with row IDs:
+    A summary of save operations:
     "Saved X new activities:
     - Row 1: [Activity Name]
     - Row 2: [Activity Name]
+    ...
+    Skipped Y duplicates:
+    - [Activity Name] (already exists for [location])
     ..."
   context:
     - activity_research_task
@@ -80,8 +87,8 @@ scheduling_task:
     - End date: {departure_date}
     - List every date between them (inclusive)
 
-    STEP 2: Call RetrieveActivitiesTool to get all available activities.
-    - Note which activities belong to which location/city
+    STEP 2: Call RetrieveActivitiesTool with location="{location}" to get activities for this destination.
+    - Only retrieve activities specific to {location} for efficient scheduling
     - Consider the trip_considerations for any special scheduling needs: {trip_considerations}
 
     STEP 3: For EACH date in the trip, schedule 2-3 activities.
