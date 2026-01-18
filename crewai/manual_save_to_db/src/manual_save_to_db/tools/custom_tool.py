@@ -2,7 +2,11 @@ from crewai.tools import BaseTool
 from typing import Type, List, Optional, Union
 from pydantic import BaseModel, Field
 from .entities import Activity, ScheduledActivity
-from .db import save_activity, retrieve_activities, save_scheduled_activity, retrieve_schedule, activity_exists
+from .db import (
+    save_activity, retrieve_activities, save_scheduled_activity, retrieve_schedule,
+    activity_exists, delete_scheduled_activity, delete_scheduled_activity_by_name,
+    update_scheduled_activity
+)
 from crewai_tools import SerperDevTool
 
 class SerperToolInput(BaseModel):
@@ -165,4 +169,94 @@ class RetrieveScheduleTool(BaseTool):
             return schedule
         except Exception as e:
             return f"Failed to retrieve schedule: {e}"
+
+
+class DeleteScheduledActivityInput(BaseModel):
+    """Input schema for the DeleteScheduledActivityTool."""
+    activity_name: str = Field(..., description="Name or partial name of the activity to delete")
+    date: Optional[str] = Field(None, description="The date in YYYY-MM-DD format (optional, for more precise deletion)")
+    time_slot: Optional[str] = Field(None, description="The time slot, e.g., '09:00 AM' (optional, for more precise deletion)")
+
+
+class DeleteScheduledActivityTool(BaseTool):
+    name: str = "Delete Scheduled Activity from Database"
+    description: str = (
+        "Delete a scheduled activity from the daily schedule. "
+        "You can delete by activity name alone (will delete all matching activities), "
+        "or provide date and time_slot for more precise deletion. "
+        "Use this when the user wants to remove an activity from their plan."
+    )
+    args_schema: Type[BaseModel] = DeleteScheduledActivityInput
+
+    def _run(self, activity_name: str, date: Optional[str] = None, time_slot: Optional[str] = None) -> str:
+        """Delete the specified scheduled activity from the database."""
+        try:
+            if date and time_slot:
+                deleted = delete_scheduled_activity(date, time_slot, activity_name)
+            else:
+                deleted = delete_scheduled_activity_by_name(activity_name)
+
+            if deleted > 0:
+                return f"Deleted {deleted} scheduled activity/activities matching '{activity_name}'."
+            else:
+                return f"No scheduled activities found matching '{activity_name}'."
+        except Exception as e:
+            return f"Failed to delete scheduled activity: {e}"
+
+
+class UpdateScheduledActivityInput(BaseModel):
+    """Input schema for the UpdateScheduledActivityTool."""
+    date: str = Field(..., description="The date of the activity to update (YYYY-MM-DD)")
+    time_slot: str = Field(..., description="The time slot of the activity to update, e.g., '09:00 AM'")
+    activity_name: str = Field(..., description="Current name of the activity to update")
+    new_activity_name: Optional[str] = Field(None, description="New name for the activity")
+    new_activity_description: Optional[str] = Field(None, description="New description for the activity")
+    new_time_slot: Optional[str] = Field(None, description="New time slot for the activity")
+    new_duration: Optional[str] = Field(None, description="New duration for the activity")
+    new_transportation: Optional[str] = Field(None, description="New transportation method")
+    new_notes: Optional[str] = Field(None, description="New notes for the activity")
+
+
+class UpdateScheduledActivityTool(BaseTool):
+    name: str = "Update Scheduled Activity in Database"
+    description: str = (
+        "Update an existing scheduled activity in the daily schedule. "
+        "Provide the date, time_slot, and activity_name to identify the activity, "
+        "then provide the new values for any fields you want to change. "
+        "Use this when the user wants to modify details of an existing activity."
+    )
+    args_schema: Type[BaseModel] = UpdateScheduledActivityInput
+
+    def _run(
+        self,
+        date: str,
+        time_slot: str,
+        activity_name: str,
+        new_activity_name: Optional[str] = None,
+        new_activity_description: Optional[str] = None,
+        new_time_slot: Optional[str] = None,
+        new_duration: Optional[str] = None,
+        new_transportation: Optional[str] = None,
+        new_notes: Optional[str] = None
+    ) -> str:
+        """Update the specified scheduled activity in the database."""
+        try:
+            updated = update_scheduled_activity(
+                date=date,
+                time_slot=time_slot,
+                activity_name=activity_name,
+                new_activity_name=new_activity_name,
+                new_activity_description=new_activity_description,
+                new_time_slot=new_time_slot,
+                new_duration=new_duration,
+                new_transportation=new_transportation,
+                new_notes=new_notes
+            )
+
+            if updated > 0:
+                return f"Updated {updated} scheduled activity/activities matching '{activity_name}' on {date} at {time_slot}."
+            else:
+                return f"No scheduled activities found matching '{activity_name}' on {date} at {time_slot}."
+        except Exception as e:
+            return f"Failed to update scheduled activity: {e}"
 

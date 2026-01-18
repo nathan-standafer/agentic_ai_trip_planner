@@ -3,7 +3,7 @@ import { TripForm } from './components/TripForm';
 import { ProgressDisplay } from './components/ProgressDisplay';
 import { ResultsDisplay } from './components/ResultsDisplay';
 import { useSSE } from './hooks/useSSE';
-import { startTripPlanning, getTripResult } from './services/api';
+import { startTripPlanning, getTripResult, updateTripPlan } from './services/api';
 import type { TripFormData, ScheduledActivity } from './types/trip';
 import './styles/index.css';
 
@@ -16,6 +16,7 @@ export default function App() {
   const [schedule, setSchedule] = useState<ScheduledActivity[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const { events, isConnected, isComplete, error: sseError, reset: resetSSE } = useSSE(tripId);
 
@@ -75,6 +76,34 @@ export default function App() {
     setState('form');
   }, [resetSSE]);
 
+  // Handle plan update
+  const handleUpdatePlan = useCallback(async (suggestions: string) => {
+    if (!tripId) return;
+
+    try {
+      setError(null);
+      setIsUpdating(true);
+
+      // Start the update process first
+      await updateTripPlan(tripId, suggestions);
+
+      // Now reset SSE and switch to planning view
+      // The resetSSE will trigger reconnection to the new stream
+      resetSSE();
+      setState('planning');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to update plan');
+      setIsUpdating(false);
+    }
+  }, [tripId, resetSSE]);
+
+  // Reset isUpdating when we return to results
+  useEffect(() => {
+    if (state === 'results') {
+      setIsUpdating(false);
+    }
+  }, [state]);
+
   return (
     <div className="app">
       <header className="app-header">
@@ -111,6 +140,8 @@ export default function App() {
             result={result}
             schedule={schedule}
             onNewPlan={handleNewPlan}
+            onUpdatePlan={handleUpdatePlan}
+            isUpdating={isUpdating}
           />
         )}
       </main>

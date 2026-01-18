@@ -7,14 +7,15 @@ from typing import Dict, AsyncGenerator
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import StreamingResponse
 
-from ..schemas.trip import TripRequest, TripResponse, TripStatus, ScheduledActivityResponse
-from ..services.crew_runner import TripPlannerService
+from ..schemas.trip import TripRequest, TripResponse, TripStatus, ScheduledActivityResponse, UpdateRequest
+from ..services.crew_runner import TripPlannerService, PlanUpdaterService
 
 router = APIRouter(prefix="/api/trips", tags=["trips"])
 
 # In-memory store for active planning sessions
 # In production, use Redis or database
 active_sessions: Dict[str, TripPlannerService] = {}
+trip_inputs: Dict[str, dict] = {}  # Store original trip inputs for updates
 
 
 @router.post("/plan")
@@ -34,6 +35,9 @@ async def start_trip_planning(request: TripRequest) -> dict:
         'activity_considerations': request.desired_activities or '',
         'food_considerations': request.food_considerations or '',
     }
+
+    # Store inputs for potential updates
+    trip_inputs[trip_id] = inputs
 
     # Create service and start planning
     service = TripPlannerService(trip_id)
@@ -102,8 +106,11 @@ async def get_result(trip_id: str) -> TripResponse:
 
     # Retrieve schedule from database
     try:
-        from manual_save_to_db.tools.db import retrieve_schedule
+        from manual_save_to_db.tools.db import retrieve_schedule, DB_FILENAME
+        import sys
+        print(f"Retrieving schedule from database: {DB_FILENAME}", file=sys.stderr)
         schedule_items = retrieve_schedule()
+        print(f"Retrieved {len(schedule_items)} scheduled activities", file=sys.stderr)
         schedule = [
             ScheduledActivityResponse(
                 date=item.date,
@@ -118,6 +125,10 @@ async def get_result(trip_id: str) -> TripResponse:
             for item in schedule_items
         ]
     except Exception as e:
+        import sys
+        import traceback
+        print(f"Error retrieving schedule: {e}", file=sys.stderr)
+        print(traceback.format_exc(), file=sys.stderr)
         schedule = []
 
     return TripResponse(
@@ -133,4 +144,25 @@ async def cleanup_session(trip_id: str) -> dict:
     """Clean up a planning session."""
     if trip_id in active_sessions:
         del active_sessions[trip_id]
+    if trip_id in trip_inputs:
+        del trip_inputs[trip_id]
     return {"status": "cleaned", "trip_id": trip_id}
+
+
+@router.post("/plan/{trip_id}/update")
+async def update_trip_plan(trip_id: str, request: UpdateRequest) -> dict:
+    """Update an existing trip plan with user suggestions.
+
+    Returns the same trip_id. Connect to the stream endpoint to see progress.
+    """
+    if trip_id not in trip_inputs:
+        raise HTTPException(status_code=404, detail="Trip not found. Cannot update.")
+
+    original_inputs = trip_inputs[trip_id]
+
+    # Create updater service and start updating
+    service = PlanUpdaterService(trip_id)
+    active_sessions[trip_id] = service
+    service.start_updating(original_inputs, request.suggestions)
+
+    return {"trip_id": trip_id, "status": "updating"}

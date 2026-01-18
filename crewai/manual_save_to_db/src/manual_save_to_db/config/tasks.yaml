@@ -1,24 +1,34 @@
 activity_research_task:
   description: >
-    Research activities for the vacation to {location} from {arrival_date} to {departure_date}.
+    Research weather-appropriate activities for the vacation to {location} from {arrival_date} to {departure_date}.
 
-    STEP 1: Calculate how many activities are needed.
+    STEP 1: Check the weather and season for the travel dates.
+    - Use SerperTool to search for typical weather in {location} during the travel period
+    - Note the expected temperature range, precipitation, and conditions
+    - Identify which types of activities are appropriate (indoor vs outdoor)
+    - Example: Cincinnati in January = cold winter, avoid outdoor river cruises
+    - Example: Phoenix in July = extreme heat, avoid midday outdoor activities
+
+    STEP 2: Calculate how many activities are needed.
     - Count the number of days in the trip (from {arrival_date} to {departure_date})
     - Multiply by 2-3 activities per day
     - Example: 10-day trip needs 20-30 activities MINIMUM
 
-    STEP 2: Check existing activities using RetrieveActivitiesTool with the location parameter.
+    STEP 3: Check existing activities using RetrieveActivitiesTool with the location parameter.
     - Call RetrieveActivitiesTool with location="{location}" to get only activities for this destination
     - Count how many are already in the database for this location
-    - Calculate: needed - existing = activities to research
-    - If enough activities already exist for this location, skip web research
+    - Filter out any existing activities that are NOT appropriate for the weather/season
+    - Calculate: needed - weather-appropriate existing = activities to research
+    - If enough weather-appropriate activities already exist, skip web research
 
-    STEP 3: If more activities are needed, use SerperTool to research NEW activities.
+    STEP 4: If more activities are needed, use SerperTool to research NEW activities.
     - Research activities for EACH destination within {location}
     - Include a MIX of: cultural sites, entertainment, shopping, unique experiences
-    - Make sure to cover activities appropriate for the trip considerations
+    - ONLY include activities that are WEATHER-APPROPRIATE for the travel dates
+    - Prioritize indoor activities if weather is cold, rainy, or extremely hot
+    - Avoid: boat cruises in winter, outdoor water parks in cold weather, desert hikes in summer heat
 
-    STEP 4: List ALL activities (existing + new) to ensure full trip coverage.
+    STEP 5: List ALL weather-appropriate activities (existing + new) to ensure full trip coverage.
 
     Trip considerations: {trip_considerations}
     Family's desired activities: {activity_considerations}
@@ -28,15 +38,20 @@ activity_research_task:
     "http_link", "type", "estimated_duration", "cost", "suitability"
 
     CRITICAL: Calculate the exact number of days and ensure you have AT LEAST 2-3 activities
-    per day. Do not stop researching until you have enough activities to fill the ENTIRE trip duration.
+    per day. Do not stop researching until you have enough WEATHER-APPROPRIATE activities
+    to fill the ENTIRE trip duration. Never suggest activities that are unsuitable for the season.
   expected_output: >
     A comprehensive list with:
-    1. Trip duration calculation (X days = need Y activities)
-    2. Existing activities count
-    3. New activities researched (with all required fields)
-    4. Total activities available (should be enough for 2-3 per day)
+    1. Weather assessment for {location} during {arrival_date} to {departure_date}
+       (expected conditions, temperature range, and activity recommendations)
+    2. Trip duration calculation (X days = need Y activities)
+    3. Existing weather-appropriate activities count
+    4. New activities researched (with all required fields) - ALL must be weather-appropriate
+    5. Total weather-appropriate activities available (should be enough for 2-3 per day)
 
-    Format: Separate "Existing Activities" and "New Activities (To Be Saved)" sections.
+    Format: Start with "Weather Assessment" section, then separate "Existing Activities"
+    and "New Activities (To Be Saved)" sections. Flag any activities that may have
+    weather limitations.
   agent: activity_researcher_agent
 
 save_activities_task:

@@ -41,6 +41,11 @@ class TripRequest(BaseModel):
         return self
 
 
+class UpdateRequest(BaseModel):
+    """Request schema for updating an existing trip plan."""
+    suggestions: str = Field(..., min_length=1, description="User suggestions for updating the plan")
+
+
 class ProgressEvent(BaseModel):
     """SSE progress event structure."""
     event_type: str  # "start", "task_start", "task_complete", "step", "complete", "error"

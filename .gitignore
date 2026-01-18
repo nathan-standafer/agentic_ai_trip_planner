@@ -205,3 +205,5 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+crewai/manual_save_to_db/frontend/node_modules/

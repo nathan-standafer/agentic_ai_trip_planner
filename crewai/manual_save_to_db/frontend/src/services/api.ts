@@ -37,3 +37,18 @@ export async function getTripResult(tripId: string): Promise<TripResult> {
 export function getSSEUrl(tripId: string): string {
   return `${API_BASE}/api/trips/plan/${tripId}/stream`;
 }
+
+export async function updateTripPlan(tripId: string, suggestions: string): Promise<{ trip_id: string }> {
+  const response = await fetch(`${API_BASE}/api/trips/plan/${tripId}/update`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ suggestions }),
+  });
+
+  if (!response.ok) {
+    const error = await response.json();
+    throw new Error(error.detail || 'Failed to update plan');
+  }
+
+  return response.json();
+}

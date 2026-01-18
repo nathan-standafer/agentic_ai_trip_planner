@@ -7,6 +7,7 @@ export function useSSE(tripId: string | null) {
   const [isConnected, setIsConnected] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [reconnectKey, setReconnectKey] = useState(0);
 
   useEffect(() => {
     if (!tripId) return;
@@ -46,13 +47,15 @@ export function useSSE(tripId: string | null) {
     return () => {
       eventSource.close();
     };
-  }, [tripId]);
+  }, [tripId, reconnectKey]);
 
   const reset = useCallback(() => {
     setEvents([]);
     setIsConnected(false);
     setIsComplete(false);
     setError(null);
+    // Increment reconnectKey to force useEffect to re-run and reconnect
+    setReconnectKey((prev) => prev + 1);
   }, []);
 
   return { events, isConnected, isComplete, error, reset };

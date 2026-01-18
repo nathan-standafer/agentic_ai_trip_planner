@@ -7,9 +7,16 @@ PYTHONPATH=src python -c "from manual_save_to_db.tools.db import retrieve_activi
 """
 from typing import Optional, List
 import sqlite3
+import os
+from pathlib import Path
 from .entities import Activity, ScheduledActivity
 
-DB_FILENAME = "VacationPlanner.db"
+# Use absolute path to ensure database is always in the same location
+# regardless of working directory. Database is stored in the project root
+# (parent of src directory)
+_PACKAGE_DIR = Path(__file__).parent.parent  # manual_save_to_db package
+_PROJECT_ROOT = _PACKAGE_DIR.parent.parent  # project root (contains src/)
+DB_FILENAME = str(_PROJECT_ROOT / "VacationPlanner.db")
 
 
 def get_connection(db_path: Optional[str] = None) -> sqlite3.Connection:
@@ -248,6 +255,107 @@ def save_scheduled_activity(scheduled: ScheduledActivity, db_path: Optional[str]
     rowid = cur.lastrowid
     conn.close()
     return rowid
+
+
+def delete_scheduled_activity(date: str, time_slot: str, activity_name: str, db_path: Optional[str] = None) -> int:
+    """Delete a scheduled activity by date, time_slot, and activity name.
+
+    Returns the number of rows deleted.
+    """
+    create_tables(db_path)
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        """DELETE FROM daily_schedule
+           WHERE date = ? AND time_slot = ? AND LOWER(activity_name) LIKE LOWER(?)""",
+        (date, time_slot, f"%{activity_name}%")
+    )
+    deleted_count = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    return deleted_count
+
+
+def delete_scheduled_activity_by_name(activity_name: str, db_path: Optional[str] = None) -> int:
+    """Delete scheduled activities by activity name (partial match).
+
+    Returns the number of rows deleted.
+    """
+    create_tables(db_path)
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        """DELETE FROM daily_schedule WHERE LOWER(activity_name) LIKE LOWER(?)""",
+        (f"%{activity_name}%",)
+    )
+    deleted_count = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    return deleted_count
+
+
+def update_scheduled_activity(
+    date: str,
+    time_slot: str,
+    activity_name: str,
+    new_activity_name: Optional[str] = None,
+    new_activity_description: Optional[str] = None,
+    new_time_slot: Optional[str] = None,
+    new_duration: Optional[str] = None,
+    new_transportation: Optional[str] = None,
+    new_notes: Optional[str] = None,
+    db_path: Optional[str] = None
+) -> int:
+    """Update a scheduled activity's fields.
+
+    Returns the number of rows updated.
+    """
+    create_tables(db_path)
+
+    # Build dynamic update query
+    updates = []
+    params = []
+
+    if new_activity_name:
+        updates.append("activity_name = ?")
+        params.append(new_activity_name)
+    if new_activity_description:
+        updates.append("activity_description = ?")
+        params.append(new_activity_description)
+    if new_time_slot:
+        updates.append("time_slot = ?")
+        params.append(new_time_slot)
+    if new_duration:
+        updates.append("duration = ?")
+        params.append(new_duration)
+    if new_transportation:
+        updates.append("transportation = ?")
+        params.append(new_transportation)
+    if new_notes:
+        updates.append("notes = ?")
+        params.append(new_notes)
+
+    if not updates:
+        return 0
+
+    params.extend([date, time_slot, f"%{activity_name}%"])
+
+    conn = get_connection(db_path)
+    cur = conn.cursor()
+    cur.execute(
+        f"""UPDATE daily_schedule SET {', '.join(updates)}
+           WHERE date = ? AND time_slot = ? AND LOWER(activity_name) LIKE LOWER(?)""",
+        params
+    )
+    updated_count = cur.rowcount
+    conn.commit()
+    conn.close()
+
+    return updated_count
 
 
 def retrieve_schedule(db_path: Optional[str] = None) -> List[ScheduledActivity]:

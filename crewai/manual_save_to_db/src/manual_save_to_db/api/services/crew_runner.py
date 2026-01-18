@@ -177,3 +177,153 @@ class TripPlannerService:
                     yield event_json
             except Exception as e:
                 print(f"SSE stream error: {e}", file=sys.stderr)
+
+
+class PlanUpdaterService:
+    """Service for updating an existing trip plan based on user suggestions."""
+
+    def __init__(self, trip_id: str):
+        self.trip_id = trip_id
+        self.event_queue: Queue = Queue()
+        self.is_running = False
+        self.error: Optional[str] = None
+        self.result: Optional[str] = None
+
+    def _create_progress_event(
+        self,
+        event_type: str,
+        message: str,
+        progress: int,
+        task_name: Optional[str] = None,
+        agent_name: Optional[str] = None
+    ) -> Dict[str, Any]:
+        """Create a standardized progress event."""
+        return {
+            "event_type": event_type,
+            "task_name": task_name,
+            "agent_name": agent_name,
+            "message": message,
+            "progress_percent": progress,
+            "timestamp": datetime.now().isoformat(),
+            "trip_id": self.trip_id
+        }
+
+    def _task_callback(self, output: TaskOutput) -> None:
+        """Callback executed after each task completes."""
+        task_name = output.name or (output.description[:50] if output.description else "Unknown task")
+        agent = output.agent if hasattr(output, 'agent') else None
+
+        event = self._create_progress_event(
+            event_type="task_complete",
+            message=f"Completed: {task_name[:50]}",
+            progress=50,
+            task_name=task_name[:50],
+            agent_name=agent
+        )
+        self.event_queue.put(event)
+
+    def _step_callback(self, step_output: Any) -> None:
+        """Callback executed after each agent step."""
+        message = "Updating plan..."
+        if step_output:
+            step_str = str(step_output)
+            if len(step_str) > 150:
+                step_str = step_str[:150] + "..."
+            message = step_str
+
+        event = self._create_progress_event(
+            event_type="step",
+            message=message,
+            progress=-1
+        )
+        self.event_queue.put(event)
+
+    def _run_update_sync(self, original_inputs: Dict[str, Any], suggestions: str) -> None:
+        """Run the update process synchronously in a thread."""
+        try:
+            self.is_running = True
+
+            from manual_save_to_db.crew import ManualSaveToDb
+            from manual_save_to_db.tools.db import retrieve_schedule
+
+            # Send start event
+            self.event_queue.put(self._create_progress_event(
+                event_type="start",
+                message="Updating your vacation plan...",
+                progress=0
+            ))
+
+            # Create crew instance with update task
+            crew_instance = ManualSaveToDb()
+
+            # Get parameters for update crew
+            location = original_inputs.get('location', '')
+            arrival_date = original_inputs.get('arrival_date', '')
+
+            # Get the update crew with parameters
+            crew = crew_instance.update_crew(
+                location=location,
+                arrival_date=arrival_date,
+                user_suggestions=suggestions
+            )
+
+            # Inject callbacks
+            crew.task_callback = self._task_callback
+            crew.step_callback = self._step_callback
+
+            # Execute update crew (no inputs needed, all in task description)
+            result = crew.kickoff()
+
+            # Store result
+            self.result = str(result) if result else "Update complete"
+
+            # Send completion event
+            self.event_queue.put(self._create_progress_event(
+                event_type="complete",
+                message="Plan updated successfully!",
+                progress=100
+            ))
+
+        except Exception as e:
+            error_msg = f"{type(e).__name__}: {str(e)}"
+            tb = traceback.format_exc()
+            print(f"Update Error: {error_msg}", file=sys.stderr)
+            print(f"Traceback:\n{tb}", file=sys.stderr)
+            self.error = error_msg
+            self.event_queue.put(self._create_progress_event(
+                event_type="error",
+                message=f"Error: {error_msg}",
+                progress=-1
+            ))
+        finally:
+            self.is_running = False
+            self.event_queue.put(None)  # Sentinel to stop SSE stream
+
+    def start_updating(self, original_inputs: Dict[str, Any], suggestions: str) -> None:
+        """Start update execution in background thread."""
+        thread = threading.Thread(
+            target=self._run_update_sync,
+            args=(original_inputs, suggestions),
+            daemon=True
+        )
+        thread.start()
+
+    async def stream_progress(self) -> AsyncGenerator[str, None]:
+        """Async generator for SSE progress events."""
+        print("SSE stream_progress (update) started", file=sys.stderr)
+        while True:
+            await asyncio.sleep(0.1)
+
+            try:
+                if not self.event_queue.empty():
+                    event = self.event_queue.get_nowait()
+
+                    if event is None:
+                        print("SSE stream_progress (update): received sentinel, stopping", file=sys.stderr)
+                        return
+
+                    event_json = json.dumps(event)
+                    print(f"SSE yielding event: {event['event_type']}", file=sys.stderr)
+                    yield event_json
+            except Exception as e:
+                print(f"SSE stream error: {e}", file=sys.stderr)
